@@ -9,3 +9,78 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Time {
+  id           Int           @id @default(autoincrement())
+  nome         String
+  titulos      Int
+  grupoId      Int
+  Jogador      Jogador[]
+  Dados_Time   Dados_Time[]
+  usuarioId    Int?
+  partidas     Partida[]
+  partidaId    Int?
+  Usuario      Usuario?      @relation(fields: [usuarioId], references: [id])
+  grupo        Grupo         @relation(fields: [grupoId], references: [id])
+  timesPartida TimesPartida? @relation(fields: [partidaId], references: [id])
+}
+
+model Grupo {
+  id           Int            @id @default(autoincrement())
+  grupo        String
+  Time         Time[]
+  TimesPartida TimesPartida[]
+}
+
+model TimesPartida {
+  id      Int       @id @default(autoincrement())
+  times   Time[]
+  grupo   Grupo     @relation(fields: [grupoId], references: [id])
+  grupoId Int
+  Partida Partida[]
+}
+
+model Partida {
+  id             Int          @id @default(autoincrement())
+  fase           String
+  timesPartidaId Int
+  times          TimesPartida @relation(fields: [timesPartidaId], references: [id])
+  Time           Time?        @relation(fields: [timeId], references: [id])
+  timeId         Int?
+}
+
+model Jogador {
+  id              Int             @id @default(autoincrement())
+  nome            String
+  posicao         String
+  data_nascimento String
+  pais            Time            @relation(fields: [paisId], references: [id])
+  paisId          Int
+  dados_jogador   Dados_jogador[]
+}
+
+model Dados_Time {
+  id               Int  @id @default(autoincrement())
+  paisId           Int
+  quantidade_jogos Int
+  gols_feitos      Int
+  gols_sofridos    Int
+  posicao_grupo    Int
+  pais             Time @relation(fields: [paisId], references: [id])
+}
+
+model Dados_jogador {
+  id                Int     @id @default(autoincrement())
+  quantidade_jogos  Int
+  gols_feitos       Int
+  cartoes_amarelos  Int
+  cartoes_vermelhos Int
+  jogadorId         Int
+  jogador           Jogador @relation(fields: [jogadorId], references: [id])
+}
+
+model Usuario {
+  id              Int    @id @default(autoincrement())
+  nome            String
+  times_favoritos Time[]
+}
