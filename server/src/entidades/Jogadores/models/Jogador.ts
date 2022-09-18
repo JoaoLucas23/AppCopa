@@ -6,6 +6,7 @@ export interface JogadorProps {
     nome: string;
     data_nascimento: string;
     posicao: string;
+    time: string;
     id_time: number;
 }
 

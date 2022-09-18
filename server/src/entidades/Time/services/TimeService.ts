@@ -30,7 +30,16 @@ class TimeService {
     }
     async retornaTimesPorGrupo(id_grupo: number) {
         await GrupoService.retornaGrupoPorId(id_grupo);
-        return Time.findAll({where: {grupo_id: id_grupo}});
+        return Time.findAll({where: {id_grupo: id_grupo}});
+    }
+
+    async retornaIdDoTimePorNome(nomeTime: string) {
+        const time = await Time.findOne({where: {nome: nomeTime}});
+        if (time){
+            const id_time = time.getDataValue("id");
+            return id_time;
+        }
+        else throw new Error("Time não encontrado");
     }
 
     async deletaTime(idTime: number) {

@@ -9,6 +9,7 @@ export interface TimeProps {
     sigla: string;
     titulos: number;
     grupo: string;
+    bandeira: string;
     id_grupo: number;
 }
 
@@ -30,6 +31,10 @@ export const Time = sequelize.define('Time', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    bandeira: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     id_grupo: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -44,7 +49,7 @@ Grupo.hasMany(Time, {foreignKey: "id_grupo"});
 Jogador.belongsTo(Time, {foreignKey: "id_time"});
 Time.hasMany(Jogador, {foreignKey: "id_time"});
 
-Time.sync({alter:true, force: false })
+Time.sync({alter: true, force: false })
     .then(() => {
         console.log('Tabela Time criada');
     })

@@ -20,7 +20,7 @@ export const Grupo = sequelize.define('Grupo', {
     timestamps: false,
 });
 
-Grupo.sync({alter:true, force: false })
+Grupo.sync({alter: false, force: false })
     .then(() => {
         console.log('Tabela Grupo criada');
     }
