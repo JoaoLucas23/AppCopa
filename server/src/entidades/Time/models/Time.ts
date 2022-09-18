@@ -1,5 +1,14 @@
 import { sequelize} from "../../../database/database";
 import { DataTypes } from "sequelize";
+import { Grupo } from "../../Grupo/models/Grupo";
+
+export interface TimeProps {
+    id: number;
+    nome: string;
+    sigle: string;
+    titulos: number;
+    id_grupo: number;
+}
 
 export const Time = sequelize.define('Time', {
     id: {
@@ -26,6 +35,9 @@ export const Time = sequelize.define('Time', {
 }, {
     timestamps: false,
 });
+
+Time.belongsTo(Grupo, {foreignKey: "id_grupo"});
+Grupo.hasMany(Time, {foreignKey: "id_grupo"});
 
 Time.sync({alter:true, force: false })
     .then(() => {
