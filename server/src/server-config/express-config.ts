@@ -15,9 +15,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 import rotasUsuario from '../entidades/Usuario/controllers/rotas';
-import rotasTime from '../entidades/Usuario/controllers/rotas';
-import rotasGrupo from '../entidades/Usuario/controllers/rotas';
-import rotasJogador from '../entidades/Usuario/controllers/rotas';
+import rotasTime from '../entidades/Time/controllers/rotas';
+import rotasGrupo from '../entidades/Grupo/controllers/rotas';
+import rotasJogador from '../entidades/Jogadores/controllers/rotas';
 
 app.use('/api/usuarios', rotasUsuario);
 app.use('/api/times', rotasTime);

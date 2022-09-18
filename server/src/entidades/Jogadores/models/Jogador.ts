@@ -35,7 +35,7 @@ export const Jogador = sequelize.define('Jogador', {
     timestamps: false,
 });
 
-Jogador.sync({alter:true, force: false })
+Jogador.sync({alter:false, force: false })
     .then(() => {
         console.log('Tabela Jogador criada');
     }

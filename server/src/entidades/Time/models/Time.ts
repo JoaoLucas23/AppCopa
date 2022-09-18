@@ -6,8 +6,9 @@ import { Jogador } from "../../Jogadores/models/Jogador";
 export interface TimeProps {
     id: number;
     nome: string;
-    sigle: string;
+    sigla: string;
     titulos: number;
+    grupo: string;
     id_grupo: number;
 }
 

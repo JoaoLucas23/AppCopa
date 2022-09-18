@@ -1,9 +1,27 @@
 import { Router } from "express";
+import GrupoService from "../services/GrupoService";
 
-const rotasUsuario: Router = Router();
+const rotasGrupo: Router = Router();
 
-rotasUsuario.route('/').get((req, res) => {
-    res.send('Hello World!');
+rotasGrupo.post(('/criaGrupos'),
+    async (req, res, next) => {
+    try {
+        const grupo = await GrupoService.criaTodosGrupos();
+        res.status(200).json(grupo);
+    } catch (error) {
+        next(error);
+    }
 });
 
-export default rotasUsuario;
+rotasGrupo.get(('/retornaGrupo/:idGrupo'),
+    async (req, res, next) => {
+    try {
+        const idGrupo: number = parseInt(req.params.idGrupo);
+        const grupo = await GrupoService.retornaGrupoPorId(idGrupo);
+        res.status(204).json(grupo);
+    } catch (error) {
+        next(error);
+    }
+});
+
+export default rotasGrupo;
