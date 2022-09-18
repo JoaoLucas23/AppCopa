@@ -1,5 +1,6 @@
 import { sequelize } from "../../../database/database"
 import { DataTypes, Model } from "sequelize";
+import { TimesUsuario } from "../../TimesUsuario/models/TimesUsuario";
 
 export interface UserProps {
     id: number;
@@ -33,7 +34,10 @@ export const Usuario = sequelize.define("Usuario", {
 }
 );
 
-Usuario.sync({alter: true, force: false })
+TimesUsuario.belongsTo(Usuario, {foreignKey: "id_usuario"});
+Usuario.hasMany(TimesUsuario, {foreignKey: "id_usuario"});
+
+Usuario.sync({alter: false, force: false })
     .then(() => {
         console.log("Tabela Usuarios (re)criada")
     })
