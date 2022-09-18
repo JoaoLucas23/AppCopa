@@ -7,7 +7,7 @@ export interface UserProps {
     nome: string;
     email: string;
     senha?: string;
-    timesFavoritos?: number[] | [];
+    timesFavoritos: number[];
 }
 
 export const Usuario = sequelize.define("Usuario", {
@@ -23,6 +23,10 @@ export const Usuario = sequelize.define("Usuario", {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+            name: "email",
+            msg: "Email já cadastrado",
+        }
     },
     senha: {
         type: DataTypes.STRING,
@@ -37,7 +41,7 @@ export const Usuario = sequelize.define("Usuario", {
 TimesUsuario.belongsTo(Usuario, {foreignKey: "id_usuario"});
 Usuario.hasMany(TimesUsuario, {foreignKey: "id_usuario"});
 
-Usuario.sync({alter: false, force: false })
+Usuario.sync({alter: true, force: false })
     .then(() => {
         console.log("Tabela Usuarios (re)criada")
     })

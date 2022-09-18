@@ -1,3 +1,4 @@
+import TimesUsuariosService from "../../TimesUsuario/services/TimesUsuariosService";
 import { Usuario, UserProps} from "../models/Usuario";
 
 class UsuarioService {
@@ -7,7 +8,10 @@ class UsuarioService {
             email: body.email,
             senha: body.senha,
         };
-        await Usuario.create(usuario);
+        const novoUsuario = await Usuario.create(usuario);
+        const id_usuario: number = novoUsuario.getDataValue("id");
+        const listaTimes = body.timesFavoritos;
+        await TimesUsuariosService.adicionaTimesFavoritos({listaTimes, id_usuario});
         return usuario;
     }
 
@@ -22,7 +26,9 @@ class UsuarioService {
     }
 
     async retornaUsuarioPorId(userId: number) {
-        const usuario = await Usuario.findByPk(userId);
+        const usuario = await Usuario.findByPk(userId, {
+            include: ["TimesFavoritos"],
+        });
         if (usuario) return usuario;
         else throw new Error("Usuario não encontrado");
     }

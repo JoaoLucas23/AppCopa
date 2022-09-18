@@ -3,9 +3,8 @@ import { DataTypes } from "sequelize";
 import { Time } from "../../Time/models/Time";
 
 export interface TimesUsuarioProps {
-    id: number;
-    id_time: number;
     id_usuario: number;
+    listaTimes: number[];
 }
 
 export const TimesUsuario = sequelize.define("TimesUsuario", {
