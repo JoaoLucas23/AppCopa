@@ -29,7 +29,11 @@ export const Partida = sequelize.define('Partidas', {
     id_grupo: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    }
+    },
+    data: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
 }, {
     timestamps: false,
 });
