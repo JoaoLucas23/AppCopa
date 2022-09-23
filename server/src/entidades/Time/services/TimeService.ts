@@ -1,4 +1,5 @@
 import GrupoService from "../../Grupo/services/GrupoService";
+import { DadosTimes } from "../models/DadosTimes";
 import { Time, TimeProps } from "../models/Time";
 
 class TimeService {
@@ -40,6 +41,16 @@ class TimeService {
             return id_time;
         }
         else throw new Error("Time não encontrado");
+    }
+
+    async retornaTimeComDados ({id}: TimeProps ) {
+        return Time.findByPk(id, {
+            include: [
+                {
+                    model: DadosTimes
+                }
+            ]
+        })
     }
 
     async deletaTime(idTime: number) {

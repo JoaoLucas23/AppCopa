@@ -2,6 +2,7 @@ import { sequelize} from "../../../database/database";
 import { DataTypes } from "sequelize";
 import { Grupo } from "../../Grupo/models/Grupo";
 import { Jogador } from "../../Jogadores/models/Jogador";
+import { DadosTimes } from "./DadosTimes";
 
 export interface TimeProps {
     id: number;
@@ -48,6 +49,9 @@ Grupo.hasMany(Time, {foreignKey: "id_grupo"});
 
 Jogador.belongsTo(Time, {foreignKey: "id_time"});
 Time.hasMany(Jogador, {foreignKey: "id_time"});
+
+DadosTimes.belongsTo(Time, {foreignKey: "id_time"});
+Time.hasOne(DadosTimes, {foreignKey: "id_time"});
 
 Time.sync({alter: true, force: false })
     .then(() => {
