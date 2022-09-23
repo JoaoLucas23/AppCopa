@@ -1,6 +1,13 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../database/database";
 
+export interface PartidaProps {
+    time1: string;
+    time2: string;
+    fase: string;
+    grupo: string;
+}
+
 export const Partida = sequelize.define('Partidas', {
     id: {
         type: DataTypes.INTEGER,
