@@ -13,7 +13,7 @@ export const Partida = sequelize.define('Partidas', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
     },
     id_time_1: {
         type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ export const Partida = sequelize.define('Partidas', {
     },
     fase: {
         type: DataTypes.ENUM,
-        values: ['grupo', 'oitavas', 'quartas', 'semis', 'disputa_terceiro', 'final']
+        values: ['grupo', 'oitavas', 'quartas', 'semis', 'disputa_terceiro', 'final'],
     },
     id_grupo: {
         type: DataTypes.INTEGER,

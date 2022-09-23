@@ -27,27 +27,22 @@ export const DadosTimes = sequelize.define('DadosTimes', {
     quantidade_jogos: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        allowNull: true,
     },
     gols_feitos: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        allowNull: true, 
     },
     gols_sofridos: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        allowNull: true,
     },
     vitorias: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        allowNull: true,
     },
     empates: {
         type: DataTypes.INTEGER,
         defaultValue: 0,
-        allowNull: true,
     },
     derrotas: {
         type: DataTypes.INTEGER,

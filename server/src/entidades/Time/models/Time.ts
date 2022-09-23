@@ -53,7 +53,7 @@ Time.hasMany(Jogador, {foreignKey: "id_time"});
 DadosTimes.belongsTo(Time, {foreignKey: "id_time"});
 Time.hasOne(DadosTimes, {foreignKey: "id_time"});
 
-Time.sync({alter: true, force: false })
+Time.sync({alter: false, force: false })
     .then(() => {
         console.log('Tabela Time criada');
     })

@@ -5,14 +5,14 @@ import { Time } from "../../Time/models/Time";
 
 class PartidasService {
     async criaPartida(body: PartidaProps){
-        const grupo = await GrupoService.retornaIdDoGrupoPorNome(body.grupo);
-        const time1 = await TimeService.retornaIdDoTimePorNome(body.time1);
-        const time2 = await TimeService.retornaIdDoTimePorNome(body.time2);
-        const partida = await Partida.create({
-            id_time_1: time1.id,
-            id_time_2: time2.id,
+        const grupo_id = await GrupoService.retornaIdDoGrupoPorNome(body.grupo);
+        const time1_id = await TimeService.retornaIdDoTimePorNome(body.time1);
+        const time2_id = await TimeService.retornaIdDoTimePorNome(body.time2);
+        await Partida.create({
+            id_time_1: time1_id,
+            id_time_2: time2_id,
             fase: body.fase,
-            id_grupo: grupo.id,
+            id_grupo: grupo_id,
             data: body.data,
         });
     }

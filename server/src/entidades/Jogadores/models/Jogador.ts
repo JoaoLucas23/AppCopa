@@ -48,7 +48,7 @@ export const Jogador = sequelize.define('Jogador', {
 DadosJogador.belongsTo(Jogador, {foreignKey: 'id_jogador'});
 Jogador.hasOne(DadosJogador, {foreignKey: 'id_jogador'});
 
-Jogador.sync({alter:true, force: false })
+Jogador.sync({alter:false, force: false })
     .then(() => {
         console.log('Tabela Jogador criada');
     }

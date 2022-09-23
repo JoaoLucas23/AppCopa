@@ -6,8 +6,8 @@ const partidasRouter = Router();
 partidasRouter.post("/criaPartida", 
     async (req, res, next) => {
         try {
-            const partida = await PartidasService.criaPartida(req.body);
-            return res.status(200).json(partida);
+            await PartidasService.criaPartida(req.body);
+            return res.status(200).end();
         } catch (error) {
             return next(error);
         }

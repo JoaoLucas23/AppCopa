@@ -24,7 +24,7 @@ export const Grupo = sequelize.define('Grupo', {
 Partida.belongsTo(Grupo, {foreignKey: 'id_grupo'});
 Grupo.hasMany(Partida, {foreignKey: 'id_grupo'});
 
-Grupo.sync({alter: true, force: false })
+Grupo.sync({alter: false, force: false })
     .then(() => {
         console.log('Tabela Grupo criada');
     }
