@@ -76,7 +76,22 @@ class PartidasService {
                 where: {id: { $col: "Partidas.id_time_2" } }
             }
             ]});
-        }
+    }
+
+    async retornaPartidasPorFase(fase: string){
+        return Partida.findAll({where: {fase: fase}, include: [
+            {
+                model: Time,
+                as: "time1",
+                where: {id: { $col: "Partidas.id_time_1" } }
+            },
+            {
+                model: Time,
+                as: "time2",
+                where: {id: { $col: "Partidas.id_time_2" } }
+            }
+        ]});
+    }
 
     async editaPartida(idPartida: number, body: PartidaProps){
         const partida = await this.retornaPartidaPorId(idPartida);
