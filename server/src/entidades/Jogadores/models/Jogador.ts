@@ -1,5 +1,6 @@
 import { sequelize} from "../../../database/database";
 import { DataTypes } from "sequelize";
+import { DadosJogador } from "./DadosJogador";
 
 export interface JogadorProps {
     id: number;
@@ -24,6 +25,14 @@ export const Jogador = sequelize.define('Jogador', {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
+    altura: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    peso: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
     posicao: {
         type: DataTypes.STRING,
         allowNull: false
@@ -36,7 +45,10 @@ export const Jogador = sequelize.define('Jogador', {
     timestamps: false,
 });
 
-Jogador.sync({alter:false, force: false })
+DadosJogador.belongsTo(Jogador, {foreignKey: 'id_jogador'});
+Jogador.hasOne(DadosJogador, {foreignKey: 'id_jogador'});
+
+Jogador.sync({alter:true, force: false })
     .then(() => {
         console.log('Tabela Jogador criada');
     }

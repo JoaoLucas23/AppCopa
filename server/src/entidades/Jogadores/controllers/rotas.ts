@@ -1,9 +1,9 @@
 import { Router } from "express";
 import JogadoresService from "../services/JogadoresService";
 
-const rotasUsuario: Router = Router();
+const rotasJogador: Router = Router();
 
-rotasUsuario.post( "/criaJogador",
+rotasJogador.post( "/criaJogador",
     async (req, res, next) => {
     try {
         const jogador = await JogadoresService.criaJogador(req.body);
@@ -13,7 +13,7 @@ rotasUsuario.post( "/criaJogador",
     }
 });
 
-rotasUsuario.put( "/editaJogador/:idJogador",
+rotasJogador.put( "/editaJogador/:idJogador",
     async (req, res, next) => {
     try {
         const idJogador: number = parseInt(req.params.idJogador);
@@ -24,7 +24,7 @@ rotasUsuario.put( "/editaJogador/:idJogador",
     }
 });
 
-rotasUsuario.get( "/retornaTodosJogadores",
+rotasJogador.get( "/retornaTodosJogadores",
     async (req, res, next) => {
     try {
         const jogadores = await JogadoresService.retornaTodosJogadores();
@@ -34,7 +34,7 @@ rotasUsuario.get( "/retornaTodosJogadores",
     }
 });
 
-rotasUsuario.get( "/retornaJogadorPorId/:idJogador",
+rotasJogador.get( "/retornaJogadorPorId/:idJogador",
     async (req, res, next) => {
     try {
         const idJogador: number = parseInt(req.params.idJogador);
@@ -45,7 +45,7 @@ rotasUsuario.get( "/retornaJogadorPorId/:idJogador",
     }
 });
 
-rotasUsuario.get( "/retornaJogadoresPorTime/:id_time",
+rotasJogador.get( "/retornaJogadoresPorTime/:id_time",
     async (req, res, next) => {
     try {
         const id_time: number = parseInt(req.params.id_time);
@@ -56,7 +56,7 @@ rotasUsuario.get( "/retornaJogadoresPorTime/:id_time",
     }
 });
 
-rotasUsuario.post( "/deleteJogador/:idJogador",
+rotasJogador.post( "/deleteJogador/:idJogador",
     async (req, res, next) => {
     try {
         const idJogador: number = parseInt(req.params.idJogador);
@@ -67,4 +67,4 @@ rotasUsuario.post( "/deleteJogador/:idJogador",
     }
 });
 
-export default rotasUsuario;
+export default rotasJogador;
