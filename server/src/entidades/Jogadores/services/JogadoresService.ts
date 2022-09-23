@@ -1,5 +1,6 @@
 import TimeService from "../../Time/services/TimeService";
 import { Jogador, JogadorProps } from "../models/Jogador";
+import DadosJogadorService from "./DadosJogadorService";
 
 class JogadoresService {
     async criaJogador(body: JogadorProps) {
@@ -10,8 +11,10 @@ class JogadoresService {
             data_nascimento: body.data_nascimento,
             id_time: time
         }
-        await Jogador.create(jogador);
-        return jogador;
+        const novo_jogador = await Jogador.create(jogador);
+        const idJogador = novo_jogador.getDataValue("id");
+        await DadosJogadorService.criaDadosJogador(idJogador);
+        return novo_jogador;
     }
 
     async editaJogador(idJogador: number, body: JogadorProps) {

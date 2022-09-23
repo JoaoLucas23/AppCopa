@@ -1,7 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../database/database";
+import { JogadorProps } from "./Jogador";
 
-export interface DadosJogadorProps {
+export interface DadosJogadorProps extends JogadorProps {
     id: number;
     quantidade_jogos: number;
     gols_feitos: number;

@@ -3,8 +3,8 @@ import { Jogador } from "../models/Jogador";
 import JogadoresService from "./JogadoresService";
 
 class DadosJogadorService {
-    async criaDadosJogador (idJogador: number, body: DadosJogadorProps){
-        await DadosJogador.create({id_jogador: idJogador, ...body});
+    async criaDadosJogador (idJogador: number){
+        await DadosJogador.create({id_jogador: idJogador});
     }
     
     async getDadosJogador (idJogador: number){

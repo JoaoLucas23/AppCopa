@@ -1,5 +1,6 @@
 import { sequelize} from "../../../database/database";
 import { DataTypes } from "sequelize";
+import { Partida } from "../../Partida/models/Partidas";
 
 export interface GrupoProps {
     id: number;
@@ -20,7 +21,10 @@ export const Grupo = sequelize.define('Grupo', {
     timestamps: false,
 });
 
-Grupo.sync({alter: false, force: false })
+Partida.belongsTo(Grupo, {foreignKey: 'id_grupo'});
+Grupo.hasMany(Partida, {foreignKey: 'id_grupo'});
+
+Grupo.sync({alter: true, force: false })
     .then(() => {
         console.log('Tabela Grupo criada');
     }
