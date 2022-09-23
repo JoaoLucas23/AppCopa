@@ -12,7 +12,8 @@ class PartidasService {
             id_time_1: time1.id,
             id_time_2: time2.id,
             fase: body.fase,
-            id_grupo: grupo.id
+            id_grupo: grupo.id,
+            data: body.data,
         });
     }
 

@@ -6,6 +6,7 @@ export interface PartidaProps {
     time2: string;
     fase: string;
     grupo: string;
+    data: Date;
 }
 
 export const Partida = sequelize.define('Partidas', {
