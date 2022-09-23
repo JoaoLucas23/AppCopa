@@ -11,12 +11,12 @@ class DadosTimesServices {
         }
     }
 
-    async editaDadosTimes({id_time}: DadosTimesProps, body: DadosTimesProps) {
+    async editaDadosTimes(id_time: number, body: DadosTimesProps) {
         const dadosTimes = await DadosTimes.findOne({where: {id_time: id_time}});
         dadosTimes?.update(body);
     }
 
-    async retornaDadosDoTime({id_time}: DadosTimesProps){
+    async retornaDadosDoTime(id_time: number){
         return DadosTimes.findOne({where: {id_time: id_time}});
      }
 

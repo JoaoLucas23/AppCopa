@@ -20,7 +20,7 @@ export const DadosTimes = sequelize.define('DadosTimes', {
         allowNull: false,
         autoIncrement: true,
     },
-    id_pais: {
+    id_time: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },

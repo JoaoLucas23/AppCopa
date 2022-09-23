@@ -56,6 +56,17 @@ rotasTime.get(('/retornaTodosTimes'),
         }
 });
 
+rotasTime.get(('/retornaTimeComDado/:id'),
+    async (req, res, next) => {
+        try {
+            const id: number = parseInt(req.params.id);
+            const times = await TimeService.retornaTimeComDados(id);
+            res.status(200).json(times);
+        } catch (error) {
+            next(error);
+        }
+});
+
 rotasTime.delete(('/deletaTime/:idTime'),
     async (req, res, next) => {
         try {

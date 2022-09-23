@@ -43,7 +43,7 @@ class TimeService {
         else throw new Error("Time não encontrado");
     }
 
-    async retornaTimeComDados ({id}: TimeProps ) {
+    async retornaTimeComDados (id: number ) {
         return Time.findByPk(id, {
             include: [
                 {
