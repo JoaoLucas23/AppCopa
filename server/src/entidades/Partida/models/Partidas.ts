@@ -17,11 +17,11 @@ export const Partida = sequelize.define('Partidas', {
     },
     id_time_1: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     id_time_2: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     fase: {
         type: DataTypes.ENUM,
