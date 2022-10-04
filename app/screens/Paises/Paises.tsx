@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Pais, PaisProps } from '../../components/Pais/Pais';
@@ -21,9 +22,10 @@ export function Paises() {
     const [pais, setPais] = useState<PaisProps>(defaultPais);
 
     useEffect(() => {
-      fetch('http://192.168.1.4:3333/times/retornaTime/1')
-        .then(response => response.json())
-        .then(data => setPais(data));
+      axios.get('http://192.168.1.5:3023/api/times/retornaTime/1')
+      .then((response) => {
+        setPais(response.data)
+      });
     }, []);
     
   return (

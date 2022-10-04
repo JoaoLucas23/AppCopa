@@ -6,7 +6,14 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
+    margin: 'auto',
     color: '#fff',
     alignSelf: 'center',
-  }
-});
+  },
+  image:{
+    margin: 'auto',
+    width: 119,
+    height: 80,
+    alignSelf: 'center',
+  },
+  });

@@ -19,7 +19,7 @@ interface Props {
 export function Pais({data}: Props) {
   return (
     <View style={styles.container}>
-        <Image  source={{uri: data.bandeira}} /> 
+        <Image  source={{uri: data.bandeira}} style={styles.image} /> 
         <Text style={styles.text}>{data.nome}</Text>
     </View>
   );

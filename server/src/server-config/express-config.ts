@@ -3,15 +3,8 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(cors(
-    {
-      origin: process.env.APP_URL,
-      credentials: true,
-    },
-));
-app.use(express.urlencoded({
-    extended: true,
-  }));
+app.use(cors());
+
 app.use(express.json());
 
 import rotasUsuario from '../entidades/Usuario/controllers/rotas';
