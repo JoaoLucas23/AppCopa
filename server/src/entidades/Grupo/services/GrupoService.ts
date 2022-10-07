@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import { Grupo, GrupoProps } from "../models/Grupo";
 
 class GrupoService {
@@ -23,6 +24,19 @@ class GrupoService {
             return id_grupo;
         }   
         else throw new Error("Grupo não encontrado");
+    }
+
+    async retornaTodosGrupos() {
+        const grupos = await Grupo.findAll(
+            {where:
+            {
+                id: {[Op.lte]: 8},
+            }}
+        );
+        if (grupos){
+            return grupos;
+        }
+        else throw new Error("Nenhum grupo encontrado");
     }
 
 }

@@ -7,7 +7,7 @@ rotasGrupo.post(('/criaGrupos'),
     async (req, res, next) => {
     try {
         const grupo = await GrupoService.criaTodosGrupos();
-        res.status(200).json(grupo);
+        res.status(204).json(grupo);
     } catch (error) {
         next(error);
     }
@@ -18,10 +18,21 @@ rotasGrupo.get(('/retornaGrupo/:idGrupo'),
     try {
         const idGrupo: number = parseInt(req.params.idGrupo);
         const grupo = await GrupoService.retornaGrupoPorId(idGrupo);
-        res.status(204).json(grupo);
+        res.status(200).json(grupo);
     } catch (error) {
         next(error);
     }
 });
+
+rotasGrupo.get(('/retornaTodosGrupos'),
+    async (req, res, next) => {
+    try {
+        const grupos = await GrupoService.retornaTodosGrupos();
+        res.status(200).json(grupos);
+    } catch (error) {
+        next(error);
+    }
+});
+
 
 export default rotasGrupo;

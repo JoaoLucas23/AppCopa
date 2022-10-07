@@ -1,34 +1,44 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { Pais, PaisProps } from '../../components/Pais/Pais';
-
 import { styles } from './styles';
-
+import { useNavigation } from '@react-navigation/native';
+import { PaisesDoGrupo } from '../PaisesGrupo/PaisesDoGrupo';
 
 
 export function Paises() {
 
-    const defaultPais = {
-        id: 100,
-        nome: 'Default',
-        sigla: 'DFT',
-        titulos: 0,
-        grupo: 'J',
-        bandeira: '',
-        id_grupo: 9,
+    interface GrupoProps {
+        id: number;
+        grupo: string;
     }
 
-    const [pais, setPais] = useState<PaisProps>(defaultPais);
+    const [grupos, setGrupos] = useState<GrupoProps[]>([]);
 
     useEffect(() => {
-      axios.get('http://192.168.1.5:3023/api/times/retornaTime/1')
+      axios.get(`http://150.164.171.243:3023/api/grupos/retornaTodosGrupos/`)
       .then((response) => {
-        setPais(response.data)
+        setGrupos(response.data)
       });
     }, []);
-    
+
+    console.log(grupos)
+
   return (
-    <Pais data={pais} />
+    <FlatList
+          data={grupos}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+          <View>
+            <Text style={styles.text}> GRUPO {item.grupo} </Text>
+            <PaisesDoGrupo idGrupo={item.id} />
+          </View>
+          )}
+          vertical
+          style={styles.container}
+          >
+
+    </FlatList>
   );
 }
