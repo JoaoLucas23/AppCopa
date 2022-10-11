@@ -1,5 +1,4 @@
-import { Image, ImageBackground, Text, View } from 'react-native';
-
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 
 export interface PaisProps {
@@ -18,9 +17,9 @@ interface Props {
 
 export function Pais({data}: Props) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
         <Image  source={{uri: data.bandeira}} style={styles.image} /> 
         <Text style={styles.text}>{data.nome}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
