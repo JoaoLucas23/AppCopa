@@ -18,90 +18,48 @@ class PartidasService {
     }
 
     async retornaTodasPartidas(){
-        return Partida.findAll({include: [
-            {
-                model: Time,
-                as: "time1",
-                where: {id: { $col: "Partidas.id_time_1" } }
-            },
-            {
-                model: Time,
-                as: "time2",
-                where: {id: { $col: "Partidas.id_time_2" } }
-            }
-            ]});
+        const partidas = await Partida.findAll();
+        const partidasTimes = [];
+        for (const partida of partidas) {
+            const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+            const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+            partidasTimes.push({partida, time1, time2});
+        }
+        return partidasTimes;
     }
 
     async retornaPartidaPorId(idPartida: number){
-        const partida = await Partida.findByPk(idPartida, {include: [
-            {
-                model: Time,
-                as: "time1",
-                where: {id: { $col: "Partidas.id_time_1" } }
-            },
-            {
-                model: Time,
-                as: "time2",
-                where: {id: { $col: "Partidas.id_time_2" } }
-            }
-            ]});
-        if (partida) return partida;
+        const partida = await Partida.findByPk(idPartida);
+        const time1 = await Time.findByPk(partida?.getDataValue('id_time_1'));
+        const time2 = await Time.findByPk(partida?.getDataValue('id_time_2'));
+        if (partida) return {partida, time1, time2};
         else throw new Error("Partida não encontrada");
     }
 
     async retornaPartidasPorGrupo(idGrupo: number){
-        return Partida.findAll({where: {id_grupo: idGrupo}, include: [
-            {
-                model: Time,
-                as: "time1",
-                where: {id: { $col: "Partidas.id_time_1" } }
-            },
-            {
-                model: Time,
-                as: "time2",
-                where: {id: { $col: "Partidas.id_time_2" } }
-            }
-        ]});
+        return Partida.findAll({where: {id_grupo: idGrupo}});
     }
 
     async retornaPartidasPorTime(idTime: number){
-        return Partida.findAll({where: {id_time_1: idTime}, include: [
-            {
-                model: Time,
-                as: "time1",
-                where: {id: { $col: "Partidas.id_time_1" } }
+        return Partida.findAll({
+            where: {
+                $or: [ {id_time_1: idTime}, {id_time_2: idTime} ],
             },
-            {
-                model: Time,
-                as: "time2",
-                where: {id: { $col: "Partidas.id_time_2" } }
-            }
-            ]});
+    });
     }
 
     async retornaPartidasPorFase(fase: string){
-        return Partida.findAll({where: {fase: fase}, include: [
-            {
-                model: Time,
-                as: "time1",
-                where: {id: { $col: "Partidas.id_time_1" } }
-            },
-            {
-                model: Time,
-                as: "time2",
-                where: {id: { $col: "Partidas.id_time_2" } }
-            }
-        ]});
+        return Partida.findAll({where: {fase: fase}});
     }
 
     async editaPartida(idPartida: number, body: PartidaProps){
         const partida = await this.retornaPartidaPorId(idPartida);
-        await partida.update(body);
+        await partida.partida.update(body);
     }
 
     async deletaPartida(idPartida: number){
         const partida = await this.retornaPartidaPorId(idPartida);
-        await partida.destroy();
+        await partida.partida.destroy();
     }
 }
 

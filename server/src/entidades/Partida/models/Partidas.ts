@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../database/database";
+import { Time } from "../../Time/models/Time";
 
 export interface PartidaProps {
     time1: string;
