@@ -1,5 +1,6 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export interface PaisProps {
     id: number;
@@ -16,8 +17,17 @@ interface Props {
 }
 
 export function Pais({data}: Props) {
+
+  const navigation = useNavigation();
+
+  function handleClick(id: number) {
+    navigation.navigate('PaisDados', id);
+  }
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} 
+      onPress={() => {handleClick(data.id)}}
+    >
         <Image  source={{uri: data.bandeira}} style={styles.image} /> 
         <Text style={styles.text}>{data.nome}</Text>
     </TouchableOpacity>

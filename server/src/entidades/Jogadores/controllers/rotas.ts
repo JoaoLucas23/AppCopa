@@ -6,8 +6,18 @@ const rotasJogador: Router = Router();
 rotasJogador.post( "/criaJogador",
     async (req, res, next) => {
     try {
-        const jogador = await JogadoresService.criaJogador(req.body);
-        res.status(204).json(jogador);
+        await JogadoresService.criaJogador(req.body);
+        res.status(204);
+    } catch (error) {
+        next(error);
+    }
+});
+
+rotasJogador.post("/criarJogadoresTodosTimes",
+    async (req, res, next) => {
+    try {
+        await JogadoresService.criar26JogadoresTodosTimes(req.body);
+        res.status(204);
     } catch (error) {
         next(error);
     }
@@ -18,7 +28,7 @@ rotasJogador.put( "/editaJogador/:idJogador",
     try {
         const idJogador: number = parseInt(req.params.idJogador);
         const jogador = await JogadoresService.editaJogador(idJogador, req.body);
-        res.status(204).json(jogador);
+        res.status(200).json(jogador);
     } catch (error) {
         next(error);
     }
@@ -50,13 +60,13 @@ rotasJogador.get( "/retornaJogadoresPorTime/:id_time",
     try {
         const id_time: number = parseInt(req.params.id_time);
         const jogador = await JogadoresService.retornaJogadoresPorTime(id_time);
-        res.status(204).json(jogador);
+        res.status(200).json(jogador);
     } catch (error) {
         next(error);
     }
 });
 
-rotasJogador.post( "/deleteJogador/:idJogador",
+rotasJogador.delete( "/deleteJogador/:idJogador",
     async (req, res, next) => {
     try {
         const idJogador: number = parseInt(req.params.idJogador);

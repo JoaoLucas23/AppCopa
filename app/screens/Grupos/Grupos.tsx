@@ -1,13 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FlatList, SafeAreaView, Text, View } from 'react-native';
-import { Pais, PaisProps } from '../../components/Pais/Pais';
+import { FlatList, SafeAreaView, View } from 'react-native';
 import { styles } from './styles';
-import { useNavigation } from '@react-navigation/native';
 import { PaisesDoGrupo } from '../PaisesGrupo/PaisesDoGrupo';
 
 
-export function Paises() {
+export function Grupos() {
 
     interface GrupoProps {
         id: number;

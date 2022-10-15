@@ -5,10 +5,11 @@ import { DadosJogador } from "./DadosJogador";
 export interface JogadorProps {
     id: number;
     nome: string;
-    data_nascimento: string;
+    data_nascimento: Date;
     posicao: string;
     time: string;
     id_time: number;
+    foto: string;
 }
 
 export const Jogador = sequelize.define('Jogador', {
@@ -41,7 +42,12 @@ export const Jogador = sequelize.define('Jogador', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-}, {
+    foto: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    }
+}, 
+{
     timestamps: false,
 });
 

@@ -18,7 +18,7 @@ import rotaPartidas from "../entidades/Partida/controllers/rotas";
 app.use('/api/usuarios', rotasUsuario);
 app.use('/api/times', rotasTime);
 app.use('/api/grupos', rotasGrupo);
-app.use('/api/jogadoress', rotasJogador);
+app.use('/api/jogadores', rotasJogador);
 app.use('/api/timesUsuarios', rotasTimesUsuario);
 app.use('/api/dadosTimes', rotaDados);
 app.use('/api/partidas', rotaPartidas);

@@ -1,8 +1,9 @@
 import { Home } from "../screens/Home/Home";
-import { Paises } from "../screens/Paises/Paises";
+import { Grupos } from "../screens/Grupos/Grupos";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Calendario } from "../screens/Calendario/Calendario";
+import { GruposStackNavigator } from "./gruposStack.routes";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
@@ -34,12 +35,13 @@ export function AppRoutes() {
                 tabBarInactiveTintColor: '#737171',
                 tabBarStyle: {
                     backgroundColor: '#f3efec',
-                }
+                },
+                headerShown: false,
               })}>
                 <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Grupos" component={Paises} />
+                <Tab.Screen name="Grupos" component={GruposStackNavigator} />
                 <Tab.Screen name="Calendario" component={Calendario} />
-                <Tab.Screen name="Noticias" component={Paises} />
+                <Tab.Screen name="Noticias" component={Grupos} />
                 <Tab.Screen name="Perfil" component={Home} />
             </Tab.Navigator>
     );
