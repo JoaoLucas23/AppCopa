@@ -1,19 +1,19 @@
 import React from 'react';
-import { Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
+import { PartidasDia } from '../../components/PartidasDia';
 import { styles } from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
 
-  const navigation = useNavigation();
-
-  function handlePageSelect(page: string) {
-    navigation.navigate(page);
-  }
-
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Home</Text>
+      <View style={styles.news}>
+        <Text style={styles.titles}>Notícias do dia</Text>
+      </View>
+      <View style={styles.matches}>
+        <Text style={styles.titles}>Partidas do dia</Text>
+        <PartidasDia />
+      </View>
     </SafeAreaView>
   );
 }

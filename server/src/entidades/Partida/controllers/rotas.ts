@@ -49,6 +49,22 @@ partidasRouter.get("/retornaPartidaPorId/:id",
     }
 );
 
+partidasRouter.get("/retornaPartidasDoDia",
+    async (req, res, next) => {
+        try {
+            const data1 = new Date();
+            data1.setHours(0, 0, 0, 0);
+            
+            const data2 = new Date();
+            data2.setHours(23, 59, 59, 999);
+            const partida = await PartidasService.retornaPartidasPorData(data1, data2);
+            return res.status(200).json(partida);
+        } catch (error) {
+            return next(error);
+        }
+    }
+);
+
 partidasRouter.get("/retornaPartidasPorGrupo/:idGrupo",
     async (req, res, next) => {
         try {

@@ -4,11 +4,18 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#8b1638',
-        padding: 30,
     },
-    text: {
-        color: '#fff',
-        alignSelf: 'center',
-        marginTop: 80,
+    news: {
+        flex: 0.4,
+        borderBottomColor: '#ffff',
+        borderBottomWidth: 3,
     },
+    matches: {
+        flex: 0.6,
+    },
+    titles: {
+        fontSize: 20,
+        color: '#ffff',
+        fontWeight: 'bold',
+    }
 });

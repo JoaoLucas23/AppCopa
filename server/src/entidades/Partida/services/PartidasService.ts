@@ -2,6 +2,7 @@ import { Partida, PartidaProps } from "../models/Partidas";
 import GrupoService from "../../Grupo/services/GrupoService";
 import TimeService from "../../Time/services/TimeService";
 import { Time } from "../../Time/models/Time";
+import { Op } from "sequelize";
 
 class PartidasService {
     async criaPartida(body: PartidaProps){
@@ -38,6 +39,23 @@ class PartidasService {
 
     async retornaPartidasPorGrupo(idGrupo: number){
         return Partida.findAll({where: {id_grupo: idGrupo}});
+    }
+
+    async retornaPartidasPorData(data1: Date, data2: Date){
+        const partidas = await Partida.findAll({
+            where: {
+                data: {
+                    [Op.between]: [data1, data2]
+                },
+            }
+        });
+        const partidasTimes = [];
+        for (const partida of partidas) {
+            const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+            const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+            partidasTimes.push({partida, time1, time2});
+        }
+        return partidasTimes;
     }
 
     async retornaPartidasPorTime(idTime: number){
