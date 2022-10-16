@@ -13,13 +13,12 @@ export function JogadoresPais({id}: Props) {
     const [jogadores, setJogadores] = useState<JogadorProps[]>([]);
 
     useEffect(() => {
-        axios.get(`http://192.168.100.11:3023/api/jogadores/retornaJogadoresPorTime/${id}`)
+        axios.get(`http://192.168.1.17:3023/api/jogadores/retornaJogadoresPorTime/${id}`)
         .then((response) => {
             setJogadores(response.data)
         });
       }, []);
 
-      console.log(jogadores);
 
   return (
     <View style={styles.container}>

@@ -11,7 +11,6 @@ export interface JogadorProps {
 }
 
 export function Jogador({id, nome, foto, posicao}: JogadorProps) {
-  console.log(nome, foto, posicao);
   return (
     <View style={styles.container}>
         <Image source={{uri: foto}} style={styles.foto}/>

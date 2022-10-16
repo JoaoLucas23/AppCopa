@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     margin: 10,
     alignSelf: 'center',
-    padding: 10,
+    padding: 15,
   },
   times: {
     flex: 1,
@@ -18,13 +18,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignSelf: 'center',
+    justifyContent: 'center',
   },
   text: {
     color: 'black',
+    alignSelf: 'center',
   },
   image: {
     width: 25,
     height: 15,
     marginHorizontal: 20,
+    marginTop: 15,
   }
 });

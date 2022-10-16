@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
   image:{
     width: 60,
     height: 40,
-    backgroundColor: 'red',
   },
   text: {
     fontSize: 20,

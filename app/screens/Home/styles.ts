@@ -7,14 +7,13 @@ export const styles = StyleSheet.create({
     },
     news: {
         flex: 0.4,
-        borderBottomColor: '#ffff',
-        borderBottomWidth: 3,
     },
     matches: {
         flex: 0.6,
     },
     titles: {
         fontSize: 20,
+        paddingHorizontal: 10,
         color: '#ffff',
         fontWeight: 'bold',
     }

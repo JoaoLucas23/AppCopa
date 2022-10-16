@@ -42,13 +42,29 @@ class PartidasService {
     }
 
     async retornaPartidasPorData(data1: Date, data2: Date){
-        const partidas = await Partida.findAll({
+        let partidas = await Partida.findAll({
             where: {
                 data: {
                     [Op.between]: [data1, data2]
                 },
             }
         });
+
+        if (partidas.length == 0) {
+            const hoje = new Date();
+            partidas = await Partida.findAll({
+                where: {
+                    data: {
+                        [Op.gt]: hoje
+                    },
+                },
+                order: [
+                    ['data', 'ASC'],
+                ],
+                limit: 4,
+            });
+        }
+
         const partidasTimes = [];
         for (const partida of partidas) {
             const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));

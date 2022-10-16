@@ -5,7 +5,8 @@
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.23.0",
-    "sqlite3": "^5.1.1"
+    "sqlite3": "^5.1.1",
+    "ts-newsapi": "^1.0.0"
   },
   "name": "server",
   "version": "1.0.0",

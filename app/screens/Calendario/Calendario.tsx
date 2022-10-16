@@ -32,7 +32,7 @@ export function Calendario() {
     const [partidas, setPartidas] = useState<Props[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.100.11:3023/api/partidas/retornaTodasPartidas`)
+      axios.get(`http://192.168.1.17:3023/api/partidas/retornaTodasPartidas`)
       .then((response) => {
         setPartidas(response.data)
       });
@@ -54,7 +54,6 @@ export function Calendario() {
         )}
         vertical
       >
-
       </FlatList>
     </SafeAreaView>
   );

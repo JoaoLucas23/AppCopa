@@ -8,7 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor='dark-red' style='auto' />
+      <StatusBar style='auto' />
       <Routes />
     </SafeAreaView>
   );
