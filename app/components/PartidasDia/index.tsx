@@ -34,7 +34,7 @@ export function PartidasDia() {
     const [partidas, setPartidas] = useState<Props[]>([]);
 
     useEffect(() => {
-        axios.get(`http://192.168.1.18:3023/api/partidas/retornaPartidasDoDia`)
+        axios.get(`http://192.168.1.5:3023/api/partidas/retornaPartidasDoDia`)
         .then((response) => {
           setPartidas(response.data)
         });
@@ -48,6 +48,7 @@ export function PartidasDia() {
           keyExtractor={item => item.partida.id}
           renderItem={({item}) => (
           <Partida 
+              idPartida={item.partida.id}
               pais1={item?.time1.sigla}
               pais2={item?.time2.sigla}
               data={item?.partida.data}

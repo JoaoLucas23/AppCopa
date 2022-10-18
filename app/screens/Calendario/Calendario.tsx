@@ -32,7 +32,7 @@ export function Calendario() {
     const [partidas, setPartidas] = useState<Props[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.17:3023/api/partidas/retornaTodasPartidas`)
+      axios.get(`http://192.168.1.5:3023/api/partidas/retornaTodasPartidas`)
       .then((response) => {
         setPartidas(response.data)
       });
@@ -45,11 +45,12 @@ export function Calendario() {
         keyExtractor={item => item.partida.id}
         renderItem={({item}) => (
           <Partida 
-          pais1={item?.time1.nome}
-          pais2={item?.time2.nome}
-          data={item?.partida.data}
-          bandeira1={item?.time1.bandeira}
-          bandeira2={item?.time2.bandeira}
+            idPartida={item.partida.id}
+            pais1={item?.time1.nome}
+            pais2={item?.time2.nome}
+            data={item?.partida.data}
+            bandeira1={item?.time1.bandeira}
+            bandeira2={item?.time2.bandeira}
         />
         )}
         vertical

@@ -15,7 +15,7 @@ export function Grupos() {
     const [grupos, setGrupos] = useState<GrupoProps[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.17:3023/api/grupos/retornaTodosGrupos/`)
+      axios.get(`http://192.168.1.5:3023/api/grupos/retornaTodosGrupos/`)
       .then((response) => {
         setGrupos(response.data)
       });
