@@ -7,7 +7,7 @@ class NewsApiService {
         const noticias = await newsAPI.getTopHeadlines({
             country: 'br',
             category: 'sports',
-            q: 'futebol',
+            q: 'copa do mundo',
 
         })
 
