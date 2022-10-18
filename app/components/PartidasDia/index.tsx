@@ -34,7 +34,7 @@ export function PartidasDia() {
     const [partidas, setPartidas] = useState<Props[]>([]);
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/partidas/retornaPartidasDoDia`)
+        axios.get(`http://200.238.196.152:3023/api/partidas/retornaPartidasDoDia`)
         .then((response) => {
           setPartidas(response.data)
         });

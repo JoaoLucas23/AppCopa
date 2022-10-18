@@ -43,7 +43,7 @@ export function Calendario() {
     console.log(dataAtual);
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/partidas/retornaTodasPartidas`)
+      axios.get(`http://200.238.196.152:3023/api/partidas/retornaTodasPartidas`)
       .then((response) => {
         setPartidas(response.data)
       });
