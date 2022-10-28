@@ -41,7 +41,7 @@ class PartidasService {
         return Partida.findAll({where: {id_grupo: idGrupo}});
     }
 
-    async retornaPartidasPorData(data1: Date, data2: Date){
+    async retornaProximasPartidas(data1: Date, data2: Date){
         let partidas = await Partida.findAll({
             where: {
                 data: {
@@ -74,6 +74,25 @@ class PartidasService {
         return partidasTimes;
     }
 
+    async retornaPartidasPorData(data1: Date, data2: Date){
+        let partidas = await Partida.findAll({
+            where: {
+                data: {
+                    [Op.between]: [data1, data2]
+                },
+            }
+        });
+        const partidasTimes = [];
+        if (partidas.length > 0) {
+            for (const partida of partidas) {
+                const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+                const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+                partidasTimes.push({partida, time1, time2});
+            }
+        }
+        return partidasTimes;
+    }
+
     async retornaPartidasPorTime(idTime: number){
         return Partida.findAll({
             where: {
@@ -84,6 +103,23 @@ class PartidasService {
 
     async retornaPartidasPorFase(fase: string){
         return Partida.findAll({where: {fase: fase}});
+    }
+
+    async retornaPartidasPorMes(mes: number){
+        const partidas = await Partida.findAll({
+            where: {
+                data: {
+                    [Op.between]: [new Date(2022, mes-1, 1), new Date(2022, mes, 31)]
+                },
+            }
+        });
+        const partidasTimes = [];
+        for (const partida of partidas) {
+            const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+            const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+            partidasTimes.push({partida, time1, time2});
+        }
+        return partidasTimes;
     }
 
     async editaPartida(idPartida: number, body: PartidaProps){

@@ -33,8 +33,15 @@ export function PartidasDia() {
 
     const [partidas, setPartidas] = useState<Props[]>([]);
 
+    const hoje = new Date();
+    const dia = hoje.getDate();
+    const mes = hoje.getMonth() + 1;
+    const ano = hoje.getFullYear();
+
+    const dataString = `${ano}-${mes}-${dia}`;
+
     useEffect(() => {
-        axios.get(`http://200.238.196.152:3023/api/partidas/retornaPartidasDoDia`)
+        axios.get(`http://192.168.137.1:3023/api/partidas/retornaProximasPartidas`)
         .then((response) => {
           setPartidas(response.data)
         });
