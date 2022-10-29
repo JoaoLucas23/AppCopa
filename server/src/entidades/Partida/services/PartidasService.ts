@@ -106,12 +106,20 @@ class PartidasService {
     }
 
     async retornaPartidasPorMes(mes: number){
+        let dia = mes == 11 ? 30 : 30;
+        console.log(mes);
+        const ultimoDia = new Date(`2022-${mes}-${dia}`);
+        ultimoDia.setUTCHours(23, 59, 59, 999);
+        console.log(ultimoDia);
         const partidas = await Partida.findAll({
             where: {
                 data: {
-                    [Op.between]: [new Date(2022, mes-1, 1), new Date(2022, mes, 31)]
+                    [Op.between]: [new Date(`2022-${mes}-1`), ultimoDia]
                 },
-            }
+            },
+            order: [
+                ['data', 'ASC'],
+            ],
         });
         const partidasTimes = [];
         for (const partida of partidas) {

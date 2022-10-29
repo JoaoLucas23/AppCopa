@@ -3,6 +3,29 @@ import React, { useEffect, useState } from 'react';
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import {Agenda} from 'react-native-calendars';
+import {LocaleConfig} from 'react-native-calendars';
+
+LocaleConfig.locales['br'] = {
+  monthNames: [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Mai',
+    'Jun',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+  ],
+  monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+  dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+  dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+  today: "Hoje"
+};
+LocaleConfig.defaultLocale = 'br';
 
 interface PaisProps {
   bandeira: string;
@@ -41,14 +64,14 @@ export function Calendario() {
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
     useEffect(() => {
-      axios.get(`http://192.168.137.1:3023/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`http://192.168.1.12:3023/api/partidas//retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });
     }, [mes]);
 
     const loadItems = () => {
-      setTimeout(() => {
+        setTimeout(() => {
         const newItems = {};
         partidas.forEach((partida) => {
           const time = partida.partida.data;
@@ -67,13 +90,13 @@ export function Calendario() {
 
     const exibeItem = (id: string) => {
 
-      const idPartida = parseInt(id);
+      const idPartida = parseInt(id.split(':')[0]);
 
       const partida = partidas.find(partida => partida.partida.id === idPartida);
 
       const data = new Date(partida.partida.data);
 
-      const horario = data.getHours() + ':' + '00';
+      const horario = (data.getHours()-3)+ ':' + '00';
 
 
         return (
@@ -83,9 +106,10 @@ export function Calendario() {
                 <Text style={styles.cardPartidaText}>{partida?.time1.nome}</Text>
                 <Image source={{uri: partida?.time1.bandeira}} style={styles.bandeira}/>
               </View>
+              <Text style={styles.cardPartidaText}>x </Text>
               <View style={styles.cardPartidaPais}>
-                <Text style={styles.cardPartidaText}>{partida?.time2.nome}</Text>
                 <Image source={{uri: partida?.time2.bandeira}} style={styles.bandeira}/>
+                <Text style={styles.cardPartidaText}>{partida?.time2.nome}</Text>
               </View>
             </View>
             <View style={styles.cardPartidaHorario}>
@@ -105,11 +129,26 @@ export function Calendario() {
           setMes(day.month);
         }}
         loadItemsForMonth={loadItems}
-        renderItem={(item, firstItemInDay) => exibeItem(item.name[0])}
+        renderItem={(item, firstItemInDay) => exibeItem(item.name)}
         renderEmptyData={() => {
-          return <View />;
+          return <View>
+            <Text style={styles.diaVazio}>Nenhuma partida no dia selecionado!</Text>
+            </View>;
         }}
-      />
+        scrollEnabled={true}
+        futureScrollRange={5}
+        pastScrollRange={5}
+        theme={{
+          agendaDayTextColor: 'black',
+          agendaDayNumColor: 'black',
+          agendaKnobColor: '#D7CD86',
+          dotColor: '#D7CD86',
+          selectedDayBackgroundColor: '#D7CD86',
+          selectedDayTextColor: 'black',
+          selectedDotColor: 'black',
+          todayTextColor: '#8b1638',
+        }}
+/>
     </SafeAreaView>
   );
 }

@@ -8,36 +8,40 @@ export const styles = StyleSheet.create({
   cardPartida: {
     backgroundColor: '#fff',
     height: 65,
-    marginTop: 10,
-    flexDirection: 'row',
+    marginTop: 25,
+    flexDirection: 'column',
   },
   cardPartidaPaises: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: 15,
-    width: '55%'
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 5,
+    left: 5,
   },
   cardPartidaText: {
     fontSize: 16,
     color: '#000',
   },
   cardPartidaPais: {
-    width: '100%',
     flexDirection: 'row',	
-    alignItems: 'center',
+    marginRight: 10,
   },
   bandeira: {
     width: 20,
     height: 15,
-    marginLeft: 10,
-    position: 'absolute',
-    right: 0,
-  },
-  cardPartidaHorario: {
-    position: 'absolute',
-    right: 0,
-    width: '20%',
-    justifyContent: 'center',
+    marginHorizontal: 10,
     alignSelf: 'center',
   },
+  cardPartidaHorario: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    position: 'absolute',
+    left: 5,
+    bottom: 5,
+  },
+  diaVazio: {
+    color: '#000',
+    fontSize: 20,
+    alignSelf: 'center',
+    marginTop: 20,
+  }
 });

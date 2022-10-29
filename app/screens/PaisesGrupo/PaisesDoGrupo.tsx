@@ -15,7 +15,7 @@ export function PaisesDoGrupo({id, grupo}: GrupoProps) {
     const [paisesDoGrupo, setPaisesDoGrupo] = useState<PaisProps[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.137.1:3023/api/times/retornaTimesPorGrupo/${id}}`)
+      axios.get(`http://192.168.1.12:3023/api/times/retornaTimesPorGrupo/${id}}`)
       .then((response) => {
         setPaisesDoGrupo(response.data)
       });

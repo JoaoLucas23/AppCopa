@@ -19,7 +19,7 @@ export function CarouselNoticias() {
   const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
   useEffect(() => {
-    axios.get(`http://192.168.137.1:3023/api/noticias/retornaPrincipaisNoticias`)
+    axios.get(`http://192.168.1.12:3023/api/noticias/retornaPrincipaisNoticias`)
     .then((response) => {
       setNoticias(response.data)
     });
