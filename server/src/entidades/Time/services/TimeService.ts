@@ -24,6 +24,12 @@ class TimeService {
     async retornaTodosTimes() {
         return Time.findAll();
     }
+
+     async retornaNomeDosTimes() {
+        const times = await Time.findAll({attributes: ['nome'], order: ['nome']});
+        return times.map(time => time.getDataValue('nome'));
+     }  
+
     async retornaTimePorId(idTime: number) {
         const time = await Time.findByPk(idTime);
         if (time) return time;

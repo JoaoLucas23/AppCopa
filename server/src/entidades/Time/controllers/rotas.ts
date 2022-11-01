@@ -56,6 +56,16 @@ rotasTime.get(('/retornaTodosTimes'),
         }
 });
 
+rotasTime.get(('/retornaTodosTimes/nomes'),
+    async (req, res, next) => {
+        try {
+            const times = await TimeService.retornaNomeDosTimes();
+            res.status(200).json(times);
+        } catch (error) {
+            next(error);
+        }
+});
+
 rotasTime.get(('/retornaTimeComDado/:id'),
     async (req, res, next) => {
         try {

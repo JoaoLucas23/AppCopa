@@ -4,7 +4,7 @@ import {  FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Noticia } from '../Noticia';
 
-interface NoticiaProps {
+export interface NoticiaProps {
   titulo: string,
   descricao: string | undefined,
   url: string | undefined,
@@ -19,7 +19,7 @@ export function CarouselNoticias() {
   const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
   useEffect(() => {
-    axios.get(`http://192.168.1.12:3023/api/noticias/retornaPrincipaisNoticias`)
+    axios.get(`http://192.168.1.3:3023/api/noticias/retornaPrincipaisNoticias`)
     .then((response) => {
       setNoticias(response.data)
     });
