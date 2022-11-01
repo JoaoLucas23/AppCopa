@@ -33,7 +33,6 @@ export function Grupos() {
             )}
             vertical
             showsVerticalScrollIndicator={false}
-            style={styles.lista}
             >
       </FlatList>
     </SafeAreaView>

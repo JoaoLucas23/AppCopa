@@ -7,10 +7,4 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingTop: 10,
   },
-  lista: {
-    backgroundColor: '#8b1638',
-    width: '96%',
-    alignSelf: 'center',
-    borderRadius: 10,
-  }
 });
