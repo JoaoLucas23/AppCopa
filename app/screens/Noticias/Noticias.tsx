@@ -5,23 +5,43 @@ import SelectDropdown from 'react-native-select-dropdown';
 import { CarouselNoticias, NoticiaProps } from '../../components/CarouselNoticias';
 import { styles } from './styles';
 
+interface Props {
+  status: string;
+  totalResults: number;
+  results: [{
+    title: string;
+    link: string;
+    keywords: string | null;
+    creator: string | null;
+    video_url: string | null;
+    description: string | null;
+    content: string | null;
+    pubDate: string;
+    image_url: string;
+    source_id: string;
+    country: {};
+    category: [],
+    language: string;
+  }]
+}
+
 export function Noticias() {
 
-    const [pesquisa, setPesquisa] = useState('');
-    const [paises, setPaises] = useState([]);
-    const [pais, setPais] = useState('');
-    const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
+    // const [pesquisa, setPesquisa] = useState('');
+    // const [paises, setPaises] = useState([]);
+    // const [pais, setPais] = useState('');
+    const [noticias, setNoticias] = useState<Props[]>([]);
+
+    // useEffect(() => {
+    //   axios.get(`http://192.168.0.121:3023/api/times/retornaTodosTimes/nomes/`)
+    //   .then((response) => {
+    //     setPaises(response.data)
+    //   });
+    // }, []);
+
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/times/retornaTodosTimes/nomes/`)
-      .then((response) => {
-        setPaises(response.data)
-      });
-    }, []);
-
-
-    useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/noticias/retornaTodasNoticias/`)
+        axios.get(`https://newsdata.io/api/1/news?apikey=pub_12968880797de02e0db17de5c9abfaf47e88f&category=sports&country=br&q=copa%20do%20mundo`)
         .then((response) => {
           setNoticias(response.data)
         });
@@ -36,7 +56,7 @@ export function Noticias() {
 
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.pesquisa}>
+        {/* <View style={styles.pesquisa}>
             <TextInput 
                 style={styles.textPesquisa} 
                 placeholder='Pesquisar notícias' 
@@ -58,18 +78,19 @@ export function Noticias() {
               defaultButtonText={'Filtrar por país'}
               buttonStyle={styles.botaoFiltro}
           />
-        </View>
+        </View> */}
         <View style={styles.carroselNoticias}>
             <FlatList 
-                data={noticias}
-                keyExtractor={item => item.titulo}
+                data={noticias.results}
+                keyExtractor={item => item.image_url}
                 renderItem={({item}) => (
                     <View style={styles.noticia}>
-                        <Image source={{uri: item.imagem}} style={styles.imagemNoticia}/>
-                        <Text style={styles.textoNoticia}>{item.titulo}</Text>
+                        <Image source={{uri: item.image_url}} style={styles.imagemNoticia}/>
+                        <Text style={styles.textoNoticia}>{item.title}</Text>
                     </View>
                 )}
                 vertical
+                showsVerticalScrollIndicator={false}
             />
         </View>
     </SafeAreaView>

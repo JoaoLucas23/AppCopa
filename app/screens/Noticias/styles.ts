@@ -5,17 +5,17 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8b1638',    
   },
-  pesquisa:{
-    marginTop: 10,
-    width: '100%',
-    flex: 0.075,
-    alignSelf: 'center',
-  },
-  filtros: {
-    flex: 0.1,
-  },
+  // pesquisa:{
+  //   marginTop: 10,
+  //   width: '100%',
+  //   flex: 0.075,
+  //   alignSelf: 'center',
+  // },
+  // filtros: {
+  //   flex: 0.1,
+  // },
   carroselNoticias: {
-    flex: 0.825,
+    flex: 1,
   },
   textPesquisa: {
     height: '75%',
@@ -47,8 +47,8 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     width: '70%',
   },
-  botaoFiltro: {
-    width: '90%',
-    alignSelf: 'center',
-  }
+  // botaoFiltro: {
+  //   width: '90%',
+  //   alignSelf: 'center',
+  // }
 });
