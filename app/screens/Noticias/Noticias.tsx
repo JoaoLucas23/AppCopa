@@ -8,29 +8,27 @@ import { styles } from './styles';
 export function Noticias() {
 
     const [pesquisa, setPesquisa] = useState('');
-    // const [paises, setPaises] = useState([]);
-    // const [pais, setPais] = useState('');
+    const [paises, setPaises] = useState([]);
+    const [pais, setPais] = useState('');
     const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
-    // useEffect(() => {
-    //   axios.get(`http://192.168.1.3:3023/api/times/retornaTodosTimes/nomes/`)
-    //   .then((response) => {
-    //     setPaises(response.data)
-    //   });
-    // }, []);
+    useEffect(() => {
+      axios.get(`http://192.168.0.121:3023/api/times/retornaTodosTimes/nomes/`)
+      .then((response) => {
+        setPaises(response.data)
+      });
+    }, []);
 
 
     useEffect(() => {
-      setTimeout(() => {
-        axios.get(`http://192.168.1.3:3023/api/noticias/retornaTodasNoticias/${pesquisa}`)
+        axios.get(`http://192.168.0.121:3023/api/noticias/retornaTodasNoticias/`)
         .then((response) => {
           setNoticias(response.data)
         });
-        }, 1000);
-      }, [pesquisa]);
+      }, []);
 
     //  useEffect(() => {
-    //     axios.get(`http://192.168.1.3:3023/api/noticias/retornaNoticiasPorPesquisa/${pesquisa}`)
+    //     axios.get(`http://192.168.0.121:3023/api/noticias/retornaNoticiasPorPesquisa/${pesquisa}`)
     //     .then((response) => {
     //       setNoticias(response.data)
     //     });
@@ -45,7 +43,7 @@ export function Noticias() {
                 onChangeText={setPesquisa}
             />
         </View>
-        {/* <View style={styles.filtros}>
+        <View style={styles.filtros}>
           <SelectDropdown
               data={paises}
               onSelect={(selectedItem, index) => {
@@ -60,7 +58,7 @@ export function Noticias() {
               defaultButtonText={'Filtrar por país'}
               buttonStyle={styles.botaoFiltro}
           />
-        </View> */}
+        </View>
         <View style={styles.carroselNoticias}>
             <FlatList 
                 data={noticias}

@@ -5,6 +5,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8b1638',
     width: '100%',
-    paddingTop: 40,
+    paddingTop: 10,
+  },
+  lista: {
+    backgroundColor: '#8b1638',
+    width: '96%',
+    alignSelf: 'center',
+    borderRadius: 10,
   }
 });

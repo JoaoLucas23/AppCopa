@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FlatList, SafeAreaView, View } from 'react-native';
+import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import { styles } from './styles';
 import { PaisesDoGrupo } from '../PaisesGrupo/PaisesDoGrupo';
 
@@ -15,7 +15,7 @@ export function Grupos() {
     const [grupos, setGrupos] = useState<GrupoProps[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.3:3023/api/grupos/retornaTodosGrupos/`)
+      axios.get(`http://192.168.0.121:3023/api/grupos/retornaTodosGrupos/`)
       .then((response) => {
         setGrupos(response.data)
       });
@@ -32,6 +32,8 @@ export function Grupos() {
             </View>
             )}
             vertical
+            showsVerticalScrollIndicator={false}
+            style={styles.lista}
             >
       </FlatList>
     </SafeAreaView>

@@ -64,13 +64,13 @@ export function Calendario() {
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.3:3023/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`http://192.168.0.121:3023/api/partidas//retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });
     }, [mes]);
 
-    const loadItems = () => {
+    const loadItems = async () => {
         setTimeout(() => {
         const newItems = {};
         partidas.forEach((partida) => {
@@ -139,14 +139,18 @@ export function Calendario() {
         futureScrollRange={5}
         pastScrollRange={5}
         theme={{
-          agendaDayTextColor: 'black',
-          agendaDayNumColor: 'black',
+          agendaDayTextColor: '#fff',
+          agendaDayNumColor: '#fff',
+          monthTextColor: '#fff',
+          dayTextColor: '#5c595a',
           agendaKnobColor: '#D7CD86',
           dotColor: '#D7CD86',
           selectedDayBackgroundColor: '#D7CD86',
           selectedDayTextColor: 'black',
           selectedDotColor: 'black',
           todayTextColor: '#8b1638',
+          backgroundColor: '#8b1638',
+          calendarBackground: '#8b1638',
         }}
 />
     </SafeAreaView>

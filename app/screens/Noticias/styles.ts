@@ -7,26 +7,24 @@ export const styles = StyleSheet.create({
   },
   pesquisa:{
     marginTop: 10,
-    width: '90%',
-    flex: 0.05,
+    width: '100%',
+    flex: 0.075,
     alignSelf: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 15,
-    flexDirection: 'row',
   },
   filtros: {
-    flex: 0.075,
-    padding: 10,
+    flex: 0.1,
   },
   carroselNoticias: {
-    flex: 0.85,
+    flex: 0.825,
   },
   textPesquisa: {
-    height: '100%',
+    height: '75%',
+    borderRadius: 15,
     fontSize: 14,
     color: '#000',
     alignSelf: 'center',
-    marginLeft: 10,
+    backgroundColor: '#fff',
+    width: '90%',
   },
   noticia: {
     backgroundColor: '#fff',
@@ -34,7 +32,7 @@ export const styles = StyleSheet.create({
     height: 100,
     alignSelf: 'center',
     borderRadius: 5,
-    marginTop: 10,
+    marginBottom: 10,
     flexDirection: 'row',
   },
   imagemNoticia: {
@@ -50,6 +48,7 @@ export const styles = StyleSheet.create({
     width: '70%',
   },
   botaoFiltro: {
-    width: '100%',
+    width: '90%',
+    alignSelf: 'center',
   }
 });

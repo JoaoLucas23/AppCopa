@@ -14,11 +14,10 @@ rotasNoticias.get("/retornaPrincipaisNoticias",
     }
 );
 
-rotasNoticias.get("/retornaTodasNoticias/:pesquisa",
+rotasNoticias.get("/retornaTodasNoticias/",
     async (req, res, next) => {
         try {
-            const pesquisa = req.params.pesquisa;
-            const noticias = await NewsApiService.retornaTodasNoticias(pesquisa);
+            const noticias = await NewsApiService.retornaTodasNoticias();
             return res.status(200).json(noticias);
         } catch (error) {
             return next(error);

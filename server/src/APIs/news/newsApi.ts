@@ -27,14 +27,10 @@ class NewsApiService {
         return formatado;
     }
 
-    async retornaTodasNoticias(pesquisa: string){
-
-        const keyWords = pesquisa == '' ? 'copa do mundo' : pesquisa + ' copa do mundo';
-
-        console.log(pesquisa);
+    async retornaTodasNoticias(){
 
         const noticias = await newsAPI.getEverything({
-            q: keyWords,
+            qInTitle: 'Copa do Mundo',
             language: 'pt',
             sortBy: 'publishedAt',
         })
