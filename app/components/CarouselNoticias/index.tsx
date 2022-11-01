@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {  FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Noticia } from '../Noticia';
+import { styles } from './styles';
 
 export interface NoticiaProps {
   titulo: string,
@@ -27,7 +28,7 @@ export function CarouselNoticias() {
 
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
         <FlatList
           data={noticias}
           keyExtractor={item => item.url}

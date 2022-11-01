@@ -49,15 +49,15 @@ export function PartidasDia() {
 
   return (
     <View style={styles.matches}>
-      <Text style={styles.titles}>Proximas Partidas</Text>
+      <Text style={styles.titles}>Próximas Partidas</Text>
       <FlatList
           data={partidas}
           keyExtractor={item => item.partida.id}
           renderItem={({item}) => (
           <Partida 
               idPartida={item.partida.id}
-              pais1={item?.time1.sigla}
-              pais2={item?.time2.sigla}
+              pais1={item?.time1.nome}
+              pais2={item?.time2.nome}
               data={item?.partida.data}
               bandeira1={item?.time1.bandeira}
               bandeira2={item?.time2.bandeira}

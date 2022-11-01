@@ -30,15 +30,15 @@ export function Partida({idPartida, pais1, pais2, data, bandeira1, bandeira2}: P
     onPress={() => {handleClick(idPartida)}}
     >
         <View style={styles.times}>
-            <Image source={{uri: bandeira1}} style={styles.image} />
             <Text style={styles.text}>{pais1}</Text>
+            <Image source={{uri: bandeira1}} style={styles.image} />
             <Text style={styles.text}> x </Text>
-            <Text style={styles.text}>{pais2}</Text>
             <Image source={{uri: bandeira2}} style={styles.image} />
+            <Text style={styles.text}>{pais2}</Text>
         </View>
         <View style={styles.data}>
-            <Text style={styles.text}>{dia+'/'+mes+'/'+ano}</Text>
-            <Text style={styles.text}>{hora+':00'}</Text>
+            <Text style={styles.textData}>{dia+'/'+mes+'/'+ano}</Text>
+            <Text style={styles.textData}>{hora+':00'}</Text>
         </View>
     </TouchableOpacity>
   );
