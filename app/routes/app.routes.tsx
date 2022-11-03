@@ -1,13 +1,10 @@
-import { Home } from "../screens/Home/Home";
-import { Grupos } from "../screens/Grupos/Grupos";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Calendario } from "../screens/Calendario/Calendario";
 import { GruposStackNavigator } from "./gruposStack.routes";
 import { HomeStackNavigator } from "./homeStack.routes";
 import { CalendarioStackNavigator } from "./calendarioStack.routes";
-import { CarouselNoticias } from "../components/CarouselNoticias";
 import { Noticias } from "../screens/Noticias/Noticias";
+import { Login } from "../screens/Login/Login";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
@@ -46,7 +43,7 @@ export function AppRoutes() {
                 <Tab.Screen name="Grupos" component={GruposStackNavigator} />
                 <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
                 <Tab.Screen name="Noticias" component={Noticias} />
-                <Tab.Screen name="Perfil" component={Home} />
+                <Tab.Screen name="Perfil" component={Login} />
             </Tab.Navigator>
     );
 }

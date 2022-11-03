@@ -25,17 +25,17 @@ rotasNoticias.get("/retornaTodasNoticias/",
     }
 );
 
-rotasNoticias.get("/retornaNoticiasPorPais/:pais",
-    async (req, res, next) => {
-        try {
-            const pais = req.params.pais;
-            const noticias = await NewsApiService.retornaNoticiasPorPais(pais);
-            return res.status(200).json(noticias);
-        } catch (error) {
-            return next(error);
-        }
-    }
-);
+// rotasNoticias.get("/retornaNoticiasPorPais/:pais",
+//     async (req, res, next) => {
+//         try {
+//             const pais = req.params.pais;
+//             const noticias = await NewsApiService.retornaNoticiasPorPais(pais);
+//             return res.status(200).json(noticias);
+//         } catch (error) {
+//             return next(error);
+//         }
+//     }
+// );
 
 rotasNoticias.get("/retornaNoticiasPorPesquisa/:pesquisa",
     async (req, res, next) => {

@@ -5,17 +5,20 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8b1638',    
   },
-  // pesquisa:{
-  //   marginTop: 10,
-  //   width: '100%',
-  //   flex: 0.075,
-  //   alignSelf: 'center',
-  // },
-  // filtros: {
-  //   flex: 0.1,
-  // },
+  filtragem:{
+    marginTop: 10,
+    width: '100%',
+    flex: 0.1,
+    alignSelf: 'center',
+    marginBottom: 5,
+  },
+  inputText: {
+    width: '95%',
+    height: 40,
+    alignSelf: 'center',
+  },
   carroselNoticias: {
-    flex: 1,
+    flex: 0.9,
   },
   textPesquisa: {
     height: '75%',
@@ -47,8 +50,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     width: '70%',
   },
-  // botaoFiltro: {
-  //   width: '90%',
-  //   alignSelf: 'center',
-  // }
+  fonteNoticia: {
+    fontSize: 12,
+    color: '#000',
+    position: 'absolute',
+    bottom: 5, 
+    right: 5,
+  },
 });

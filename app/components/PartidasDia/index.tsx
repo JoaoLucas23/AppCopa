@@ -41,7 +41,7 @@ export function PartidasDia() {
     const dataString = `${ano}-${mes}-${dia}`;
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/partidas/retornaProximasPartidas`)
+        axios.get(`http://192.168.1.3:3023/api/partidas/retornaProximasPartidas`)
         .then((response) => {
           setPartidas(response.data)
         });

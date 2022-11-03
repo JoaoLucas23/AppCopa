@@ -49,17 +49,12 @@ export const DadosTimes = sequelize.define('DadosTimes', {
         defaultValue: 0,
         allowNull: true,
     },
-    posicao_grupo: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
-        allowNull: true,
-    },
 },{
     timestamps: false,
 }
 );
 
-DadosTimes.sync({alter: true, force: false })
+DadosTimes.sync({alter: false, force: false })
     .then(() => {
         console.log('Tabela DadosTimes criada');
     })

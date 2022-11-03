@@ -64,7 +64,7 @@ export function Calendario() {
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`http://192.168.1.3:3023/api/partidas//retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });
@@ -142,7 +142,7 @@ export function Calendario() {
           agendaDayTextColor: '#fff',
           agendaDayNumColor: '#fff',
           monthTextColor: '#fff',
-          dayTextColor: '#5c595a',
+          dayTextColor: '#fff',
           agendaKnobColor: '#D7CD86',
           dotColor: '#D7CD86',
           selectedDayBackgroundColor: '#D7CD86',

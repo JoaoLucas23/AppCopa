@@ -37,7 +37,7 @@ class TimeService {
     }
     async retornaTimesPorGrupo(id_grupo: number) {
         await GrupoService.retornaGrupoPorId(id_grupo);
-        return Time.findAll({where: {id_grupo: id_grupo}});
+        return Time.findAll({where: {id_grupo: id_grupo}, order: ['posicao']});
     }
 
     async retornaIdDoTimePorNome(nomeTime: string) {

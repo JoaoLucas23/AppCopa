@@ -40,6 +40,16 @@ export const Time = sequelize.define('Time', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    pontos: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
+    posicao: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
 }, {
     timestamps: false,
 });
