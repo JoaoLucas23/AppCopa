@@ -1,0 +1,236 @@
+[
+    {
+        "nome": "Keylor Navas ",
+        "apelido": "Keylor Navas ",
+        "data_nascimento": "1986-12-15",
+        "altura": 185,
+        "posicao": "Goleiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/79422-1602848579.jpg?lm=1"
+    },
+    {
+        "nome": "Esteban Alvarado ",
+        "apelido": "Esteban Alvarado ",
+        "data_nascimento": "1989-04-28",
+        "altura": 193,
+        "posicao": "Goleiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/128502-1667551229.jpg?lm=1"
+    },
+    {
+        "nome": "Patrick Sequeira ",
+        "apelido": "Patrick Sequeira ",
+        "data_nascimento": "1999-03-01",
+        "altura": 190,
+        "posicao": "Goleiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/378482-1667551495.jpg?lm=1"
+    },
+    {
+        "nome": "Francisco Calvo ",
+        "apelido": "Francisco Calvo ",
+        "data_nascimento": "1992-07-08",
+        "altura": 180,
+        "posicao": "Defensor - Zagueiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/188470-1665566463.jpg?lm=1"
+    },
+    {
+        "nome": "Juan Pablo Vargas ",
+        "apelido": "Juan Pablo Vargas ",
+        "data_nascimento": "1995-06-06",
+        "altura": 192,
+        "posicao": "Defensor - Zagueiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/271907-1625561039.jpg?lm=1"
+    },
+    {
+        "nome": "Óscar Duarte ",
+        "apelido": "Óscar Duarte ",
+        "data_nascimento": "1989-06-03",
+        "altura": 186,
+        "posicao": "Defensor - Zagueiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/175323-1661433456.jpg?lm=1"
+    },
+    {
+        "nome": "Kendall Waston ",
+        "apelido": "Kendall Waston ",
+        "data_nascimento": "1988-01-01",
+        "altura": 196,
+        "posicao": "Defensor - Zagueiro",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/195540-1583506305.jpg?lm=1"
+    },
+    {
+        "nome": "Ronald Matarrita ",
+        "apelido": "Ronald Matarrita ",
+        "data_nascimento": "1994-07-09",
+        "altura": 175,
+        "posicao": "Defensor - Lateral Esq.",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/268273-1647708729.jpg?lm=1"
+    },
+    {
+        "nome": "Bryan Oviedo ",
+        "apelido": "Bryan Oviedo ",
+        "data_nascimento": "1990-02-18",
+        "altura": 172,
+        "posicao": "Defensor - Lateral Esq.",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/124983-1661433353.jpg?lm=1"
+    },
+    {
+        "nome": "Keysher Fuller ",
+        "apelido": "Keysher Fuller ",
+        "data_nascimento": "1994-07-12",
+        "altura": 183,
+        "posicao": "Defensor - Lateral Dir.",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/525122-1661433228.jpg?lm=1"
+    },
+    {
+        "nome": "Carlos Martínez ",
+        "apelido": "Carlos Martínez ",
+        "data_nascimento": "1999-03-30",
+        "altura": 176,
+        "posicao": "Defensor - Lateral Dir.",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/511169-1503068039.jpg?lm=1"
+    },
+    {
+        "nome": "Daniel Chacón ",
+        "apelido": "Daniel Chacón ",
+        "data_nascimento": "2001-04-11",
+        "altura": 183,
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/524992-1663971307.jpg?lm=1"
+    },
+    {
+        "nome": "Yeltsin Tejeda ",
+        "apelido": "Yeltsin Tejeda ",
+        "data_nascimento": "1992-03-17",
+        "altura": 179,
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/194218-1661433560.jpg?lm=1"
+    },
+    {
+        "nome": "Douglas López ",
+        "apelido": "Douglas López ",
+        "data_nascimento": "1998-09-21",
+        "altura": 180,
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/580201-1621976400.jpg?lm=1"
+    },
+    {
+        "nome": "Youstin Salas ",
+        "apelido": "Youstin Salas ",
+        "data_nascimento": "1996-06-17",
+        "altura": 173,
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/322958-1621977367.jpg?lm=1"
+    },
+    {
+        "nome": "Celso Borges ",
+        "apelido": "Celso Borges ",
+        "data_nascimento": "1988-05-27",
+        "altura": 182,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/81532-1446727175.jpg?lm=1"
+    },
+    {
+        "nome": "Roan Wilson ",
+        "apelido": "Roan Wilson ",
+        "data_nascimento": "2002-05-01",
+        "altura": 184,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1"
+    },
+    {
+        "nome": "Gerson Torres ",
+        "apelido": "Gerson Torres ",
+        "data_nascimento": "1997-08-28",
+        "altura": 176,
+        "posicao": "Meio-Campo - Meia Direita",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/372737-1661433288.jpg?lm=1"
+    },
+    {
+        "nome": "Álvaro Zamora ",
+        "apelido": "Álvaro Zamora ",
+        "data_nascimento": "2002-03-09",
+        "altura": 183,
+        "posicao": "Meio-Campo - Meia Esquerda",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1"
+    },
+    {
+        "nome": "Brandon Aguilera ",
+        "apelido": "Brandon Aguilera ",
+        "data_nascimento": "2003-06-28",
+        "altura": 181,
+        "posicao": "Meio-Campo - Meia Ofensivo",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/631996-1615660772.jpg?lm=1"
+    },
+    {
+        "nome": "Bryan Ruiz ",
+        "apelido": "Bryan Ruiz ",
+        "data_nascimento": "1985-08-18",
+        "altura": 187,
+        "posicao": "Meio-Campo - Meia Ofensivo",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/39642-1445433048.jpg?lm=1"
+    },
+    {
+        "nome": "Jewison Bennette ",
+        "apelido": "Jewison Bennette ",
+        "data_nascimento": "2004-06-15",
+        "altura": 175,
+        "posicao": "Atacante - Ponta Esquerda",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/743627-1661433162.jpg?lm=1"
+    },
+    {
+        "nome": "Joel Campbell ",
+        "apelido": "Joel Campbell ",
+        "data_nascimento": "1992-06-26",
+        "altura": 178,
+        "posicao": "Atacante - Ponta Direita",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/131248-1661433399.jpg?lm=1"
+    },
+    {
+        "nome": "Anthony Hernández ",
+        "apelido": "Anthony Hernández ",
+        "data_nascimento": "2001-10-11",
+        "altura": 180,
+        "posicao": "Atacante - Ponta Direita",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/1035805-1665146681.jpg?lm=1"
+    },
+    {
+        "nome": "Anthony Contreras ",
+        "apelido": "Anthony Contreras ",
+        "data_nascimento": "2000-01-29",
+        "altura": 180,
+        "posicao": "Atacante - Centroavante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/483362-1661433520.jpg?lm=1"
+    },
+    {
+        "nome": "Johan Venegas ",
+        "apelido": "Johan Venegas ",
+        "data_nascimento": "1988-11-27",
+        "altura": 183,
+        "posicao": "Atacante - Centroavante",
+        "pais": "Costa Rica",
+        "imagem": "https://img.a.transfermarkt.technology/portrait/header/195424-1489696474.jpg?lm=1"
+    }
+]
