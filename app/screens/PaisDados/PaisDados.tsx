@@ -38,7 +38,7 @@ export function PaisDados() {
     const [Pais, setPais] = useState<Props>();
 
     useEffect(() => {
-        axios.get(`http://192.168.1.3:3023/api/times/retornaTimeComDado/${id}`)
+        axios.get(`http://192.168.1.7:3023/api/times/retornaTimeComDado/${id}`)
         .then((response) => {
             setPais(response.data)
         });

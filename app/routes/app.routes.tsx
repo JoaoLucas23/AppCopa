@@ -5,6 +5,8 @@ import { HomeStackNavigator } from "./homeStack.routes";
 import { CalendarioStackNavigator } from "./calendarioStack.routes";
 import { Noticias } from "../screens/Noticias/Noticias";
 import { Login } from "../screens/Login/Login";
+import { Bolao } from "../screens/Bolao/Bolao";
+import { Perfil } from "../screens/Perfil/Perfil";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
@@ -25,6 +27,9 @@ export function AppRoutes() {
                   else if (route.name === 'Noticias') {
                     iconName = focused ? 'newspaper' : 'md-newspaper';
                   }
+                  else if (route.name === 'Bolão') {
+                    iconName = focused ? 'football-outline' : 'football';
+                  }
                   else if (route.name === 'Perfil') {
                     iconName = focused ? 'md-person' : 'ios-person';
                   }
@@ -43,7 +48,8 @@ export function AppRoutes() {
                 <Tab.Screen name="Grupos" component={GruposStackNavigator} />
                 <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
                 <Tab.Screen name="Noticias" component={Noticias} />
-                <Tab.Screen name="Perfil" component={Login} />
+                <Tab.Screen name="Bolão" component={Bolao} />
+                <Tab.Screen name="Perfil" component={Perfil} />
             </Tab.Navigator>
     );
 }

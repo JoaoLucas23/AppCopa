@@ -64,7 +64,7 @@ export function Calendario() {
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.3:3023/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`http://192.168.1.7:3023/api/partidas//retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });

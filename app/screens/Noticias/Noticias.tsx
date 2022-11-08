@@ -11,7 +11,7 @@ export function Noticias() {
     const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
     useEffect(() => {
-        axios.get(`http://192.168.1.3:3023/api/noticias/retornaTodasNoticias/`)
+        axios.get(`http://192.168.1.7:3023/api/noticias/retornaTodasNoticias/`)
         .then((response) => {
           setNoticias(response.data)
         });

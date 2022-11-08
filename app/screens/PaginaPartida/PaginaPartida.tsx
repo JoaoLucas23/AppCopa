@@ -36,7 +36,7 @@ export function PaginaPartida() {
     const [partida, setPartida] = useState<Props>();
 
     useEffect(() => {
-        axios.get(`http://192.168.1.3:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
+        axios.get(`http://192.168.1.7:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
         .then((response) => {
           setPartida(response.data)
         });

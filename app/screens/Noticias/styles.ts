@@ -5,20 +5,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8b1638',    
   },
-  filtragem:{
-    marginTop: 10,
-    width: '100%',
-    flex: 0.1,
-    alignSelf: 'center',
-    marginBottom: 5,
-  },
-  inputText: {
-    width: '95%',
-    height: 40,
-    alignSelf: 'center',
-  },
   carroselNoticias: {
-    flex: 0.9,
+    flex: 1,
+    marginTop: 20,
   },
   textPesquisa: {
     height: '75%',
