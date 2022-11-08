@@ -1,8 +1,6 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 export interface PaisProps {
     id: number;

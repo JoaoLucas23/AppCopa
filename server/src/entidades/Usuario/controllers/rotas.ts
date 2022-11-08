@@ -1,16 +1,10 @@
 import { Router } from "express";
+// import { loginMiddleware } from "../../../middlewares/login";
 import UsuarioService from "../services/UsuarioService";
 
 const rotasUsuario: Router = Router();
 
-rotasUsuario.post("/", async (req, res, next) => {
-    try {
-        const usuario = await UsuarioService.login(req.body);
-        res.status(200).send(usuario);
-    } catch (err) {
-        next(err);
-    }
-});
+rotasUsuario.post("/",);
 
 rotasUsuario.post(('/criarUsuario'),
     async (req, res, next) => {

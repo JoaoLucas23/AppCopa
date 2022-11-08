@@ -7,6 +7,7 @@ import { Noticias } from "../screens/Noticias/Noticias";
 import { Login } from "../screens/Login/Login";
 import { Bolao } from "../screens/Bolao/Bolao";
 import { Perfil } from "../screens/Perfil/Perfil";
+import { Cadastro } from "../screens/Cadastro/Cadastro";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
@@ -49,7 +50,7 @@ export function AppRoutes() {
                 <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
                 <Tab.Screen name="Noticias" component={Noticias} />
                 <Tab.Screen name="Bolão" component={Bolao} />
-                <Tab.Screen name="Perfil" component={Perfil} />
+                <Tab.Screen name="Perfil" component={Cadastro} />
             </Tab.Navigator>
     );
 }

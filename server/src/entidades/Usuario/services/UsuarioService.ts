@@ -38,16 +38,6 @@ class UsuarioService {
         usuario.destroy();
     }
 
-    async login(body: UserProps) {
-        const usuario = await Usuario.findOne({
-            where: {
-                email: body.email,
-                senha: body.senha,
-            },
-        });
-        if (usuario) return usuario;
-        else throw new Error("Usuario não encontrado");
-    }
 }
 
 export default new UsuarioService();
