@@ -3,9 +3,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { HeaderPartida } from '../../components/HeaderPartida/HeaderPartida';
+import { FooterPartida } from '../../components/FooterPartida/FooterPartida';
 
-interface PaisProps {
+export interface PaisProps {
     bandeira: string;
     id: number;
     id_grupo: number;
@@ -14,19 +15,24 @@ interface PaisProps {
     titulos: number;
 }
   
-interface PartidaProps {
+export interface PartidaProps {
     data: string;
     fase: string;
     id: number;
     id_grupo: number;
     id_time_1: number;
     id_time_2: number;
+    gols_time_1: number;
+    gols_time_2: number;
+    live: boolean;
+    played: boolean;
 }
   
-interface Props {
+export interface Props {
     partida: PartidaProps;
     time1: PaisProps;
     time2: PaisProps;
+    live: boolean;
 }
 
 export function PaginaPartida() {
@@ -38,11 +44,9 @@ export function PaginaPartida() {
     useEffect(() => {
         axios.get(`http://192.168.1.7:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
         .then((response) => {
-          setPartida(response.data)
+          setPartida(response.data);
         });
       }, []);
-
-      const icon = "close-outline";
 
       let grupo;
 
@@ -76,47 +80,51 @@ export function PaginaPartida() {
             break;
     }
 
-    const dia = new Date(partida?.partida.data).getDate();
-    const mes = new Date(partida?.partida.data).getMonth() + 1;
-    const ano = new Date(partida?.partida.data).getFullYear();
-    const hora = new Date(partida?.partida.data).getHours()-3;
+    const live = false;
+    const played = false;
 
-    const navigation = useNavigation();
+    console.log(partida);
 
-  async function handleClick(idPais: number) {
-    navigation.navigate('PaisDados', idPais);
-  }
+    if(!partida) return null;
 
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.top}>
-              <TouchableOpacity style={styles.topView} onPress={()=>handleClick(partida?.time1.id)}>
-                <Image source={{uri: partida?.time1.bandeira}} style={styles.bandeira} />
-                <Text style={styles.nomeTime}>{partida?.time1.nome}</Text>
-              </TouchableOpacity>
-              <Text style={styles.icon}>{<Ionicons name={icon} color='#838081' size={80}/>}</Text>  
-              <TouchableOpacity style={styles.topView} onPress={()=>handleClick(partida?.time2.id)}>
-                <Image source={{uri: partida?.time2.bandeira}} style={styles.bandeira} />
-                <Text style={styles.nomeTime}>{partida?.time2.nome}</Text>
-              </TouchableOpacity>
-          </View> 
-          <Text style={styles.data}>{dia+'/'+mes+'/'+ano+'  '+hora+':00'}</Text>
-        </View>
+      <View style={styles.partidaContainer}>
+        <HeaderPartida
+          partida={partida?.partida}
+          time1={partida?.time1}
+          time2={partida?.time2}
+          live={live}
+        />
         <View style={styles.infos}>
-            <Text style={styles.texto}>Fase: {partida?.partida.fase}</Text>
+          <View style={styles.info}>
+            <Text style={styles.texto}>Fase</Text>
+            <Text style={styles.infoText}>{partida?.partida.fase}</Text>
+          </View>
+          
             {
               partida?.partida.fase == 'grupo' &&
-              <Text style={styles.texto}>Grupo: {grupo}</Text>
+              <View style={styles.info}>
+                <Text style={styles.texto}>Grupo</Text>
+                <Text style={styles.infoText}>{grupo}</Text>
+              </View>
             }
-                        {
+
+            {
               partida?.partida.fase == 'grupo' &&
-              <Text style={styles.texto}>Rodada: 1</Text>
+              <View style={styles.info}>
+                <Text style={styles.texto}>Rodada</Text>
+                <Text style={styles.infoText}>1</Text>
+              </View>
             }
-            <Text style={styles.texto}>Estadio: </Text>
-
+            <View style={styles.info}>
+              <Text style={styles.texto}>Estadio</Text>
+              <Text style={styles.infoText}>Arena Fonte Nova</Text>
+            </View>
+          
         </View>
-
+          <FooterPartida />
+      </View>
     </SafeAreaView>
   );
 }

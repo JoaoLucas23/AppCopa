@@ -85,7 +85,7 @@ export function Calendario() {
           });
         });
         setItems(newItems);
-      }, 500);
+      }, 100);
     };
 
     const exibeItem = (id: string) => {
@@ -120,39 +120,41 @@ export function Calendario() {
     }
 
 
+    if(!partidas ) return null;
+
   return (
     <SafeAreaView style={styles.container}>
-      <Agenda
-        items={items}
-        selected={hoje.toString()}
-        onDayPress={day => {
-          setMes(day.month);
-        }}
-        loadItemsForMonth={loadItems}
-        renderItem={(item, firstItemInDay) => exibeItem(item.name)}
-        renderEmptyData={() => {
-          return <View>
-            <Text style={styles.diaVazio}>Nenhuma partida no dia selecionado!</Text>
-            </View>;
-        }}
-        scrollEnabled={true}
-        futureScrollRange={5}
-        pastScrollRange={5}
-        theme={{
-          agendaDayTextColor: '#fff',
-          agendaDayNumColor: '#fff',
-          monthTextColor: '#fff',
-          dayTextColor: '#fff',
-          agendaKnobColor: '#D7CD86',
-          dotColor: '#D7CD86',
-          selectedDayBackgroundColor: '#D7CD86',
-          selectedDayTextColor: 'black',
-          selectedDotColor: 'black',
-          todayTextColor: '#8b1638',
-          backgroundColor: '#8b1638',
-          calendarBackground: '#8b1638',
-        }}
-/>
+        <Agenda
+          items={items}
+          selected={hoje.toString()}
+          onDayPress={day => {
+            setMes(day.month);
+          }}
+          loadItemsForMonth={loadItems}
+          renderItem={(item, firstItemInDay) => exibeItem(item.name)}
+          renderEmptyData={() => {
+            return <View>
+              <Text style={styles.diaVazio}>Nenhuma partida no dia selecionado!</Text>
+              </View>;
+          }}
+          scrollEnabled={true}
+          futureScrollRange={3}
+          pastScrollRange={3}
+          theme={{
+            agendaDayTextColor: '#fff',
+            agendaDayNumColor: '#fff',
+            monthTextColor: '#fff',
+            dayTextColor: '#fff',
+            agendaKnobColor: '#D7CD86',
+            dotColor: '#D7CD86',
+            selectedDayBackgroundColor: '#D7CD86',
+            selectedDayTextColor: 'black',
+            selectedDotColor: 'black',
+            todayTextColor: '#8b1638',
+            backgroundColor: '#8b1638',
+            calendarBackground: '#8b1638',
+          }}
+        />
     </SafeAreaView>
   );
 }
