@@ -8,15 +8,18 @@ class JogadoresService {
         const time = await TimeService.retornaIdDoTimePorNome(body.time);
         const jogador = {
             nome: body.nome,
+            apelido: body.apelido,
+            altura: body.altura,
+            pe: body.pe,
             posicao: body.posicao,
             data_nascimento: body.data_nascimento,
             id_time: time,
             foto: body.foto,
         }
         const novo_jogador = await Jogador.create(jogador);
-        const idJogador = novo_jogador.getDataValue("id");
-        await DadosJogadorService.criaDadosJogador(idJogador);
-        return novo_jogador;
+        // const idJogador = novo_jogador.getDataValue("id");
+        // await DadosJogadorService.criaDadosJogador(idJogador);
+        // return novo_jogador;
     }
 
     async criar26JogadoresTodosTimes(body: JogadorProps) {

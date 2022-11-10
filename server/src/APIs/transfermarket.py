@@ -15,7 +15,8 @@ use the headers variable
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
 
 # endereco_da_pagina stands for the data page address
-endereco_da_pagina = "https://www.transfermarkt.com.br/costa-rica/startseite/verein/8497"
+pais = "Estados Unidos"
+endereco_da_pagina = "https://www.transfermarkt.com.br/vereinigte-staaten/startseite/verein/3505"
 
 # In the objeto_response variable we will the download of the web page
 objeto_response = requests.get(endereco_da_pagina, headers=headers)
@@ -48,10 +49,12 @@ for link in links:
     data = data_nascimento.split("/")[2]+"-"+data_nascimento.split("/")[1]+"-"+data_nascimento.split("/")[0]
     altura = pagina_jogador.find('span', {'itemprop': 'height'}).text.replace("\n", "").replace("  ", "").split("m")[0]
     altura = int(altura.replace(",", ""))
-    posicao = pagina_jogador.findAll('span', {'class': 'info-table__content info-table__content--bold'})
-    posicao = posicao[6].text.replace("\n", "").replace("  ", "")
+    dados_jogador = pagina_jogador.findAll('span', {'class': 'info-table__content info-table__content--bold'})
+    posicao = dados_jogador[6].text.replace("\n", "").replace("  ", "")
     imagem = pagina_jogador.find('img', {'class': "data-header__profile-image"})["src"]
-    pais = "Costa Rica"
+    # nome = dados_jogador[0].text.replace("\n", "").replace("  ", "")
+    # print(nome)
+    pe = dados_jogador[7].text.replace("\n", "").replace("  ", "")
     jogador = {
         'nome': apelido,
         'apelido': apelido,
@@ -59,7 +62,8 @@ for link in links:
         'altura': altura,
         'posicao': posicao,
         'pais': pais,
-        'imagem': imagem
+        'foto': imagem,
+        'pe': pe
     }
     jogadores.append(jogador)
     

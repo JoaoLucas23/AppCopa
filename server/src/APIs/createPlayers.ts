@@ -10,7 +10,8 @@ interface JogadoresProps {
     altura: number;
     posicao: string;
     pais: string;
-    imagem: string;
+    foto: string;
+    pe: string;
 }
 
 const rotasJogadoresJson = Router();
@@ -57,7 +58,8 @@ async function criaJogadores(jogadores: JogadoresProps[]) {
             altura: jogador.altura,
             posicao: pos,
             id_time: idPais,
-            foto: jogador.imagem
+            foto: jogador.foto,
+            pe: jogador.pe,
         }
         await Jogador.create(j);
     });

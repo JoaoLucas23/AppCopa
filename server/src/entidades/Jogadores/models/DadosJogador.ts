@@ -30,6 +30,15 @@ export const DadosJogador = sequelize.define('DadosJogador', {
         allowNull: false,
         defaultValue: 0,
     },
+    gols_sofridos: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    assistencias: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+    },
     cartoes_amarelos: {
         type: DataTypes.INTEGER,
         allowNull: false,

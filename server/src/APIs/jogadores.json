@@ -1,236 +1,262 @@
 [
     {
-        "nome": "Keylor Navas ",
-        "apelido": "Keylor Navas ",
-        "data_nascimento": "1986-12-15",
-        "altura": 185,
+        "nome": "Matt Turner ",
+        "apelido": "Matt Turner ",
+        "data_nascimento": "1994-06-24",
+        "altura": 191,
         "posicao": "Goleiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/79422-1602848579.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/425306-1618135024.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Esteban Alvarado ",
-        "apelido": "Esteban Alvarado ",
-        "data_nascimento": "1989-04-28",
-        "altura": 193,
-        "posicao": "Goleiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/128502-1667551229.jpg?lm=1"
-    },
-    {
-        "nome": "Patrick Sequeira ",
-        "apelido": "Patrick Sequeira ",
-        "data_nascimento": "1999-03-01",
+        "nome": "Sean Johnson ",
+        "apelido": "Sean Johnson ",
+        "data_nascimento": "1989-05-31",
         "altura": 190,
         "posicao": "Goleiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/378482-1667551495.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/126630-1618691914.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Francisco Calvo ",
-        "apelido": "Francisco Calvo ",
-        "data_nascimento": "1992-07-08",
-        "altura": 180,
+        "nome": "Ethan Horvath ",
+        "apelido": "Ethan Horvath ",
+        "data_nascimento": "1995-06-09",
+        "altura": 195,
+        "posicao": "Goleiro",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/242284-1608457892.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Cameron Carter-Vickers ",
+        "apelido": "Cameron Carter-Vickers ",
+        "data_nascimento": "1997-12-31",
+        "altura": 183,
         "posicao": "Defensor - Zagueiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/188470-1665566463.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/341049-1654888707.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Juan Pablo Vargas ",
-        "apelido": "Juan Pablo Vargas ",
-        "data_nascimento": "1995-06-06",
-        "altura": 192,
+        "nome": "Walker Zimmerman ",
+        "apelido": "Walker Zimmerman ",
+        "data_nascimento": "1993-05-19",
+        "altura": 190,
         "posicao": "Defensor - Zagueiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/271907-1625561039.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/245337-1646130087.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Óscar Duarte ",
-        "apelido": "Óscar Duarte ",
-        "data_nascimento": "1989-06-03",
+        "nome": "Aaron Long ",
+        "apelido": "Aaron Long ",
+        "data_nascimento": "1992-10-12",
         "altura": 186,
         "posicao": "Defensor - Zagueiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/175323-1661433456.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/271072-1646141155.JPG?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Kendall Waston ",
-        "apelido": "Kendall Waston ",
-        "data_nascimento": "1988-01-01",
-        "altura": 196,
+        "nome": "Tim Ream ",
+        "apelido": "Tim Ream ",
+        "data_nascimento": "1987-10-05",
+        "altura": 186,
         "posicao": "Defensor - Zagueiro",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/195540-1583506305.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/145466-1628697630.jpg?lm=1",
+        "pe": "esquerdo"
     },
     {
-        "nome": "Ronald Matarrita ",
-        "apelido": "Ronald Matarrita ",
-        "data_nascimento": "1994-07-09",
+        "nome": "Antonee Robinson ",
+        "apelido": "Antonee Robinson ",
+        "data_nascimento": "1997-08-08",
+        "altura": 183,
+        "posicao": "Defensor - Lateral Esq.",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/349701-1536047233.jpg?lm=1",
+        "pe": "esquerdo"
+    },
+    {
+        "nome": "Sergiño Dest ",
+        "apelido": "Sergiño Dest ",
+        "data_nascimento": "2000-11-03",
         "altura": 175,
-        "posicao": "Defensor - Lateral Esq.",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/268273-1647708729.jpg?lm=1"
-    },
-    {
-        "nome": "Bryan Oviedo ",
-        "apelido": "Bryan Oviedo ",
-        "data_nascimento": "1990-02-18",
-        "altura": 172,
-        "posicao": "Defensor - Lateral Esq.",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/124983-1661433353.jpg?lm=1"
-    },
-    {
-        "nome": "Keysher Fuller ",
-        "apelido": "Keysher Fuller ",
-        "data_nascimento": "1994-07-12",
-        "altura": 183,
         "posicao": "Defensor - Lateral Dir.",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/525122-1661433228.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/361104-1581956984.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Carlos Martínez ",
-        "apelido": "Carlos Martínez ",
-        "data_nascimento": "1999-03-30",
-        "altura": 176,
-        "posicao": "Defensor - Lateral Dir.",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/511169-1503068039.jpg?lm=1"
-    },
-    {
-        "nome": "Daniel Chacón ",
-        "apelido": "Daniel Chacón ",
-        "data_nascimento": "2001-04-11",
-        "altura": 183,
-        "posicao": "Meio-Campo - Volante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/524992-1663971307.jpg?lm=1"
-    },
-    {
-        "nome": "Yeltsin Tejeda ",
-        "apelido": "Yeltsin Tejeda ",
-        "data_nascimento": "1992-03-17",
-        "altura": 179,
-        "posicao": "Meio-Campo - Volante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/194218-1661433560.jpg?lm=1"
-    },
-    {
-        "nome": "Douglas López ",
-        "apelido": "Douglas López ",
-        "data_nascimento": "1998-09-21",
-        "altura": 180,
-        "posicao": "Meio-Campo - Volante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/580201-1621976400.jpg?lm=1"
-    },
-    {
-        "nome": "Youstin Salas ",
-        "apelido": "Youstin Salas ",
-        "data_nascimento": "1996-06-17",
-        "altura": 173,
-        "posicao": "Meio-Campo - Volante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/322958-1621977367.jpg?lm=1"
-    },
-    {
-        "nome": "Celso Borges ",
-        "apelido": "Celso Borges ",
-        "data_nascimento": "1988-05-27",
-        "altura": 182,
-        "posicao": "Meio-Campo - Meia Central",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/81532-1446727175.jpg?lm=1"
-    },
-    {
-        "nome": "Roan Wilson ",
-        "apelido": "Roan Wilson ",
-        "data_nascimento": "2002-05-01",
+        "nome": "Joe Scally ",
+        "apelido": "Joe Scally ",
+        "data_nascimento": "2002-12-31",
         "altura": 184,
-        "posicao": "Meio-Campo - Meia Central",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1"
+        "posicao": "Defensor - Lateral Dir.",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/504153-1662965954.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Gerson Torres ",
-        "apelido": "Gerson Torres ",
-        "data_nascimento": "1997-08-28",
-        "altura": 176,
-        "posicao": "Meio-Campo - Meia Direita",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/372737-1661433288.jpg?lm=1"
+        "nome": "DeAndre Yedlin ",
+        "apelido": "DeAndre Yedlin ",
+        "data_nascimento": "1993-07-09",
+        "altura": 173,
+        "posicao": "Defensor - Lateral Dir.",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/255916-1647683071.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Álvaro Zamora ",
-        "apelido": "Álvaro Zamora ",
-        "data_nascimento": "2002-03-09",
-        "altura": 183,
-        "posicao": "Meio-Campo - Meia Esquerda",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1"
+        "nome": "Shaq Moore ",
+        "apelido": "Shaq Moore ",
+        "data_nascimento": "1996-11-02",
+        "altura": 180,
+        "posicao": "Defensor - Lateral Dir.",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/336168-1658665728.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Brandon Aguilera ",
-        "apelido": "Brandon Aguilera ",
-        "data_nascimento": "2003-06-28",
-        "altura": 181,
-        "posicao": "Meio-Campo - Meia Ofensivo",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/631996-1615660772.jpg?lm=1"
-    },
-    {
-        "nome": "Bryan Ruiz ",
-        "apelido": "Bryan Ruiz ",
-        "data_nascimento": "1985-08-18",
-        "altura": 187,
-        "posicao": "Meio-Campo - Meia Ofensivo",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/39642-1445433048.jpg?lm=1"
-    },
-    {
-        "nome": "Jewison Bennette ",
-        "apelido": "Jewison Bennette ",
-        "data_nascimento": "2004-06-15",
+        "nome": "Tyler Adams ",
+        "apelido": "Tyler Adams ",
+        "data_nascimento": "1999-02-14",
         "altura": 175,
-        "posicao": "Atacante - Ponta Esquerda",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/743627-1661433162.jpg?lm=1"
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/332705-1666472142.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Joel Campbell ",
-        "apelido": "Joel Campbell ",
-        "data_nascimento": "1992-06-26",
+        "nome": "Kellyn Acosta ",
+        "apelido": "Kellyn Acosta ",
+        "data_nascimento": "1995-07-24",
+        "altura": 177,
+        "posicao": "Meio-Campo - Volante",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/189895-1646503608.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Weston McKennie ",
+        "apelido": "Weston McKennie ",
+        "data_nascimento": "1998-08-28",
+        "altura": 181,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/332697-1642687384.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Yunus Musah ",
+        "apelido": "Yunus Musah ",
+        "data_nascimento": "2002-11-29",
         "altura": 178,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/503991-1648455970.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Cristian Roldán ",
+        "apelido": "Cristian Roldán ",
+        "data_nascimento": "1995-06-03",
+        "altura": 173,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/354792-1647635907.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Luca de la Torre ",
+        "apelido": "Luca de la Torre ",
+        "data_nascimento": "1998-05-23",
+        "altura": 177,
+        "posicao": "Meio-Campo - Meia Central",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/315762-1657208727.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Giovanni Reyna ",
+        "apelido": "Giovanni Reyna ",
+        "data_nascimento": "2002-11-13",
+        "altura": 185,
+        "posicao": "Meio-Campo - Meia Ofensivo",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/504215-1636537626.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Brenden Aaronson ",
+        "apelido": "Brenden Aaronson ",
+        "data_nascimento": "2000-10-22",
+        "altura": 178,
+        "posicao": "Meio-Campo - Meia Ofensivo",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/393323-1583780617.JPG?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Jordan Morris ",
+        "apelido": "Jordan Morris ",
+        "data_nascimento": "1994-10-26",
+        "altura": 181,
+        "posicao": "Atacante - Ponta Esquerda",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/337807-1647636174.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Christian Pulisic ",
+        "apelido": "Christian Pulisic ",
+        "data_nascimento": "1998-09-18",
+        "altura": 177,
         "posicao": "Atacante - Ponta Direita",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/131248-1661433399.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/315779-1638811757.jpg?lm=1",
+        "pe": "direito"
     },
     {
-        "nome": "Anthony Hernández ",
-        "apelido": "Anthony Hernández ",
-        "data_nascimento": "2001-10-11",
-        "altura": 180,
-        "posicao": "Atacante - Ponta Direita",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/1035805-1665146681.jpg?lm=1"
-    },
-    {
-        "nome": "Anthony Contreras ",
-        "apelido": "Anthony Contreras ",
-        "data_nascimento": "2000-01-29",
-        "altura": 180,
-        "posicao": "Atacante - Centroavante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/483362-1661433520.jpg?lm=1"
-    },
-    {
-        "nome": "Johan Venegas ",
-        "apelido": "Johan Venegas ",
-        "data_nascimento": "1988-11-27",
+        "nome": "Timothy Weah ",
+        "apelido": "Timothy Weah ",
+        "data_nascimento": "2000-02-22",
         "altura": 183,
         "posicao": "Atacante - Centroavante",
-        "pais": "Costa Rica",
-        "imagem": "https://img.a.transfermarkt.technology/portrait/header/195424-1489696474.jpg?lm=1"
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/370846-1574781500.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Josh Sargent ",
+        "apelido": "Josh Sargent ",
+        "data_nascimento": "2000-02-20",
+        "altura": 185,
+        "posicao": "Atacante - Centroavante",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/393325-1665128005.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Jesús Ferreira ",
+        "apelido": "Jesús Ferreira ",
+        "data_nascimento": "2000-12-24",
+        "altura": 173,
+        "posicao": "Atacante - Centroavante",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/474249-1645956654.jpg?lm=1",
+        "pe": "direito"
+    },
+    {
+        "nome": "Haji Wright ",
+        "apelido": "Haji Wright ",
+        "data_nascimento": "1998-03-27",
+        "altura": 193,
+        "posicao": "Atacante - Centroavante",
+        "pais": "Estados Unidos",
+        "foto": "https://img.a.transfermarkt.technology/portrait/header/315291-1665561098.png?lm=1",
+        "pe": "direito"	
     }
 ]

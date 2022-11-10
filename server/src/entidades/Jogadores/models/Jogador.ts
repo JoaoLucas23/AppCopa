@@ -10,6 +10,9 @@ export interface JogadorProps {
     time: string;
     id_time: number;
     foto: string;
+    altura: number;
+    pe: string;
+    apelido: string;
 }
 
 export const Jogador = sequelize.define('Jogador', {
@@ -22,6 +25,10 @@ export const Jogador = sequelize.define('Jogador', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    apelido: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     data_nascimento: {
         type: DataTypes.DATEONLY,
         allowNull: false
@@ -30,13 +37,13 @@ export const Jogador = sequelize.define('Jogador', {
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    peso: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-    },
     posicao: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    pe: {
+        type: DataTypes.STRING,
+        allowNull: true
     },
     id_time: {
         type: DataTypes.INTEGER,
