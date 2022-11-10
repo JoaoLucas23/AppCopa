@@ -1,17 +1,26 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
     flex: 1,
-    backgroundColor: '#EDEEE4',
-
+    backgroundColor: COLORS.COLOR_WINE,
+    justifyContent: 'center',
+  },
+  paisContainer: {
+    width: '95%',
+    flex: 0.95,
+    backgroundColor: COLORS.COLOR_GREY,
+    borderRadius: 20,
+    alignSelf: 'center',
+    borderColor: COLORS.COLOR_GOLD,
+    borderWidth: 2,
   },
   pais: {
-    flex: 0.3,
-    marginTop: 50,
+    marginTop: 15,
     alignSelf: 'center',
+    width: '100%',
+    flexDirection: 'column',
   },
   nomePais: {
     fontSize: 20,
@@ -21,25 +30,29 @@ export const styles = StyleSheet.create({
     color: '#8b1638',
   },
   bandeira: {
+    alignSelf: 'center',
     width: 180,
     height: 120,
+    borderRadius: 8,
   },
   paisInfo: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    marginBottom: 10,
   },
   dados: {
-    padding: 20,
+    padding: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'space-around',
   },
   infos: {
-    alignItems: 'center',
-    margin: 10,
+    width: '33%',
   },
   info: {
     color: 'black',
     fontSize: 14,
+    alignSelf: 'center',
   },
   title: {
     color: '#8b1638',
@@ -48,13 +61,12 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dadosTime: {
-    flex: 0.25,
     borderTopColor: '#D7CD86',
     borderTopWidth: 3,
     padding: 10,
   },
   jogadores: {
-    flex: 0.45,
+    flex: 0.9,
     borderTopColor: '#D7CD86',
     borderTopWidth: 3,
     padding: 10,

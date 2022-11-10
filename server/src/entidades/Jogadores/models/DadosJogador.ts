@@ -6,8 +6,15 @@ export interface DadosJogadorProps extends JogadorProps {
     id: number;
     quantidade_jogos: number;
     gols_feitos: number;
+    gols_sofridos: number;
+    assistencias: number;
     cartoes_amarelos: number;
     cartoes_vermelhos: number;
+    defesas: number;
+    desarmes: number;
+    faltas_cometidas: number;
+    faltas_sofridas: number;
+    nota_media: number;
 }
 
 export const DadosJogador = sequelize.define('DadosJogador', {	
@@ -22,31 +29,46 @@ export const DadosJogador = sequelize.define('DadosJogador', {
     },
     quantidade_jogos: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         defaultValue: 0,
     },
     gols_feitos: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         defaultValue: 0,
     },
     gols_sofridos: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        defaultValue: 0,
     },
     assistencias: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         defaultValue: 0,
     },
     cartoes_amarelos: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         defaultValue: 0,
     },
     cartoes_vermelhos: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        defaultValue: 0,
+    },
+    defesas: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+    },
+    desarmes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+    },
+    nota_media: {
+        type: DataTypes.FLOAT,
+        defaultValue: 6.0,
+    },
+    faltas_cometidas: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+    },
+    faltas_sofridas: {
+        type: DataTypes.INTEGER,
         defaultValue: 0,
     },
  }, 
@@ -54,7 +76,7 @@ export const DadosJogador = sequelize.define('DadosJogador', {
     timestamps: false,
 });
 
-DadosJogador.sync({alter: false, force: false })
+DadosJogador.sync({alter: true, force: false })
     .then(() => {
         console.log('Tabela DadosJogador criada');
     }

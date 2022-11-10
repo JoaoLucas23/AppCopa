@@ -4,7 +4,9 @@ import JogadoresService from "./JogadoresService";
 
 class DadosJogadorService {
     async criaDadosJogador (idJogador: number){
-        await DadosJogador.create({id_jogador: idJogador});
+        await DadosJogador.create({
+            id_jogador: idJogador
+        });
     }
     
     async getDadosJogador (idJogador: number){

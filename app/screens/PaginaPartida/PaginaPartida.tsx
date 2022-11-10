@@ -1,7 +1,7 @@
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Image, SafeAreaView, Text, View } from 'react-native';
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -81,19 +81,25 @@ export function PaginaPartida() {
     const ano = new Date(partida?.partida.data).getFullYear();
     const hora = new Date(partida?.partida.data).getHours()-3;
 
+    const navigation = useNavigation();
+
+  async function handleClick(idPais: number) {
+    navigation.navigate('PaisDados', idPais);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
         <View style={styles.header}>
           <View style={styles.top}>
-              <View style={styles.topView}>
+              <TouchableOpacity style={styles.topView} onPress={()=>handleClick(partida?.time1.id)}>
                 <Image source={{uri: partida?.time1.bandeira}} style={styles.bandeira} />
                 <Text style={styles.nomeTime}>{partida?.time1.nome}</Text>
-              </View>
+              </TouchableOpacity>
               <Text style={styles.icon}>{<Ionicons name={icon} color='#838081' size={80}/>}</Text>  
-              <View style={styles.topView}>
+              <TouchableOpacity style={styles.topView} onPress={()=>handleClick(partida?.time2.id)}>
                 <Image source={{uri: partida?.time2.bandeira}} style={styles.bandeira} />
                 <Text style={styles.nomeTime}>{partida?.time2.nome}</Text>
-              </View>
+              </TouchableOpacity>
           </View> 
           <Text style={styles.data}>{dia+'/'+mes+'/'+ano+'  '+hora+':00'}</Text>
         </View>

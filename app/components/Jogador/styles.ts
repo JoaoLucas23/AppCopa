@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,8 +7,9 @@ export const styles = StyleSheet.create({
     height: 70,
     flexDirection: 'row',
     padding: 20,
-    borderWidth: 0.5,
-    borderColor: '#D7CD86',
+    borderWidth: 1,
+    borderColor: COLORS.COLOR_GOLD,
+    borderRadius: 8,
     marginTop: 5,
   },
   foto: {

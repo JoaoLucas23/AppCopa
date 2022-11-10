@@ -1,4 +1,5 @@
 import { Router } from "express";
+import DadosJogadorService from "../services/DadosJogadorService";
 import JogadoresService from "../services/JogadoresService";
 
 const rotasJogador: Router = Router();
@@ -50,6 +51,28 @@ rotasJogador.get( "/retornaJogadorPorId/:idJogador",
         const idJogador: number = parseInt(req.params.idJogador);
         const jogador = await JogadoresService.retornaJogadorPorId(idJogador);
         res.status(200).json(jogador);
+    } catch (error) {
+        next(error);
+    }
+});
+
+rotasJogador.get( "/retornaDadosPorIdJogador/:idJogador",
+    async (req, res, next) => {
+    try {
+        const idJogador: number = parseInt(req.params.idJogador);
+        const jogador = await DadosJogadorService.getDadosJogador(idJogador);
+        res.status(200).json(jogador);
+    } catch (error) {
+        next(error);
+    }
+});
+
+rotasJogador.post("/criaDadosJogador/:idJogador", 
+    async (req, res, next) => {
+    try {
+        const idJogador: number = parseInt(req.params.idJogador);
+        await DadosJogadorService.criaDadosJogador(idJogador);
+        res.status(204).end();
     } catch (error) {
         next(error);
     }

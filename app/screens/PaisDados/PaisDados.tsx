@@ -80,50 +80,49 @@ export function PaisDados() {
 
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.pais} >
-            <Image source={{uri: Pais?.bandeira}} style={styles.bandeira}/>
-            <Text style={styles.nomePais}>{Pais?.nome}</Text>
-            <View style={styles.paisInfo}>
-                <Text style={styles.info}>Títulos: {Pais?.titulos}</Text>
-                <Text style={styles.info}>Grupo: {grupo}</Text>
-            </View>
-        </View>
-        <View style={styles.dadosTime}>
-            <Text style={styles.title}>Dados</Text>
-            <View style={styles.dados}>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Posicao no grupo</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.posicao_grupo}º</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Gols Feitos</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.gols_feitos}</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Gols Sofridos</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.gols_sofridos}</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Jogos</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.quantidade_jogos}</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Vitórias</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.vitorias}</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Empates</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.empates}</Text>
-                </View>
-                <View style={styles.infos} >
-                    <Text style={styles.info}>Derrotas</Text>
-                    <Text style={styles.info}>{Pais?.DadosTime.derrotas}</Text>
+        <View style={styles.paisContainer}>
+            <View style={styles.pais} >
+                <Image source={{uri: Pais?.bandeira}} style={styles.bandeira}/>
+                <Text style={styles.nomePais}>{Pais?.nome}</Text>
+                <View style={styles.paisInfo}>
+                    <Text style={styles.info}>Títulos: {Pais?.titulos}</Text>
+                    <Text style={styles.info}>Grupo: {grupo}</Text>
+                    <Text style={styles.info}>Posicao: {Pais?.DadosTime.posicao_grupo}º</Text>
                 </View>
             </View>
-        </View>
-        <View style={styles.jogadores}>
-            <Text style={styles.title}>Jogadores</Text>
-            <JogadoresPais id={id}/>
+            <View style={styles.dadosTime}>
+                <Text style={styles.title}>Dados</Text>
+                <View style={styles.dados}>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Gols Feitos</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.gols_feitos}</Text>
+                    </View>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Gols Sofridos</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.gols_sofridos}</Text>
+                    </View>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Jogos</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.quantidade_jogos}</Text>
+                    </View>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Vitórias</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.vitorias}</Text>
+                    </View>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Empates</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.empates}</Text>
+                    </View>
+                    <View style={styles.infos} >
+                        <Text style={styles.info}>Derrotas</Text>
+                        <Text style={styles.info}>{Pais?.DadosTime.derrotas}</Text>
+                    </View>
+                </View>
+            </View>
+            <View style={styles.jogadores}>
+                <Text style={styles.title}>Jogadores</Text>
+                <JogadoresPais id={id}/>
+            </View>
         </View>
     </SafeAreaView>
   );
