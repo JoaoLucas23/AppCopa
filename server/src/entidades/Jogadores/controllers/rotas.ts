@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getPlayers } from "../../../APIs/api-football/endpoints";
 import DadosJogadorService from "../services/DadosJogadorService";
 import JogadoresService from "../services/JogadoresService";
 
@@ -95,6 +96,17 @@ rotasJogador.delete( "/deleteJogador/:idJogador",
         const idJogador: number = parseInt(req.params.idJogador);
         await JogadoresService.deletaJogador(idJogador);
         res.status(204).end();
+    } catch (error) {
+        next(error);
+    }
+});
+
+rotasJogador.get("/testaApi",
+    async (req, res, next) => {
+    try {
+        const resposta = await getPlayers();
+        console.log(resposta);
+        res.status(200).json(resposta);
     } catch (error) {
         next(error);
     }
