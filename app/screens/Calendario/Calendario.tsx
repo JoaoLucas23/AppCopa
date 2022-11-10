@@ -85,7 +85,7 @@ export function Calendario() {
           });
         });
         setItems(newItems);
-      }, 100);
+      }, 500);
     };
 
     const exibeItem = (id: string) => {

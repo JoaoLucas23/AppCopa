@@ -15,7 +15,6 @@ interface dadosProps {
     vitorias: number;
     empates: number;
     derrotas: number;
-    posicao_grupo: number;
 }
 
 interface Props {
@@ -26,6 +25,7 @@ interface Props {
     nome: string;
     sigla: string;
     titulos: number;
+    posicao: number;
 }
 
 export function PaisDados() {
@@ -87,7 +87,7 @@ export function PaisDados() {
                 <View style={styles.paisInfo}>
                     <Text style={styles.info}>Títulos: {Pais?.titulos}</Text>
                     <Text style={styles.info}>Grupo: {grupo}</Text>
-                    <Text style={styles.info}>Posicao: {Pais?.DadosTime.posicao_grupo}º</Text>
+                    <Text style={styles.info}>Posicao: {Pais?.posicao}º</Text>
                 </View>
             </View>
             <View style={styles.dadosTime}>

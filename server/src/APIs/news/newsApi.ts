@@ -33,6 +33,7 @@ class NewsApiService {
 
         const noticias = await newsAPI.getEverything({
             q: 'Copa do Mundo',
+            qInTitle: 'Copa do Mundo',
             language: 'pt',
             sortBy: 'publishedAt',
         })

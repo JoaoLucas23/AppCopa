@@ -36,6 +36,7 @@ export function CarouselNoticias() {
             <Noticia 
               imagem={item?.imagem} 
               titulo={item?.titulo}
+              url={item?.url}
             />
           )}
           horizontal
