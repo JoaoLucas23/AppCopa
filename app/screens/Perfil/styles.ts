@@ -7,15 +7,23 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.COLOR_WINE,
         paddingVertical: 15,
     },
-    perfil: {
-        flex: 0.3,
-        alignSelf: 'center',
-        backgroundColor: COLORS.COLOR_GREY,
+    card: {
         width: '95%',
+        flex: 0.9,
+        backgroundColor: COLORS.COLOR_GREY,
+        borderRadius: 20,
+        alignSelf: 'center',
+        borderColor: COLORS.COLOR_GOLD,
+        borderWidth: 2,
+        marginTop: 10,
+    },
+    perfil: {
+        width: '100%',
+        alignSelf: 'center',
         borderTopStartRadius: 50,
         borderTopEndRadius: 50,
-        borderColor: COLORS.COLOR_GOLD,
-        borderWidth: 3,
+        borderBottomColor: COLORS.COLOR_GOLD,
+        borderBottomWidth: 2,
     },
     nomeUsuario: {
         fontSize: 30,
@@ -28,12 +36,12 @@ export const styles = StyleSheet.create({
         marginTop: 15,
     },
     times: {
-        flex: 0.15,
-        backgroundColor: COLORS.COLOR_GREY,
-        width: '95%',
+        width: '100%',
         alignSelf: 'center',
         flexDirection: 'column',
         padding: 15,
+        borderBottomColor: COLORS.COLOR_GOLD,
+        borderBottomWidth: 2,
     },
     timesContainer: {
         backgroundColor: COLORS.COLOR_GREY,
@@ -56,9 +64,8 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     boloes: {
-        flex: 0.55,
         backgroundColor: COLORS.COLOR_GREY,
-        width: '95%',
+        width: '100%',
         alignSelf: 'center',
         borderBottomEndRadius: 50,
         borderBottomStartRadius: 50,
@@ -71,7 +78,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         justifyContent: 'space-between',
-        width: '95%',
+        width: '100%',
         height: 50,
         marginRight: 20,
         marginTop: 10,
@@ -87,5 +94,21 @@ export const styles = StyleSheet.create({
     },
     titulo: {
         fontSize: 20,
+        fontWeight: 'bold',
+    },
+    titulo2: {
+        fontSize: 16,
+        color: COLORS.COLOR_DARK_WINE,
+        textAlign: 'center',
+        marginTop: 20,
+    },
+    botoes: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20,
+    },
+    botao: {
+        width: '48%',
     }
 });
