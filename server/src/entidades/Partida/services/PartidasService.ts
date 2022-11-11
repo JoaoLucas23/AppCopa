@@ -3,6 +3,7 @@ import GrupoService from "../../Grupo/services/GrupoService";
 import TimeService from "../../Time/services/TimeService";
 import { Time } from "../../Time/models/Time";
 import { Op } from "sequelize";
+import { Estadios } from "../../Estadios/Estadio";
 
 class PartidasService {
     async criaPartida(body: PartidaProps){
@@ -30,7 +31,13 @@ class PartidasService {
     }
 
     async retornaPartidaPorId(idPartida: number){
-        const partida = await Partida.findByPk(idPartida);
+        const partida = await Partida.findByPk(idPartida, {
+            include: [
+                {
+                    model: Estadios,
+                },
+                    ],
+        });
         const time1 = await Time.findByPk(partida?.getDataValue('id_time_1'));
         const time2 = await Time.findByPk(partida?.getDataValue('id_time_2'));
         if (partida) return {partida, time1, time2};

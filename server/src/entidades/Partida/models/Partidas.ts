@@ -55,6 +55,10 @@ export const Partida = sequelize.define('Partidas', {
     played: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+    },
+    rodada: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
     }
 }, {
     timestamps: false,
@@ -63,7 +67,7 @@ export const Partida = sequelize.define('Partidas', {
 Partida.belongsTo(Estadios, {foreignKey: 'id_estadio'});
 Estadios.hasMany(Partida, {foreignKey: 'id_estadio'});
 
-Partida.sync({alter:false, force: false })
+Partida.sync({alter:true, force: false })
     .then(() => {
         console.log('Tabela Partida criada');
     }

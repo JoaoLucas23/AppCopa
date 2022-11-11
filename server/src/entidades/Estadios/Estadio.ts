@@ -36,7 +36,7 @@ export const Estadios = sequelize.define('Estadios', {
     timestamps: false,
 });
 
-Estadios.sync({alter:true, force: false })
+Estadios.sync({alter:false, force: false })
     .then(() => {
         console.log('Tabela Estadios criada');
     }

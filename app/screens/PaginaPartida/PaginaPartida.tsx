@@ -1,7 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, Text, Modal, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { styles } from './styles';
 import { HeaderPartida } from '../../components/HeaderPartida/HeaderPartida';
 import { FooterPartida } from '../../components/FooterPartida/FooterPartida';
@@ -14,7 +14,15 @@ export interface PaisProps {
     sigla: string;  
     titulos: number;
 }
-  
+
+export interface EstadioProps {
+  id: number;
+  nome: string;
+  cidade: string;
+  capacidade: number;
+  foto: string;
+  visible: boolean;
+}
 export interface PartidaProps {
     data: string;
     fase: string;
@@ -24,15 +32,17 @@ export interface PartidaProps {
     id_time_2: number;
     gols_time_1: number;
     gols_time_2: number;
+    id_estadio: number;
     live: boolean;
     played: boolean;
+    rodada: number;
+    Estadio: EstadioProps;
 }
   
 export interface Props {
     partida: PartidaProps;
     time1: PaisProps;
     time2: PaisProps;
-    live: boolean;
 }
 
 export function PaginaPartida() {
@@ -40,6 +50,7 @@ export function PaginaPartida() {
     const idPartida = route.params;
 
     const [partida, setPartida] = useState<Props>();
+    const [modalVisible, setModalVisible] = useState(false);
 
     useEffect(() => {
         axios.get(`http://192.168.1.7:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
@@ -80,11 +91,6 @@ export function PaginaPartida() {
             break;
     }
 
-    const live = false;
-    const played = false;
-
-    console.log(partida);
-
     if(!partida) return null;
 
   return (
@@ -94,18 +100,18 @@ export function PaginaPartida() {
           partida={partida?.partida}
           time1={partida?.time1}
           time2={partida?.time2}
-          live={live}
+          live={partida.partida.live}
         />
         <View style={styles.infos}>
           <View style={styles.info}>
-            <Text style={styles.texto}>Fase</Text>
+            <Text style={styles.texto}>Fase:</Text>
             <Text style={styles.infoText}>{partida?.partida.fase}</Text>
           </View>
           
             {
               partida?.partida.fase == 'grupo' &&
               <View style={styles.info}>
-                <Text style={styles.texto}>Grupo</Text>
+                <Text style={styles.texto}>Grupo:</Text>
                 <Text style={styles.infoText}>{grupo}</Text>
               </View>
             }
@@ -113,17 +119,41 @@ export function PaginaPartida() {
             {
               partida?.partida.fase == 'grupo' &&
               <View style={styles.info}>
-                <Text style={styles.texto}>Rodada</Text>
-                <Text style={styles.infoText}>1</Text>
+                <Text style={styles.texto}>Rodada:</Text>
+                <Text style={styles.infoText}>{partida.partida.rodada}</Text>
               </View>
             }
             <View style={styles.info}>
-              <Text style={styles.texto}>Estadio</Text>
-              <Text style={styles.infoText}>Arena Fonte Nova</Text>
+              <Text style={styles.texto}>Estádio:</Text>
+              <Text style={styles.estadioText} onPress={()=>setModalVisible(true)}>
+                {partida.partida.Estadio.nome}
+              </Text>
             </View>
-          
+            
         </View>
           <FooterPartida />
+          <Modal visible={modalVisible} animationType='fade'
+              onRequestClose={() => setModalVisible(false)}
+              transparent={true}
+              >
+            <View style={styles.modalContainer}>
+              <Image source={{uri: partida.partida.Estadio.foto}} style={styles.fotoEstadio}/>
+              <Text style={styles.nomeEstadio}>{partida.partida.Estadio.nome}</Text>
+              <View style={styles.estadioInfo}>
+                  <View style={styles.infoEstadio}>
+                      <Text style={styles.texto}>Cidade:</Text>
+                      <Text style={styles.infoText}>{partida.partida.Estadio.cidade}</Text>
+                  </View>
+                  <View style={styles.infoEstadio}>
+                      <Text style={styles.texto}>Capacidade:</Text>
+                      <Text style={styles.infoText}>{partida.partida.Estadio.capacidade}</Text>
+                  </View>
+              </View>
+              <TouchableOpacity style={styles.botaoFechar} onPress={()=>setModalVisible(false)}>
+                  <Text style={styles.textoBotaoFechar}>Fechar</Text>
+              </TouchableOpacity>
+          </View>
+        </Modal>
       </View>
     </SafeAreaView>
   );
