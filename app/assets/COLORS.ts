@@ -3,9 +3,9 @@ const COLOR_DARK_WINE = '#680018';
 const COLOR_WHITE = '#ffffff';
 const COLOR_BLACK = '#000000';
 const COLOR_GOLD = '#D7CD86';
+const COLOR_DARK_GOLD = '#83782b';
 const COLOR_GREY = '#EDEEE4';
-const COLOR_LIGHT_GREY = '#BDBDBD';
-const COLOR_DARK_GREY = '#A0A0A0';
+const COLOR_DARK_GREY = '#5e5e5e';
 
 export const COLORS = {
     COLOR_WINE,
@@ -13,7 +13,7 @@ export const COLORS = {
     COLOR_WHITE,
     COLOR_BLACK,
     COLOR_GOLD,
+    COLOR_DARK_GOLD,
     COLOR_GREY,
     COLOR_DARK_GREY,
-    COLOR_LIGHT_GREY
 };

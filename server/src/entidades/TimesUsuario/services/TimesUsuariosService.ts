@@ -1,7 +1,7 @@
 import { TimesUsuario, TimesUsuarioProps } from "../models/TimesUsuario";
 
 class TimesUsuariosService {
-    async adicionaTimesFavoritos({listaTimes, id_usuario}: TimesUsuarioProps) {
+    async adicionaTimesFavoritos(id_usuario: number, listaTimes: []) {
         console.log("listaTimes: ", listaTimes);
         for(const time of listaTimes)
         {
@@ -11,6 +11,7 @@ class TimesUsuariosService {
             });
         }
     }
+
     async retornaTimesFavoritos(id_usuario: number) {
         const times = await TimesUsuario.findAll({
             where: {

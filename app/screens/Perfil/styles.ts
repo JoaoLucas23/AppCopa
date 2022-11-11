@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     },
     card: {
         width: '95%',
-        flex: 0.9,
+        flex: 0.99,
         backgroundColor: COLORS.COLOR_GREY,
         borderRadius: 20,
         alignSelf: 'center',
@@ -22,8 +22,10 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         borderTopStartRadius: 50,
         borderTopEndRadius: 50,
-        borderBottomColor: COLORS.COLOR_GOLD,
-        borderBottomWidth: 2,
+    },
+    bandeira: {
+        width: 50,
+        height: 35,
     },
     nomeUsuario: {
         fontSize: 30,
@@ -40,19 +42,17 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         flexDirection: 'column',
         padding: 15,
-        borderBottomColor: COLORS.COLOR_GOLD,
-        borderBottomWidth: 2,
     },
     timesContainer: {
         backgroundColor: COLORS.COLOR_GREY,
-        flexDirection: 'row',
+        flexDirection: 'column',
         marginTop: 10,
     },
     time: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 50,
+        height: 80,
         marginRight: 20,
     },
     nomeTime: {
@@ -64,33 +64,32 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     boloes: {
-        backgroundColor: COLORS.COLOR_GREY,
         width: '100%',
         alignSelf: 'center',
-        borderBottomEndRadius: 50,
-        borderBottomStartRadius: 50,
         padding: 15,
     },
-    bolaoContainer: {
+    boloesContainer: {
         flexDirection: 'column',
+        width: '100%',
     },
     bolao: {
         flexDirection: 'row',
-        alignSelf: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        height: 50,
+        height: 45,
         marginRight: 20,
         marginTop: 10,
         borderRadius: 10,
-        backgroundColor: COLORS.COLOR_DARK_WINE,
+        backgroundColor: COLORS.COLOR_GREY,
+        borderColor: COLORS.COLOR_DARK_GOLD,
+        borderWidth: 1,
     },
     nomeBolao: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: COLORS.COLOR_WHITE,
+        color: COLORS.COLOR_DARK_WINE,
         alignSelf: 'center',
-        padding: 15,
+        padding: 10,
     },
     titulo: {
         fontSize: 20,
@@ -98,9 +97,13 @@ export const styles = StyleSheet.create({
     },
     titulo2: {
         fontSize: 16,
-        color: COLORS.COLOR_DARK_WINE,
+        color: COLORS.COLOR_BLACK,
+        alignSelf: 'center',
         textAlign: 'center',
         marginTop: 20,
+        borderBottomColor: COLORS.COLOR_GOLD,
+        borderBottomWidth: 0.75,
+        width: '75%',
     },
     botoes: {
         width: '100%',
@@ -110,5 +113,10 @@ export const styles = StyleSheet.create({
     },
     botao: {
         width: '48%',
+    },
+    botaoTime: {
+        marginVertical: 10,
+        width: '80%',
+        alignSelf: 'center',
     }
 });

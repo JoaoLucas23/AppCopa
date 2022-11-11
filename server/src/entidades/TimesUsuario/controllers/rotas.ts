@@ -7,8 +7,20 @@ rotasTimesUsuario.get('/retornaTimesUsuarios/:idUsuario',
     async (req, res, next) => {
         try {
             const idUsuario: number = parseInt(req.params.idUsuario);
-            const timesUsuarios = await TimesUsuariosService.retornaTimesFavoritosComUsuario(idUsuario);
+            const timesUsuarios = await TimesUsuariosService.retornaTimesFavoritos(idUsuario);
             res.status(200).json(timesUsuarios);
+        } catch (error) {
+            next(error);
+        }
+});
+
+rotasTimesUsuario.post('/cadastraTimeUsuario/:idUsuario',
+    async (req, res, next) => {
+        try {
+            const idUsuario: number = parseInt(req.params.idUsuario);
+            const times: [] = req.body.listaTimes; 
+            await TimesUsuariosService.adicionaTimesFavoritos(idUsuario, times);
+            res.status(200).end();
         } catch (error) {
             next(error);
         }
