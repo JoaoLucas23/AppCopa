@@ -1,5 +1,5 @@
 import { DadosJogador, DadosJogadorProps } from "../models/DadosJogador"
-import { Jogador } from "../models/Jogador";
+import { Jogador, JogadorProps } from "../models/Jogador";
 import JogadoresService from "./JogadoresService";
 
 class DadosJogadorService {
@@ -17,6 +17,14 @@ class DadosJogadorService {
     async editaDadosJogador (idJogador: number, body: DadosJogadorProps){
         const dadosJogador = await this.getDadosJogador(idJogador);
         await dadosJogador?.update(body);
+    }
+
+    async criaDadosJogadores(){
+        const jogadores = await JogadoresService.retornaTodosJogadores();
+        jogadores.forEach(async (jogador) => {
+            const id = jogador.getDataValue("id");
+            await this.criaDadosJogador(id);
+        });
     }
 }
 

@@ -1,6 +1,8 @@
 import NewsAPI from "ts-newsapi";
 
-const newsAPI = new NewsAPI(process.env.NEWS_API_TOKEN);
+const token = process.env.NEWS_API_TOKEN ? process.env.NEWS_API_TOKEN : "";
+
+const newsAPI = new NewsAPI(token);
 
 class NewsApiService {
     async retornaPrincipaisNoticias(){

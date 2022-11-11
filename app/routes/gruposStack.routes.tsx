@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Grupos } from "../screens/Grupos/Grupos";
+import { Classificacao } from "../screens/Classificacao/Classificacao";
 import { PaisDados } from "../screens/PaisDados/PaisDados";
 
 
@@ -11,7 +11,7 @@ export function GruposStackNavigator() {
                 headerShown: false,
             }
         }>
-            <GruposStack.Screen name="Grupos" component={Grupos} />
+            <GruposStack.Screen name="Grupos" component={Classificacao} />
             <GruposStack.Screen name="PaisDados" component={PaisDados} />
         </GruposStack.Navigator>
     );

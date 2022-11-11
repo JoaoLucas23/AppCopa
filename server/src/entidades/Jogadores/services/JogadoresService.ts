@@ -1,5 +1,7 @@
+import { Op } from "sequelize";
 import { Time } from "../../Time/models/Time";
 import TimeService from "../../Time/services/TimeService";
+import { DadosJogador } from "../models/DadosJogador";
 import { Jogador, JogadorProps } from "../models/Jogador";
 import DadosJogadorService from "./DadosJogadorService";
 
@@ -60,6 +62,26 @@ class JogadoresService {
             }
         }
         );
+    }
+
+    async retornaJogadoresComDados(ordenacao: string, ord: string) {
+        console.log(ordenacao);
+        return await Jogador.findAll({
+            include: [
+                {
+                    model: DadosJogador,
+                    where: {
+                        quantidade_jogos: {
+                            [Op.gt]: [0]
+                        }
+                    }
+                }
+            ],
+            order: [
+                [DadosJogador, ordenacao, ord]
+            ],
+            limit: 10,
+        });
     }
 
     async deletaJogador(idJogador: number) {

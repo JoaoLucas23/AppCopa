@@ -25,6 +25,16 @@ rotasJogador.post("/criarJogadoresTodosTimes",
     }
 });
 
+rotasJogador.post("/criaDadosJogadores",
+    async (req, res, next) => {
+    try {
+        await DadosJogadorService.criaDadosJogadores();
+        res.status(204).end();
+    } catch (error) {
+        next(error);
+    }
+});
+
 rotasJogador.put( "/editaJogador/:idJogador",
     async (req, res, next) => {
     try {
@@ -85,6 +95,18 @@ rotasJogador.get( "/retornaJogadoresPorTime/:id_time",
         const id_time: number = parseInt(req.params.id_time);
         const jogador = await JogadoresService.retornaJogadoresPorTime(id_time);
         res.status(200).json(jogador);
+    } catch (error) {
+        next(error);
+    }
+});
+
+rotasJogador.get( "/retornaJogadoresComDados/:ordenacao/:ord",
+    async (req, res, next) => {
+    try {
+        const ord: string = req.params.ord;
+        const ordenacao: string = req.params.ordenacao;
+        const jogadores = await JogadoresService.retornaJogadoresComDados(ordenacao, ord);
+        res.status(200).json(jogadores);
     } catch (error) {
         next(error);
     }

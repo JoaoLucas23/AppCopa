@@ -5,7 +5,7 @@ import { styles } from './styles';
 import axios from 'axios';
 import { PaisProps } from '../../components/Pais/Pais';
 
-interface JogadorProps {
+export interface JogadorProps {
     id: number;
     nome: string;
     data_nascimento: Date;
@@ -18,7 +18,7 @@ interface JogadorProps {
     apelido: string;
 }
 
-interface DadosJogadorProps {
+export interface DadosJogadorProps {
     id: number;
     id_jogador: number;
     quantidade_jogos: number;

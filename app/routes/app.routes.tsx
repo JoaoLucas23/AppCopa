@@ -49,7 +49,6 @@ export function AppRoutes() {
                 <Tab.Screen name="Classificacao" component={GruposStackNavigator} />
                 <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
                 <Tab.Screen name="Noticias" component={Noticias} />
-                <Tab.Screen name="Bolão" component={Bolao} />
                 <Tab.Screen name="Perfil" component={Cadastro} />
             </Tab.Navigator>
     );
