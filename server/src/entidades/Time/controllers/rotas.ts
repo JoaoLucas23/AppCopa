@@ -77,6 +77,19 @@ rotasTime.get(('/retornaTimeComDado/:id'),
         }
 });
 
+rotasTime.get(('/retornaPaisesComDados/:ordenacao/:ord'),
+    async (req, res, next) => {
+        try {
+            const ord: string = req.params.ord;
+            const ordenacao: string = req.params.ordenacao;
+            const times = await TimeService.retornaTodosTimesComDados(ordenacao, ord);
+            res.status(200).json(times);
+        } catch (error) {
+            next(error);
+        }
+});
+
+
 rotasTime.delete(('/deletaTime/:idTime'),
     async (req, res, next) => {
         try {

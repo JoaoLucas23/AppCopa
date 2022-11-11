@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import GrupoService from "../../Grupo/services/GrupoService";
 import { DadosTimes } from "../models/DadosTimes";
 import { Time, TimeProps } from "../models/Time";
@@ -56,6 +57,21 @@ class TimeService {
                     model: DadosTimes
                 }
             ]
+        })
+    }
+
+    async retornaTodosTimesComDados(ordenacao: string, ord: string) {
+        return Time.findAll({
+            include: [
+                {
+                    model: DadosTimes,
+                    where: {quantidade_jogos: {[Op.gt]: 0}}
+                }
+            ],
+            order: [
+                [DadosTimes, ordenacao, ord]
+            ],
+            limit: 10,
         })
     }
 

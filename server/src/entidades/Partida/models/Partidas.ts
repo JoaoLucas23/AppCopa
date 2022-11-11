@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../../database/database";
-import { Time } from "../../Time/models/Time";
+import { Estadios } from "../../Estadios/Estadio";
 
 export interface PartidaProps {
     time1: string;
@@ -36,11 +36,34 @@ export const Partida = sequelize.define('Partidas', {
         type: DataTypes.DATE,
         allowNull: false,
     },
+    gols_time_1: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    gols_time_2: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    id_estadio: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    live: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    played: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    }
 }, {
     timestamps: false,
 });
 
-Partida.sync({alter:true, force: false })
+Partida.belongsTo(Estadios, {foreignKey: 'id_estadio'});
+Estadios.hasMany(Partida, {foreignKey: 'id_estadio'});
+
+Partida.sync({alter:false, force: false })
     .then(() => {
         console.log('Tabela Partida criada');
     }
