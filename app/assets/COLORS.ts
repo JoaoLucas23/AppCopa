@@ -4,6 +4,8 @@ const COLOR_WHITE = '#ffffff';
 const COLOR_BLACK = '#000000';
 const COLOR_GOLD = '#D7CD86';
 const COLOR_GREY = '#EDEEE4';
+const COLOR_LIGHT_GREY = '#BDBDBD';
+const COLOR_DARK_GREY = '#A0A0A0';
 
 export const COLORS = {
     COLOR_WINE,
@@ -12,4 +14,6 @@ export const COLORS = {
     COLOR_BLACK,
     COLOR_GOLD,
     COLOR_GREY,
+    COLOR_DARK_GREY,
+    COLOR_LIGHT_GREY
 };

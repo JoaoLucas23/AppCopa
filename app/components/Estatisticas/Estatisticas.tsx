@@ -56,13 +56,13 @@ export function Estatisticas() {
 
     useEffect(() => {
         if(pesquisa == 'paises') {
-            axios.get(`http://192.168.1.7:3023/api/times/retornaPaisesComDados/${ordenacao}/${ord}`)
+            axios.get(`http://192.168.0.121:3023/api/times/retornaPaisesComDados/${ordenacao}/${ord}`)
             .then((response) => {
                 setPaises(response.data);
         });
         }
         else {
-            axios.get(`http://192.168.1.7:3023/api/jogadores/retornaJogadoresComDados/${ordenacao}/${ord}`)
+            axios.get(`http://192.168.0.121:3023/api/jogadores/retornaJogadoresComDados/${ordenacao}/${ord}`)
             .then((response) => {
                 setJogadores(response.data);
             });

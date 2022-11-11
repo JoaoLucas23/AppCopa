@@ -4,9 +4,6 @@ import { GruposStackNavigator } from "./gruposStack.routes";
 import { HomeStackNavigator } from "./homeStack.routes";
 import { CalendarioStackNavigator } from "./calendarioStack.routes";
 import { Noticias } from "../screens/Noticias/Noticias";
-import { Login } from "../screens/Login/Login";
-import { Bolao } from "../screens/Bolao/Bolao";
-import { Perfil } from "../screens/Perfil/Perfil";
 import { Cadastro } from "../screens/Cadastro/Cadastro";
 const Tab = createBottomTabNavigator();
 

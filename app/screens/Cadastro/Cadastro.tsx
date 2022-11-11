@@ -26,7 +26,7 @@ export function Cadastro() {
   }
 
   useEffect(() => {
-    axios.post('http://192.168.1.7:3023/api/usuarios/criarUsuario', body)
+    axios.post('http://192.168.0.121:3023/api/usuarios/criarUsuario', body)
     .then((response) => {
       console.log(response.data);
       confirmaCadastro();

@@ -4,14 +4,12 @@ import { COLORS } from '../../assets/COLORS';
 export const styles = StyleSheet.create({
     footerLive: {
         width: '100%',
-        marginTop: 10,
-        borderTopColor: COLORS.COLOR_GOLD,
-        borderTopWidth: 1.5,
     },
     eventosView: {
         width: '100%',
         flexDirection: 'column',
-        marginVertical: 10,
+        marginBottom: 10,
+        paddingVertical: 5,
     },
     eventosTimes: {
         width: '100%',
@@ -38,17 +36,9 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         color: COLORS.COLOR_BLACK,
     },
-    titulo: {
-        fontSize: 16,
-        color: COLORS.COLOR_BLACK,
-        fontWeight: 'bold',
-        alignSelf: 'center',
-    },
     footerPlayed: {
         width: '100%',
         marginTop: 10,
-        borderTopColor: COLORS.COLOR_GOLD,
-        borderTopWidth: 1.5,
     },
     escalacaoView: {
         width: '100%',
@@ -56,4 +46,17 @@ export const styles = StyleSheet.create({
         marginTop: 30,
         marginBottom: 10,
     },
+    selectView: {
+        width: '100%',
+        marginTop: 5,
+        borderBottomColor: COLORS.COLOR_GOLD,
+        borderBottomWidth: 0.5,
+      },
+      eventos: {
+        fontSize: 16,
+        color: COLORS.COLOR_BLACK,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 5,
+      },
 });

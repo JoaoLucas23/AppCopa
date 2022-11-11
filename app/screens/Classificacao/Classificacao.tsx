@@ -19,7 +19,7 @@ export function Classificacao() {
     const [estatisticasSelecionado, setEstatisticasSelecionado] = useState<Boolean>(false);
 
     useEffect(() => {
-      axios.get(`http://192.168.1.7:3023/api/grupos/retornaTodosGrupos/`)
+      axios.get(`http://192.168.0.121:3023/api/grupos/retornaTodosGrupos/`)
       .then((response) => {
         setGrupos(response.data)
       });

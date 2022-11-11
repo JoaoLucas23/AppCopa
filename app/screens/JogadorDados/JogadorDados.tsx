@@ -47,21 +47,21 @@ export function JogadorDados() {
 
 
     useEffect(() => {
-        axios.get(`http://192.168.1.7:3023/api/jogadores/retornaJogadorPorId/${id}`)
+        axios.get(`http://192.168.0.121:3023/api/jogadores/retornaJogadorPorId/${id}`)
         .then((response) => {
             setJogador(response.data)
         });
       }, []);
 
       useEffect(() => {
-        axios.get(`http://192.168.1.7:3023/api/times/retornaTime/${Jogador?.id_time}`)
+        axios.get(`http://192.168.0.121:3023/api/times/retornaTime/${Jogador?.id_time}`)
         .then((response) => {
             setPais(response.data)
         });
       }, [Jogador]);
 
       useEffect(() => {
-        axios.get(`http://192.168.1.7:3023/api/jogadores/retornaDadosPorIdJogador/${id}`)
+        axios.get(`http://192.168.0.121:3023/api/jogadores/retornaDadosPorIdJogador/${id}`)
         .then((response) => {
             setDadosJogador(response.data)
         });

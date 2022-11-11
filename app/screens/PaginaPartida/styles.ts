@@ -20,6 +20,8 @@ export const styles = StyleSheet.create({
     width: '100%',
     borderTopWidth: 1.5,
     borderTopColor: '#D7CD86',
+    borderBottomColor: COLORS.COLOR_GOLD,
+    borderBottomWidth: 1.5,
     flexDirection: 'column',
     marginTop: 10,
   },
@@ -105,4 +107,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: '3%',
   },
+  titulo: {
+    fontSize: 16,
+    color: COLORS.COLOR_BLACK,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+},
 });

@@ -5,6 +5,7 @@ import { Image, SafeAreaView, Text, Modal, View, TouchableOpacity, TouchableWith
 import { styles } from './styles';
 import { HeaderPartida } from '../../components/HeaderPartida/HeaderPartida';
 import { FooterPartida } from '../../components/FooterPartida/FooterPartida';
+import { COLORS } from '../../assets/COLORS';
 
 export interface PaisProps {
     bandeira: string;
@@ -52,14 +53,30 @@ export function PaginaPartida() {
     const [partida, setPartida] = useState<Props>();
     const [modalVisible, setModalVisible] = useState(false);
 
+    const [eventosSelecionado, setEventosSelecionado] = useState<Boolean>(true);
+    const [escalacaoSelecionado, setEscalacaoSelecionado] = useState<Boolean>(false);
+    const [selectedTab, setSelectedTab] = useState('eventos');
+
     useEffect(() => {
-        axios.get(`http://192.168.1.7:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
+        axios.get(`http://192.168.0.121:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
         .then((response) => {
           setPartida(response.data);
         });
       }, []);
 
       let grupo;
+
+      async function handleSelection(selected: string) {
+        if(selected === 'eventos') {
+          setEventosSelecionado(true);
+          setEscalacaoSelecionado(false);
+          setSelectedTab('eventos');
+        } else if(selected === 'escalacao') {
+          setEventosSelecionado(false);
+          setEscalacaoSelecionado(true);
+          setSelectedTab('escalacao');
+        }
+      }
 
       switch(partida?.time1.id_grupo) {
         case 1:
@@ -131,7 +148,10 @@ export function PaginaPartida() {
             </View>
             
         </View>
-          <FooterPartida />
+        {
+          (partida?.partida.live || partida.partida.played) &&
+          <FooterPartida selected={selectedTab} />
+        }
           <Modal visible={modalVisible} animationType='fade'
               onRequestClose={() => setModalVisible(false)}
               transparent={true}
