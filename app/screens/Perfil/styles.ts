@@ -5,17 +5,17 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: COLORS.COLOR_WINE,
-        paddingVertical: 15,
+        padding: 12,
     },
     card: {
-        width: '95%',
-        flex: 0.99,
+        padding: 16,
         backgroundColor: COLORS.COLOR_GREY,
+        borderWidth: 2,
+        borderColor: COLORS.COLOR_GOLD,
         borderRadius: 20,
         alignSelf: 'center',
-        borderColor: COLORS.COLOR_GOLD,
-        borderWidth: 2,
-        marginTop: 10,
+        flex: 1,
+        width: '100%',
     },
     tituloView: {
         flexDirection: 'row',
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
         justifyContent: 'center',
         borderBottomColor: COLORS.COLOR_GOLD,
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 0.75,
         height: 70,
     },
     bandeira: {

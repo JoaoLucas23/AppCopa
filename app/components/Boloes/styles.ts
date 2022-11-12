@@ -3,32 +3,33 @@ import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
     boloes: {
-        width: '100%',
+        flex: 1,
+        width: '95%',
+        display: 'flex',
+        flexDirection: 'column',
         alignSelf: 'center',
-        padding: 15,
     },
     boloesContainer: {
         flexDirection: 'column',
         width: '100%',
     },
     bolao: {
+        width: '100%',
+        height: 60,
+        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '100%',
-        height: 45,
-        marginRight: 20,
-        marginTop: 10,
-        borderRadius: 10,
-        backgroundColor: COLORS.COLOR_GREY,
-        borderColor: COLORS.COLOR_DARK_GOLD,
-        borderWidth: 1,
+        alignItems: 'center',
+        padding: 16,
+        backgroundColor: COLORS.COLOR_GOLD7,
+        borderRadius: 6,
+        borderBottomColor: COLORS.COLOR_GREY2,
+        borderBottomWidth: 2,
+        marginBottom: 8,
     },
     nomeBolao: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: COLORS.COLOR_DARK_WINE,
-        alignSelf: 'center',
-        padding: 10,
+        fontSize: 18,
+        color: COLORS.COLOR_BLACK,
     },
     semBoloesText: {
         fontSize: 16,
@@ -37,15 +38,33 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 5,
     },
-    titulo: {
-        fontSize: 20,
+    header: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        marginVertical: 8,
+    },
+    button: {
+        width: '100%',
+        borderRadius: 8,
+        marginTop: 5,
+    },
+    buttonText1: {
+        fontSize: 12,
+        color: COLORS.COLOR_GOLD3,
+        fontWeight: 'bold',
+    },
+    buttonText2: {
+        fontSize: 12,
+        color: COLORS.COLOR_BLACK,
         fontWeight: 'bold',
     },
     tituloView: {
-        flexDirection: 'row',
-        width: '100%',
+        display: 'flex',
+        alignSelf: 'center',
+        marginVertical: 5,
     },
-    icon: {
-        marginTop: -5,
-    },
+    titulo: {
+        fontSize: 20,
+    }
 });

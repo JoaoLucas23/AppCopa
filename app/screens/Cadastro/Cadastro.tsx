@@ -4,7 +4,6 @@ import { SafeAreaView, Text, View, KeyboardAvoidingView, Platform } from 'react-
 import { Button, TextInput } from 'react-native-paper';
 import { COLORS } from '../../assets/COLORS';
 import { useNavigation } from '@react-navigation/native';
-
 import { styles } from './styles';
 import { APP_URL } from '@env';
 
@@ -24,7 +23,6 @@ export function Cadastro() {
       email: email,
       senha: senha,
     });
-    console.log(body);
   }
 
   useEffect(() => {

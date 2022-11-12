@@ -35,17 +35,19 @@ export function Perfil() {
               <View style={styles.perfil}>
                 <Ionicons name={usuario.image} size={40} style={styles.fotoUsuario}/>
                 <Text style={styles.nomeUsuario}>{usuario.name}</Text>
-                <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}/>}/>
+                <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}
+                color={COLORS.COLOR_GOLD8}/>}/>
               </View>
             ) : (
               <View style={styles.perfil}>
                 <Ionicons name={usuario.image} size={40} style={styles.fotoUsuario}/>
                 <Text style={styles.nomeUsuario2}>{usuario.name}</Text>
-                <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}/>}/>
+                <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}
+                color={COLORS.COLOR_GREY3}/>}/>
               </View>
             )
          }
-          <HStack bgColor={COLORS.COLOR_GREY3} p={1} rounded="sm" mb={2.5} w='95%' alignSelf='center' >
+          <HStack bgColor={COLORS.COLOR_GOLD5} p={1} rounded="sm" mb={2.5} w='95%' alignSelf='center' >
                 <Option 
                   title="Times Favoritos" 
                   isSelected={selectedOption === 'times'}
@@ -53,7 +55,7 @@ export function Perfil() {
                 />
 
                 <Option 
-                  title="Boloes" 
+                  title="Bolões" 
                   isSelected={selectedOption === 'boloes'}
                   onPress={() => setSelectedOption('boloes')}
                 />

@@ -56,6 +56,18 @@ rotasTime.get(('/retornaTodosTimes'),
         }
 });
 
+rotasTime.get(('/retornaTodosTimesComFiltro/:filtro'),
+    async (req, res, next) => {
+        try {
+            console.log(req.params.filtro);
+            // const filtro: string = req.params.filtro;
+            // const times = await TimeService.retornaTodosTimesComPesquisa(filtro);
+            // res.status(200).json(times);
+        } catch (error) {
+            next(error);
+        }
+});
+
 rotasTime.get(('/retornaTodosTimes/nomes'),
     async (req, res, next) => {
         try {

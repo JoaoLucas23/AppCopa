@@ -3,6 +3,7 @@ import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
     times: {
+        flex: 1,
         width: '95%',
         display: 'flex',
         flexDirection: 'column',
@@ -36,5 +37,16 @@ export const styles = StyleSheet.create({
     text: {
         fontSize: 18,
         color: COLORS.COLOR_BLACK,
+    },
+    button: {
+        width: '100%',
+        borderRadius: 8,
+        marginTop: 5,
+        marginBottom: 8,
+    },
+    buttonText2: {
+        fontSize: 12,
+        color: COLORS.COLOR_BLACK,
+        fontWeight: 'bold',
     },
 });

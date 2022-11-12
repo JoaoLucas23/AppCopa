@@ -1,7 +1,8 @@
+import { Button, FlatList, NativeBaseProvider, ScrollView, VStack } from 'native-base';
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
-import { IconButton } from 'react-native-paper';
+import { View, Text } from 'react-native';
 import { COLORS } from '../../assets/COLORS';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { styles } from './styles';
 
@@ -14,6 +15,19 @@ const boloes = [
         name: 'Bolão da Copa 2',
         posicao: '2º'
     },
+    {
+      name: 'Bolão da Copa',
+      posicao: '1º'
+  },
+  {
+      name: 'Bolão da Copa 2',
+      posicao: '2º'
+  },
+  {
+    name: 'Bolão da Copa',
+    posicao: '1º'
+},
+
 ]
 
 
@@ -22,13 +36,9 @@ export function Boloes() {
     <View style={styles.boloes}>
       <View style={styles.tituloView}>
         <Text style={styles.titulo}>Meus Bolões</Text>
-        <IconButton iconColor={COLORS.COLOR_DARK_GREY} style={styles.icon} size={25}
-          icon="plus-circle-outline" onPress={()=>console.log("CLICOU")}
-        />
       </View>
-      <View style={styles.boloesContainer}>
       {
-        boloes.length > 10 ? (
+        boloes.length > 0 ? (
           <FlatList
           data={boloes}
           keyExtractor={item => item.name}
@@ -38,14 +48,27 @@ export function Boloes() {
               <Text style={styles.nomeBolao}>{item.posicao}</Text>
             </View>
           )}
-          vertical
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 40 }}
         />
         ) : (
             <Text style={styles.semBoloesText}>Você ainda não participa de nenhum bolão!</Text>
         )
       }
-    </View>
+      <View style={styles.header}>
+        <Button style={styles.button} variant="outline" size="md" backgroundColor={COLORS.COLOR_GOLD5}
+          startIcon={<Ionicons name="md-add-outline" size={20} color={COLORS.COLOR_GOLD3} />}
+          onPress={() => console.log('Pressed')}
+        >
+          <Text style={styles.buttonText1}>Criar Bolão</Text>
+        </Button>
+        <Button style={styles.button} variant="outline" size="md" backgroundColor={COLORS.COLOR_GOLD4}
+          startIcon={<Ionicons name="md-search" size={20} color={COLORS.COLOR_BLACK} />}
+          onPress={() => console.log('Pressed')}
+        >
+          <Text style={styles.buttonText2}>Buscar Bolão</Text>
+        </Button>
+      </View>
   </View>
   );
 }

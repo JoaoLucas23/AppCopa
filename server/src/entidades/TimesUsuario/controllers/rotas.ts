@@ -14,9 +14,10 @@ rotasTimesUsuario.get('/retornaTimesUsuarios/:idUsuario',
         }
 });
 
-rotasTimesUsuario.post('/cadastraTimeUsuario/:idUsuario',
+rotasTimesUsuario.post('/cadastraTimesUsuario/:idUsuario',
     async (req, res, next) => {
         try {
+            console.log(req.body);
             const idUsuario: number = parseInt(req.params.idUsuario);
             const times: [] = req.body.listaTimes; 
             await TimesUsuariosService.adicionaTimesFavoritos(idUsuario, times);

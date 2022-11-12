@@ -75,6 +75,21 @@ class TimeService {
         })
     }
 
+    async retornaTodosTimesComPesquisa(filtro: string) {
+
+        const whereStatement = (filtro === '') ? {} : {
+            nome: {
+                [Op.like]: `%${filtro}%`
+            }
+        }
+        console.log(whereStatement);
+        console.log(filtro);
+        return Time.findAll({
+            where: whereStatement,
+        });
+    }
+
+
     async deletaTime(idTime: number) {
         const time = await this.retornaTimePorId(idTime);
         await time.destroy();
