@@ -4,6 +4,8 @@ import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles';
 import {Agenda} from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
+import {APP_URL} from '@env';
+
 
 LocaleConfig.locales['br'] = {
   monthNames: [
@@ -64,7 +66,7 @@ export function Calendario() {
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`${APP_URL}/api/partidas//retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });

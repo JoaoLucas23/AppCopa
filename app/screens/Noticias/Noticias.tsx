@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, SafeAreaView, Text, Linking, TouchableOpacity, View } from 'react-native';
@@ -5,13 +6,16 @@ import { TextInput } from 'react-native-paper';
 import { COLORS } from '../../assets/COLORS';
 import { NoticiaProps } from '../../components/CarouselNoticias';
 import { styles } from './styles';
+import { APP_URL } from '@env';
 
 export function Noticias() {
 
     const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
+    console.log(APP_URL);
+
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/noticias/retornaTodasNoticias/`)
+        axios.get(`${APP_URL}/api/noticias/retornaTodasNoticias/`)
         .then((response) => {
           setNoticias(response.data)
         });

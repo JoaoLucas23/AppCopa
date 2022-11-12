@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import { useRoute } from '@react-navigation/native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -38,7 +40,7 @@ export function PaisDados() {
     const [Pais, setPais] = useState<Props>();
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/times/retornaTimeComDado/${id}`)
+        axios.get(`${APP_URL}/api/times/retornaTimeComDado/${id}`)
         .then((response) => {
             setPais(response.data)
         });

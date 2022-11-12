@@ -6,6 +6,8 @@ import { COLORS } from '../../assets/COLORS';
 import { useNavigation } from '@react-navigation/native';
 
 import { styles } from './styles';
+import { APP_URL } from '@env';
+
 
 export function Cadastro() {
 
@@ -26,7 +28,7 @@ export function Cadastro() {
   }
 
   useEffect(() => {
-    axios.post('http://192.168.0.121:3023/api/usuarios/criarUsuario', body)
+    axios.post(`${APP_URL}/api/usuarios/criarUsuario`, body)
     .then((response) => {
       console.log(response.data);
       confirmaCadastro();

@@ -4,6 +4,8 @@ import { useRoute } from '@react-navigation/native';
 import { styles } from './styles';
 import axios from 'axios';
 import { PaisProps } from '../../components/Pais/Pais';
+import { APP_URL } from '@env';
+
 
 export interface JogadorProps {
     id: number;
@@ -47,21 +49,21 @@ export function JogadorDados() {
 
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/jogadores/retornaJogadorPorId/${id}`)
+        axios.get(`${APP_URL}/api/jogadores/retornaJogadorPorId/${id}`)
         .then((response) => {
             setJogador(response.data)
         });
       }, []);
 
       useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/times/retornaTime/${Jogador?.id_time}`)
+        axios.get(`${APP_URL}/api/times/retornaTime/${Jogador?.id_time}`)
         .then((response) => {
             setPais(response.data)
         });
       }, [Jogador]);
 
       useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/jogadores/retornaDadosPorIdJogador/${id}`)
+        axios.get(`${APP_URL}/api/jogadores/retornaDadosPorIdJogador/${id}`)
         .then((response) => {
             setDadosJogador(response.data)
         });

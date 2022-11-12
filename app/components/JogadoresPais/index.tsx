@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
@@ -13,7 +15,7 @@ export function JogadoresPais({id}: Props) {
     const [jogadores, setJogadores] = useState<JogadorProps[]>([]);
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/jogadores/retornaJogadoresPorTime/${id}`)
+        axios.get(`${APP_URL}/api/jogadores/retornaJogadoresPorTime/${id}`)
         .then((response) => {
             setJogadores(response.data)
         });

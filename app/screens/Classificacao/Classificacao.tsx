@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
@@ -19,7 +21,7 @@ export function Classificacao() {
     const [estatisticasSelecionado, setEstatisticasSelecionado] = useState<Boolean>(false);
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/grupos/retornaTodosGrupos/`)
+      axios.get(`${APP_URL}/api/grupos/retornaTodosGrupos/`)
       .then((response) => {
         setGrupos(response.data)
       });

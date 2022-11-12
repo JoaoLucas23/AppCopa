@@ -6,6 +6,8 @@ import { styles } from './styles';
 import { HeaderPartida } from '../../components/HeaderPartida/HeaderPartida';
 import { FooterPartida } from '../../components/FooterPartida/FooterPartida';
 import { COLORS } from '../../assets/COLORS';
+import { APP_URL } from '@env';
+
 
 export interface PaisProps {
     bandeira: string;
@@ -58,7 +60,7 @@ export function PaginaPartida() {
     const [selectedTab, setSelectedTab] = useState('eventos');
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/partidas/retornaPartidaPorId/${idPartida}`)
+        axios.get(`${APP_URL}/api/partidas/retornaPartidaPorId/${idPartida}`)
         .then((response) => {
           setPartida(response.data);
         });

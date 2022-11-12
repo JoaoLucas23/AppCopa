@@ -1,8 +1,10 @@
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, SafeAreaView, Text, View } from 'react-native';
 import { Pais, PaisProps } from '../../components/Pais/Pais';
 import { styles } from './styles';
+
 
 interface GrupoProps {
   id: number;
@@ -15,7 +17,7 @@ export function PaisesDoGrupo({id, grupo}: GrupoProps) {
     const [paisesDoGrupo, setPaisesDoGrupo] = useState<PaisProps[]>([]);
 
     useEffect(() => {
-      axios.get(`http://192.168.0.121:3023/api/times/retornaTimesPorGrupo/${id}}`)
+      axios.get(`${APP_URL}/api/times/retornaTimesPorGrupo/${id}}`)
       .then((response) => {
         setPaisesDoGrupo(response.data)
       });

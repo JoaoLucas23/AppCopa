@@ -10,8 +10,6 @@ class UsuarioService {
         };
         const novoUsuario = await Usuario.create(usuario);
         const id_usuario: number = novoUsuario.getDataValue("id");
-        const listaTimes = body.timesFavoritos;
-        await TimesUsuariosService.adicionaTimesFavoritos({listaTimes, id_usuario});
         return usuario;
     }
 

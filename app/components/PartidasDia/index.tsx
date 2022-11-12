@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
@@ -41,7 +43,7 @@ export function PartidasDia() {
     const dataString = `${ano}-${mes}-${dia}`;
 
     useEffect(() => {
-        axios.get(`http://192.168.0.121:3023/api/partidas/retornaProximasPartidas`)
+        axios.get(`${APP_URL}/api/partidas/retornaProximasPartidas`)
         .then((response) => {
           setPartidas(response.data)
         });

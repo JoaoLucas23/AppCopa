@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {  FlatList } from 'react-native';
@@ -19,8 +21,10 @@ export function CarouselNoticias() {
 
   const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
+  const URL = APP_URL+'/api/noticias/retornaTodasNoticias/';
+  
   useEffect(() => {
-    axios.get(`http://192.168.0.121:3023/api/noticias/retornaPrincipaisNoticias`)
+    axios.get(URL)
     .then((response) => {
       setNoticias(response.data)
     });

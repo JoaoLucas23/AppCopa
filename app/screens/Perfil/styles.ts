@@ -17,11 +17,22 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         marginTop: 10,
     },
-    perfil: {
+    tituloView: {
+        flexDirection: 'row',
         width: '100%',
+    },
+    icon: {
+        marginTop: -5,
+    },
+    perfil: {
+        width: '95%',
         alignSelf: 'center',
-        borderTopStartRadius: 50,
-        borderTopEndRadius: 50,
+        flexDirection: 'row',
+        marginBottom: 10,
+        justifyContent: 'center',
+        borderBottomColor: COLORS.COLOR_GOLD,
+        borderBottomWidth: 0.5,
+        height: 70,
     },
     bandeira: {
         width: 50,
@@ -30,15 +41,30 @@ export const styles = StyleSheet.create({
     nomeUsuario: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: COLORS.COLOR_DARK_WINE,
-        textAlign: 'center',
+        color: COLORS.COLOR_BLACK,
+        alignSelf: 'center',
+        textAlignVertical: 'center',
+        padding: 10,
+        marginTop: 8,
+    },
+    nomeUsuario2: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        color: COLORS.COLOR_BLACK,
+        alignSelf: 'center',
+        textAlignVertical: 'center',
+        padding: 10,
+        marginTop: 5,
     },
     fotoUsuario: {
         alignSelf: 'center',
-        marginTop: 15,
+        marginTop: 5,
+    },
+    button: {
+        width: '45%',
     },
     times: {
-        width: '100%',
+        width: '95%',
         alignSelf: 'center',
         flexDirection: 'column',
         padding: 15,
@@ -46,7 +72,7 @@ export const styles = StyleSheet.create({
     timesContainer: {
         backgroundColor: COLORS.COLOR_GREY,
         flexDirection: 'column',
-        marginTop: 10,
+        marginTop: 5,
     },
     time: {
         flexDirection: 'column',
@@ -62,34 +88,6 @@ export const styles = StyleSheet.create({
     },
     fotoTime: {
         alignSelf: 'center',
-    },
-    boloes: {
-        width: '100%',
-        alignSelf: 'center',
-        padding: 15,
-    },
-    boloesContainer: {
-        flexDirection: 'column',
-        width: '100%',
-    },
-    bolao: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: 45,
-        marginRight: 20,
-        marginTop: 10,
-        borderRadius: 10,
-        backgroundColor: COLORS.COLOR_GREY,
-        borderColor: COLORS.COLOR_DARK_GOLD,
-        borderWidth: 1,
-    },
-    nomeBolao: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: COLORS.COLOR_DARK_WINE,
-        alignSelf: 'center',
-        padding: 10,
     },
     titulo: {
         fontSize: 20,
@@ -118,5 +116,5 @@ export const styles = StyleSheet.create({
         marginVertical: 10,
         width: '80%',
         alignSelf: 'center',
-    }
+    },
 });

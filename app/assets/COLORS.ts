@@ -7,6 +7,23 @@ const COLOR_DARK_GOLD = '#83782b';
 const COLOR_GREY = '#EDEEE4';
 const COLOR_DARK_GREY = '#5e5e5e';
 
+const COLOR_GREY2 = '#AAAE8A';
+const COLOR_GREY3 = '#464838';
+const COLOR_GREY4 = '#D0D3B7';
+const COLOR_GREY5='#ABAD9A';
+const COLOR_GREY6='#5E604F';
+const COLOR_GREY7='#F9FAF0';
+
+const COLOR_GOLD2 = '#9F9753';
+const COLOR_GOLD3 = '#F9F1CB';
+const COLOR_GOLD4 = '#AFAB99';
+const COLOR_GOLD5 = '#4A4737';
+const COLOR_GOLD6 = '#EAE1DA';
+const COLOR_GOLD7 = '#FDFAEC';
+const COLOR_GOLD8 = '#9A9419';
+
+
+
 export const COLORS = {
     COLOR_WINE,
     COLOR_DARK_WINE,
@@ -16,4 +33,17 @@ export const COLORS = {
     COLOR_DARK_GOLD,
     COLOR_GREY,
     COLOR_DARK_GREY,
+    COLOR_GREY2,
+    COLOR_GREY3,
+    COLOR_GREY4,
+    COLOR_GREY5,
+    COLOR_GREY6,
+    COLOR_GREY7,
+    COLOR_GOLD2,
+    COLOR_GOLD3,
+    COLOR_GOLD4,
+    COLOR_GOLD5,
+    COLOR_GOLD6,
+    COLOR_GOLD7,
+    COLOR_GOLD8,
 };

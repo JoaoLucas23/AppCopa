@@ -1,3 +1,5 @@
+
+import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text } from 'react-native';
@@ -56,13 +58,13 @@ export function Estatisticas() {
 
     useEffect(() => {
         if(pesquisa == 'paises') {
-            axios.get(`http://192.168.0.121:3023/api/times/retornaPaisesComDados/${ordenacao}/${ord}`)
+            axios.get(`${APP_URL}/api/times/retornaPaisesComDados/${ordenacao}/${ord}`)
             .then((response) => {
                 setPaises(response.data);
         });
         }
         else {
-            axios.get(`http://192.168.0.121:3023/api/jogadores/retornaJogadoresComDados/${ordenacao}/${ord}`)
+            axios.get(`${APP_URL}/api/jogadores/retornaJogadoresComDados/${ordenacao}/${ord}`)
             .then((response) => {
                 setJogadores(response.data);
             });
@@ -128,8 +130,8 @@ export function Estatisticas() {
                 buttonTextStyle={styles.buttonTextStyle}
                 renderDropdownIcon={() => {
                     return (
-                        <View style={styles.dropdownIcon}>
-                            <Text style={styles.dropdownIconText}>▼</Text>
+                        <View>
+                            <Text>▼</Text>
                         </View>
                     );
                 }}
@@ -153,8 +155,8 @@ export function Estatisticas() {
                     buttonTextStyle={styles.buttonTextStyle}
                     renderDropdownIcon={() => {
                         return (
-                            <View style={styles.dropdownIcon}>
-                                <Text style={styles.dropdownIconText}>▼</Text>
+                            <View>
+                                <Text>▼</Text>
                             </View>
                         );
                     }}
@@ -179,8 +181,8 @@ export function Estatisticas() {
                     buttonTextStyle={styles.buttonTextStyle}
                     renderDropdownIcon={() => {
                         return (
-                            <View style={styles.dropdownIcon}>
-                                <Text style={styles.dropdownIconText}>▼</Text>
+                            <View>
+                                <Text>▼</Text>
                             </View>
                         );
                     }}
