@@ -5,9 +5,9 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     flexDirection: 'row',
-    padding: 5,
-    borderBottomColor: COLORS.COLOR_GOLD,
-    borderBottomWidth: 0.2,
+    borderBottomColor: COLORS.COLOR_GOLD4,
+    borderBottomWidth: 0.5,
+    height: 55,
   },
     containerLeft: {
         flex: 1,
@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     },
     containerCenter: {
         flexDirection: 'column',
+        justifyContent: 'center',
     },
     containerRight: {
         flex: 1,

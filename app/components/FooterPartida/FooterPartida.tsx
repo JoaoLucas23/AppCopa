@@ -132,6 +132,14 @@ const eventos = [
         minuto: 25,
         icon: 'md-football'
     },
+    {
+        id: 7,
+        evento: 'gol',
+        time: 'time1',
+        jogador: 'Cristiano Ronaldo',
+        minuto: 55,
+        icon: 'md-football'
+    }
 ]
 
 interface Props {
@@ -140,14 +148,13 @@ interface Props {
 
 export function FooterPartida({selected}: Props) {
     return (
-        <ScrollView style={styles.footerLive}>
+        <View style={styles.footerLive}>
             <View style={styles.selectView}>
-              <Text style={styles.eventos}>EVENTOS</Text>
+              <Text style={styles.eventos}>EVENTOS DA PARTIDA</Text>
             </View>
             {
                 selected == 'eventos' &&
                 <View style={styles.eventosView}>
-                <View style={styles.eventosTimes}>
                     <FlatList 
                         data={eventos.sort((a, b) => b.minuto - a.minuto)}
                         keyExtractor={item => String(item.id)}
@@ -159,8 +166,7 @@ export function FooterPartida({selected}: Props) {
                         showsVerticalScrollIndicator={false}
                     />
                 </View>
-            </View>
             }
-        </ScrollView>
+        </View>
     );
 }
