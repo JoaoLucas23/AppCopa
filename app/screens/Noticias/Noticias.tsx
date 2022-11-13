@@ -12,8 +12,6 @@ export function Noticias() {
 
     const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
-    console.log(APP_URL);
-
     useEffect(() => {
         axios.get(`${APP_URL}/api/noticias/retornaTodasNoticias/`)
         .then((response) => {
@@ -32,14 +30,25 @@ export function Noticias() {
 
   return (
     <SafeAreaView style={styles.container}>
-        <View style={styles.carroselNoticias}>
+        <View style={styles.card}>
             <FlatList 
                 data={noticias}
                 keyExtractor={item => item.url}
                 renderItem={({item}) => (
                     <TouchableOpacity style={styles.noticia} onPress={() => handleClickNoticia(item.url)}>
                         <Image source={{uri: item.imagem}} style={styles.imagemNoticia}/>
-                        <Text style={styles.textoNoticia}>{item.titulo}</Text>
+                        {
+                          item.titulo ? (
+                          <Text style={styles.textoNoticia}>
+                            {item.titulo}
+                          </Text> 
+                          ) : (
+                            <Text style={item.descricao?.length < 150 ? styles.textoNoticia : styles.textoDescricao}>
+                              {item.descricao?.split('.')[0].slice(0,150) + (item.descricao?.length < 150 ? '' : '...')}
+                            </Text>
+                          )
+                        }
+
                         <Text style={styles.fonteNoticia}>{item.fonte}</Text>
                     </TouchableOpacity>
                 )}

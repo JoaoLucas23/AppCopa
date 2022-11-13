@@ -1,31 +1,46 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8b1638',    
+    backgroundColor: COLORS.COLOR_WINE,
+    padding: 12,
   },
-  carroselNoticias: {
+  card: {
+    padding: 12,
+    backgroundColor: COLORS.COLOR_GREY,
+    borderWidth: 2,
+    borderColor: COLORS.COLOR_GOLD,
+    borderRadius: 20,
+    alignSelf: 'center',
     flex: 1,
-    marginTop: 20,
+    width: '100%',
   },
   textPesquisa: {
     height: '75%',
     borderRadius: 15,
     fontSize: 14,
-    color: '#000',
+    color: COLORS.COLOR_BLACK,
     alignSelf: 'center',
-    backgroundColor: '#fff',
-    width: '90%',
+    width: '100%',
   },
   noticia: {
-    backgroundColor: '#fff',
-    width: '95%',
-    height: 100,
+    backgroundColor: COLORS.COLOR_GOLD7,
+    width: '100%',
+    height: 106,
     alignSelf: 'center',
-    borderRadius: 5,
-    marginBottom: 10,
+    borderRadius: 8,
+    marginBottom: 8,
     flexDirection: 'row',
+    borderBottomColor: COLORS.COLOR_GREY2,
+    borderBottomWidth: 1.5,
+    borderLeftColor: COLORS.COLOR_GREY2,
+    borderLeftWidth: 0.75,
+    borderRightColor: COLORS.COLOR_GREY2,
+    borderRightWidth: 0.75,
+    borderTopColor: COLORS.COLOR_GREY2,
+    borderTopWidth: 0.5,
   },
   imagemNoticia: {
     width: '30%',
@@ -39,9 +54,14 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     width: '70%',
   },
+  textoDescricao: {
+    padding: 5,
+    fontSize: 14,
+    width: '70%',
+  },
   fonteNoticia: {
     fontSize: 12,
-    color: '#000',
+    color: COLORS.COLOR_BLACK,
     position: 'absolute',
     bottom: 5, 
     right: 5,
