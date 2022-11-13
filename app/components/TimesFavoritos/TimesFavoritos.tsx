@@ -7,7 +7,7 @@ import { UserProps } from '../../screens/Perfil/Perfil';
 import { styles } from './styles';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { COLORS } from '../../assets/COLORS';
-
+import { useNavigation } from '@react-navigation/native';
 
 interface Props {
     Time: {
@@ -37,6 +37,12 @@ export function TimesFavoritos(usuario: UserProps) {
       })
     }, [usuario.id]);
 
+    const navigator = useNavigation();
+
+    function handleNavigation() {
+      navigator.navigate('EditaTimes', usuario.id);
+    }
+
   return (
     <View style={styles.times}>
             <FlatList
@@ -52,7 +58,7 @@ export function TimesFavoritos(usuario: UserProps) {
             />
       <Button style={styles.button} variant="outline" size="md" backgroundColor={COLORS.COLOR_GOLD4}
           startIcon={<Ionicons name="create-outline" size={20} color={COLORS.COLOR_BLACK} />}
-          onPress={() => console.log('Pressed')}
+          onPress={() => handleNavigation()}
         >
           <Text style={styles.buttonText2}>Editar Times Favoritos</Text>
       </Button>

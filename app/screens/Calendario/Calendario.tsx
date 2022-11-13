@@ -5,6 +5,7 @@ import { styles } from './styles';
 import {Agenda} from 'react-native-calendars';
 import {LocaleConfig} from 'react-native-calendars';
 import {APP_URL} from '@env';
+import { useNavigation } from '@react-navigation/native';
 
 
 LocaleConfig.locales['br'] = {
@@ -61,16 +62,27 @@ const timeToString = (time) => {
 export function Calendario() {
     const [partidas, setPartidas] = useState<Props[]>([]);
     const [items, setItems] = useState({});
-
     let hoje = new Date();
     const [mes, setMes] = useState<number>(hoje.getMonth() + 1);
 
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
-      axios.get(`${APP_URL}/api/partidas//retornaPartidasPorMes/${mes}`)
+      axios.get(`${APP_URL}/api/partidas/retornaPartidasPorMes/${mes}`)
       .then((response) => {
         setPartidas(response.data)
       });
     }, [mes]);
+
+    useEffect(() => {
+      setIsLoading(false);
+    }, [items]);
+
+    const navigator = useNavigation();
+    
+    function handleNavigation(idPartida: number) {
+      navigator.navigate('PaginaPartida', idPartida );
+    }
 
     const loadItems = async () => {
         setTimeout(() => {
@@ -93,16 +105,12 @@ export function Calendario() {
     const exibeItem = (id: string) => {
 
       const idPartida = parseInt(id.split(':')[0]);
-
       const partida = partidas.find(partida => partida.partida.id === idPartida);
-
       const data = new Date(partida.partida.data);
-
       const horario = (data.getHours()-3)+ ':' + '00';
 
-
         return (
-          <TouchableOpacity style={styles.cardPartida}>
+          <TouchableOpacity style={styles.cardPartida} onPress={() => handleNavigation(partida?.partida.id)}>
             <View style={styles.cardPartidaPaises}>
               <View style={styles.cardPartidaPais}>
                 <Text style={styles.cardPartidaText}>{partida?.time1.nome}</Text>
@@ -121,10 +129,7 @@ export function Calendario() {
         );
     }
 
-
-    if(!partidas ) return null;
-
-  return (
+  const AgendaView = (
     <SafeAreaView style={styles.container}>
         <Agenda
           items={items}
@@ -159,4 +164,15 @@ export function Calendario() {
         />
     </SafeAreaView>
   );
+
+  if (isLoading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>Carregando...</Text>
+      </SafeAreaView>
+    );
+  } else {
+      return AgendaView;
+  }
+
 }

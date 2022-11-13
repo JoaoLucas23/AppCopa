@@ -7,6 +7,7 @@ import { Option } from '../../components/Option/Option';
 import React, {useState, useEffect} from 'react';
 import { TimesFavoritos } from '../../components/TimesFavoritos/TimesFavoritos';
 import { Boloes } from '../../components/Boloes/Boloes';
+import { useNavigation } from '@react-navigation/native';
 
 export interface UserProps {
     name: string;
@@ -22,7 +23,13 @@ const usuario : UserProps = {
 
 export function Perfil() {
 
-  const [selectedOption, setSelectedOption] = useState<'times'|'boloes'>('times')
+  const [selectedOption, setSelectedOption] = useState<'times'|'boloes'>('times');
+
+  const navigator = useNavigation();
+
+   function handleNavigation() {
+      navigator.navigate('EditaPerfil', usuario.id);
+   }
 
   return (
     <NativeBaseProvider>
@@ -34,14 +41,14 @@ export function Perfil() {
                 <Ionicons name={usuario.image} size={40} style={styles.fotoUsuario}/>
                 <Text style={styles.nomeUsuario}>{usuario.name}</Text>
                 <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}
-                color={COLORS.COLOR_GOLD8}/>}/>
+                color={COLORS.COLOR_GOLD8}/>} onPress={() => handleNavigation()}/>
               </View>
             ) : (
               <View style={styles.perfil}>
                 <Ionicons name={usuario.image} size={40} style={styles.fotoUsuario}/>
                 <Text style={styles.nomeUsuario2}>{usuario.name}</Text>
                 <IconButton icon={<Ionicons name='create-outline' size={20} style={styles.fotoUsuario}
-                color={COLORS.COLOR_GREY3}/>}/>
+                color={COLORS.COLOR_GREY3} onPress={() => handleNavigation()}/>}/>
               </View>
             )
          }

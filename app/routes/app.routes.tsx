@@ -4,9 +4,7 @@ import { GruposStackNavigator } from "./gruposStack.routes";
 import { HomeStackNavigator } from "./homeStack.routes";
 import { CalendarioStackNavigator } from "./calendarioStack.routes";
 import { Noticias } from "../screens/Noticias/Noticias";
-import { Cadastro } from "../screens/Cadastro/Cadastro";
-import { Perfil } from "../screens/Perfil/Perfil";
-import { SelecionaTimes } from "../screens/SelecionaTImes/SelecionaTimes";
+import { PerfilStackNavigator } from "./PerfilStack.routes";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
@@ -48,7 +46,7 @@ export function AppRoutes() {
                 <Tab.Screen name="Classificacao" component={GruposStackNavigator} />
                 <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
                 <Tab.Screen name="Noticias" component={Noticias} />
-                <Tab.Screen name="Perfil" component={SelecionaTimes} />
+                <Tab.Screen name="Perfil" component={PerfilStackNavigator} />
             </Tab.Navigator>
     );
 }
