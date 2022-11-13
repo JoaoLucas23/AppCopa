@@ -43,21 +43,21 @@ interface PProps {
     titulos: number;
 }
 
-const opcoesJogador = [{id: 1, value: 'quantidade_jogos'}, {id: 2, value: 'assistencias'}, {id: 3, value: 'gols_feitos'}, {id: 4, value: 'gols_sofridos'}, {id: 5, value: 'defesas'},{id: 6, value: 'desarmes'},{id:7, value: 'cartoes_amarelos'},{id:8, value: 'cartoes_vermelhos'},{id:9, value: 'faltas_cometidas'},{id:10, value: 'faltas_sofridas'}];
+const opcoesJogador = [{id: 1, value: 'quantidade_jogos', nome: 'Jogos'}, {id: 2, value: 'assistencias', nome:'Assistências'}, {id: 3, value: 'gols_feitos', nome: 'Gols Feitos'}, {id: 4, value: 'gols_sofridos', nome:'Gols Sofridos'}, {id: 5, value: 'defesas', nome: 'Defesas'},{id: 6, value: 'desarmes', nome: 'Desarmes'},{id:7, value: 'cartoes_amarelos', nome: 'Cartões Amarelos'},{id:8, value: 'cartoes_vermelhos', nome: 'Cartões Vermelhos'},{id:9, value: 'faltas_cometidas', nome:'Faltas Cometidas'},{id:10, value: 'faltas_sofridas', nome: 'Faltas Sofridas'}];
 
-const opcoesPais = [{id: 1, value: 'quantidade_jogos'}, {id: 2, value: 'gols_feitos'}, {id: 3, value: 'gols_sofridos'}, {id: 4, value: 'vitorias'}, {id: 5, value: 'empates'},{id: 6, value: 'derrotas'}];
+const opcoesPais = [{id: 1, value: 'quantidade_jogos', nome: 'Jogos'}, {id: 2, value: 'gols_feitos', nome:'Gols Feitos'}, {id: 3, value: 'gols_sofridos', nome:'Gols Sofridos'}, {id: 4, value: 'vitorias', nome: 'Vitórias'}, {id: 5, value: 'empates', nome: 'Empates'},{id: 6, value: 'derrotas', nome: 'Derrotas'}];
 
 export function Estatisticas() {
 
     const [jogadores, setJogadores] = useState<JProps[]>([]);
     const [paises, setPaises] = useState<PProps[]>([]);
-    const [pesquisa, setPesquisa] = useState('jogadores');
+    const [pesquisa, setPesquisa] = useState('Jogadores');
     const [ordenacao, setOrdenacao] = useState('quantidade_jogos');
     const [ord, setOrd] = useState('DESC');
-    let pos = 0;
+    const [pos, setPos] = useState(0);
 
     useEffect(() => {
-        if(pesquisa == 'paises') {
+        if(pesquisa == 'Paises') {
             axios.get(`${APP_URL}/api/times/retornaPaisesComDados/${ordenacao}/${ord}`)
             .then((response) => {
                 setPaises(response.data);
@@ -110,15 +110,23 @@ export function Estatisticas() {
         return 0;
     }
 
+    function findNomeOrdenacao(ordenacao: string) {
+        if (pesquisa === 'Paises') {
+            return opcoesPais.find((opcao) => opcao.value === ordenacao)?.nome;
+        } else {
+            return opcoesJogador.find((opcao) => opcao.value === ordenacao)?.nome;
+        }
+    }
+
   return (
     <View style={styles.container}>
         <View style={styles.ordenacoes}>
             <SelectDropdown 
-                data={[{id: 1, value: 'jogadores'}, {id: 2, value: 'paises'}]}
+                data={[{id: 1, value: 'Jogadores'}, {id: 2, value: 'Paises'}]}
                 onSelect={(selectedItem, index) => {
                     setPesquisa(selectedItem.value);
                     setOrdenacao('quantidade_jogos');
-                    pos=0;
+                    setPos(1);
                 }}
                 buttonTextAfterSelection={(selectedItem, index) => {
                     return selectedItem.value;
@@ -139,17 +147,17 @@ export function Estatisticas() {
                 defaultValueByIndex={0}
             />
             {
-                pesquisa === 'jogadores' && 
+                pesquisa === 'Jogadores' && 
                 <SelectDropdown 
                     data={opcoesJogador}
                     onSelect={(selectedItem, index) => {
                         setOrdenacao(selectedItem.value);
                     }}
                     buttonTextAfterSelection={(selectedItem, index) => {
-                        return selectedItem.value;
+                        return selectedItem.nome;
                     }}
                     rowTextForSelection={(item, index) => {
-                        return item.value;
+                        return item.nome;
                     }}
                     buttonStyle={styles.buttonStyle}
                     buttonTextStyle={styles.buttonTextStyle}
@@ -162,20 +170,21 @@ export function Estatisticas() {
                     }}
                     dropdownIconPosition={'right'}
                     defaultValueByIndex={0}
+
                 />
             }
             {
-                pesquisa === 'paises' && 
+                pesquisa === 'Paises' && 
                 <SelectDropdown 
                     data={opcoesPais}
                     onSelect={(selectedItem, index) => {
                         setOrdenacao(selectedItem.value);
                     }}
                     buttonTextAfterSelection={(selectedItem, index) => {
-                        return selectedItem.value;
+                        return selectedItem.nome;
                     }}
                     rowTextForSelection={(item, index) => {
-                        return item.value;
+                        return item.nome;
                     }}
                     buttonStyle={styles.buttonStyle}
                     buttonTextStyle={styles.buttonTextStyle}
@@ -191,49 +200,58 @@ export function Estatisticas() {
                 />
             }
         </View>
-        <View style={styles.list}>
-            <View style={styles.tableTitles}>
-                <Text style={styles.text}>POS</Text>
-                <Text style={styles.text}>Jogador</Text>
-                <Text style={styles.text} onPress={() => handleOrdenacao()}>{ordenacao}</Text>
-            </View>
             {
-                pesquisa === 'jogadores' &&
-                <FlatList 
-                    data={jogadores}
-                    keyExtractor={item => String(item.nome)}
-                    renderItem={({item}) => (
-                        <View style={styles.jogador}>
-                            <Text style={styles.posicaoText}>{pos+=1}</Text>
-                            <Text style={styles.jogadorText}>{item.apelido}</Text>
-                            {
-                                <Text style={styles.dadoText}>{getStatJogador(item, ordenacao)}</Text>
-                            }
-                        </View>
-                    )}
-                    showsVerticalScrollIndicator={false}
-                    vertical
-                />
+                pesquisa === 'Jogadores' &&
+                <View style={styles.list}>
+                    <View style={styles.tableTitles}>
+                        <Text style={styles.text1}>POS</Text>
+                        <Text style={styles.text2}>Jogador</Text>
+                        <Text style={styles.text3} onPress={() => handleOrdenacao()}>{findNomeOrdenacao(ordenacao)}</Text>
+                    </View>
+                    <FlatList 
+                        data={jogadores}
+                        keyExtractor={item => String(item.nome)}
+                        renderItem={({item}) => (
+                            <View style={styles.jogador}>
+                                {
+                                    <Text style={styles.posicaoText}>{pos}</Text>
+                                }
+                                <Text style={styles.jogadorText}>{item.apelido}</Text>
+                                {
+                                    <Text style={styles.dadoText}>{getStatJogador(item, ordenacao)}</Text>
+                                }
+                            </View>
+                        )}
+                        showsVerticalScrollIndicator={false}
+                        vertical
+                    />
+                </View>
             }
             {
-                pesquisa === 'paises' &&
-                <FlatList 
-                    data={paises}
-                    keyExtractor={item => String(item.id)}
-                    renderItem={({item}) => (
-                        <View style={styles.jogador}>
-                            <Text style={styles.posicaoText}>{pos+=1}</Text>
-                            <Text style={styles.jogadorText}>{item.nome}</Text>
-                            {
-                                <Text style={styles.dadoText}>{getStatPais(item, ordenacao)}</Text>
-                            }
-                        </View>
-                    )}
-                    showsVerticalScrollIndicator={false}
-                    vertical
-                />
+                pesquisa === 'Paises' &&
+                <View style={styles.list}>
+                    <View style={styles.tableTitles}>
+                        <Text style={styles.text1}>POS</Text>
+                        <Text style={styles.text2}>País</Text>
+                        <Text style={styles.text3} onPress={() => handleOrdenacao()}>{findNomeOrdenacao(ordenacao)}</Text>
+                    </View>
+                    <FlatList 
+                        data={paises}
+                        keyExtractor={item => String(item.id)}
+                        renderItem={({item}) => (
+                            <View style={styles.jogador}>
+                                <Text style={styles.posicaoText}>{pos}</Text>
+                                <Text style={styles.jogadorText}>{item.nome}</Text>
+                                {
+                                    <Text style={styles.dadoText}>{getStatPais(item, ordenacao)}</Text>
+                                }
+                            </View>
+                        )}
+                        showsVerticalScrollIndicator={false}
+                        vertical
+                    />
+                </View>
             }
-        </View>
     </View>
   );
 }

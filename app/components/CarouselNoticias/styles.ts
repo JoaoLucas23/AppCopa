@@ -7,8 +7,6 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     height: '45%',
-    borderBottomColor: COLORS.COLOR_WINE,
-    borderBottomWidth: 1,
   },
   titles: {
     fontSize: 30,
