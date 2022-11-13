@@ -1,32 +1,27 @@
 import { StyleSheet, Dimensions } from 'react-native';
-
-const { width } = Dimensions.get('window');
+import { COLORS } from '../../assets/COLORS';
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: width,
-        height: '100%',
-        paddingTop: 10,
-        paddingHorizontal: 5,
-
+      container: {
+        padding: 1,
+        height: Dimensions.get('window').height*0.4,
       },
       imagem: {
-        width: '100%',
-        height: '95%',
+        width: Dimensions.get('window').width*0.85,
+        height: '90%',
       },
       text: {
         width: '100%',
-        marginLeft: 5,
         top: 0,
         left: 0,
         right: 0,
-        bottom: '10%',
+        bottom: '20%',
         position: 'absolute',
         justifyContent: 'flex-end',
       },
       textTitle: {
-        backgroundColor: 'rgba(0,0,0,0.2)',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        padding: 1,
       },
       titulo: {
         color: "white",

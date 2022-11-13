@@ -30,29 +30,48 @@ interface PaisProps {
     time2: PaisProps;
   }
 
-export function PartidasDia() {
+export function PartidasFavoritos() {
 
-    const [partidas, setPartidas] = useState<Props[]>([]);
+    const [partidas, setPartidas] = useState<Props[]>();
 
-    const hoje = new Date();
-    const dia = hoje.getDate();
-    const mes = hoje.getMonth() + 1;
-    const ano = hoje.getFullYear();
-
-    const dataString = `${ano}-${mes}-${dia}`;
+    const id = 6;
 
     useEffect(() => {
-        axios.get(`${APP_URL}/api/partidas/retornaProximasPartidas`)
-        .then((response) => {
-          setPartidas(response.data)
-        });
+        axios.get(`${APP_URL}/api/timesUsuarios/retornaProximasPartidasFavoritos/${id}`)
+        .then(async (response) => {
+          const resultado = response.data[0];
+          const partidasFavoritas = [];
+          for (let i = 0; i < resultado.length; i++) {
+            const partidas = resultado[i];
+            for (let j = 0; j < partidas.length; j++) {
+              partidasFavoritas.push(partidas[j]);
+            }
+          }
+          handlePartidas(partidasFavoritas);
+        }).catch((error) => {
+          console.log(error);
+        }
+        );
       }, []);
+
+      function handlePartidas(partidas: Props[]) {
+        const arr = partidas.filter((value, index, self) =>
+          index === self.findIndex((t) => (
+            t.partida.id === value.partida.id
+          ))
+        ).sort((a, b) => a.partida.data.localeCompare(b.partida.data)).slice(0, 4);
+        setPartidas(arr);
+      }
+
+
+
+      if (!partidas) return null;
 
   return (
     <View style={styles.matches}>
       <FlatList
           data={partidas}
-          keyExtractor={item => String(item.partida.id)}
+          keyExtractor={item => String(item)}
           renderItem={({item}) => (
           <Partida 
               idPartida={item.partida.id}
@@ -63,7 +82,7 @@ export function PartidasDia() {
               bandeira2={item?.time2.bandeira}
           />
           )}
-          vertical
+          showsVerticalScrollIndicator={false}
       >
 
     </FlatList>

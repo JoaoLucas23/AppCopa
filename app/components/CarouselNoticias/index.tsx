@@ -2,7 +2,7 @@
 import { APP_URL } from '@env';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import {  FlatList } from 'react-native';
+import {  FlatList, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Noticia } from '../Noticia';
 import { styles } from './styles';
@@ -21,8 +21,8 @@ export function CarouselNoticias() {
 
   const [noticias, setNoticias] = useState<NoticiaProps[]>([]);
 
-  const URL = APP_URL+'/api/noticias/retornaTodasNoticias/';
-  
+  const URL = APP_URL+'/api/noticias/retornaPrincipaisNoticias/';
+
   useEffect(() => {
     axios.get(URL)
     .then((response) => {
@@ -33,6 +33,7 @@ export function CarouselNoticias() {
 
   return (
     <SafeAreaView style={styles.container}>
+        <Text style={styles.titles}>Notícias do dia</Text>
         <FlatList
           data={noticias}
           keyExtractor={item => item.url}
@@ -41,6 +42,7 @@ export function CarouselNoticias() {
               imagem={item?.imagem} 
               titulo={item?.titulo}
               url={item?.url}
+              descricao={item.descricao}
             />
           )}
           horizontal

@@ -2,7 +2,7 @@ import { Partida, PartidaProps } from "../models/Partidas";
 import GrupoService from "../../Grupo/services/GrupoService";
 import TimeService from "../../Time/services/TimeService";
 import { Time } from "../../Time/models/Time";
-import { Op } from "sequelize";
+import { Model, Op } from "sequelize";
 import { Estadios } from "../../Estadios/Estadio";
 
 class PartidasService {
@@ -101,11 +101,48 @@ class PartidasService {
     }
 
     async retornaPartidasPorTime(idTime: number){
-        return Partida.findAll({
+        const data = new Date();
+        const partidas1 = await Partida.findAll({
             where: {
-                $or: [ {id_time_1: idTime}, {id_time_2: idTime} ],
+                id_time_1: idTime,
+                data: {
+                    [Op.gt]: data
+                },
             },
+            order: [
+                ['data', 'ASC'],
+            ],
+            limit: 3,
     });
+        const partidas2 = await Partida.findAll({
+            where: {
+                id_time_2: idTime,
+                data: {
+                    [Op.gt]: data
+                },
+            },
+            order: [
+                ['data', 'ASC'],
+            ]
+        });
+    const partidasTimes = [];
+
+    if (partidas1.length > 0) {
+        for (const partida of partidas1) {
+            const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+            const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+            partidasTimes.push({partida, time1, time2});
+        }
+    }
+    if (partidas2.length > 0) {
+        for (const partida of partidas2) {
+            const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+            const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+            partidasTimes.push({partida, time1, time2});
+        }
+    }
+
+    return partidasTimes;
     }
 
     async retornaPartidasPorFase(fase: string){

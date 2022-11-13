@@ -24,8 +24,6 @@ export function Perfil() {
 
   const [selectedOption, setSelectedOption] = useState<'times'|'boloes'>('times')
 
-  
-
   return (
     <NativeBaseProvider>
     <SafeAreaView style={styles.container}>

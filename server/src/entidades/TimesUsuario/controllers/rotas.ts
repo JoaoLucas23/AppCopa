@@ -14,6 +14,18 @@ rotasTimesUsuario.get('/retornaTimesUsuarios/:idUsuario',
         }
 });
 
+rotasTimesUsuario.get('/retornaProximasPartidasFavoritos/:idUsuario/',
+    async (req, res, next) => {
+        try {
+            console.log("entrou");
+            const idUsuario: number = parseInt(req.params.idUsuario);
+            const proximasPartidas = await TimesUsuariosService.retornaProximasPartidasFavoritos(idUsuario);
+            res.status(200).json(proximasPartidas);
+        } catch (error) {
+            next(error);
+        }
+});
+
 rotasTimesUsuario.post('/cadastraTimesUsuario/:idUsuario',
     async (req, res, next) => {
         try {

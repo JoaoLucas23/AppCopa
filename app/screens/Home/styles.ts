@@ -4,24 +4,17 @@ import { COLORS } from '../../assets/COLORS';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#8b1638',
-    },
-    news: {
-        flex: 0.4,
-        borderBottomColor: COLORS.COLOR_DARK_WINE,
-        borderBottomWidth: 2,
-        borderRadius: 10,
-    },
-    matches: {
-        flex: 0.6,
-        borderBottomColor: COLORS.COLOR_DARK_WINE,
-        borderBottomWidth: 2,
-        borderRadius: 10,
-    },
-    titles: {
-        fontSize: 30,
-        paddingHorizontal: 10,
-        color: COLORS.COLOR_WHITE,
-        fontWeight: '900',
-    }
+        backgroundColor: COLORS.COLOR_WINE,
+        padding: 12,
+      },
+      card: {
+        padding: 16,
+        backgroundColor: COLORS.COLOR_GREY,
+        borderWidth: 2,
+        borderColor: COLORS.COLOR_GOLD,
+        borderRadius: 20,
+        alignSelf: 'center',
+        flex: 1,
+        width: '100%',
+      },
 });
