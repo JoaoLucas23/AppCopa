@@ -25,7 +25,10 @@ export function PaisesDoGrupo({id, grupo}: GrupoProps) {
     
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>GRUPO {grupo}</Text>
+      <View style={styles.header}>
+        <Text style={styles.text}>GRUPO {grupo}</Text>
+        <Text style={styles.text2}>Pontos</Text>
+      </View>
       <View style={styles.line}></View>
       <FlatList
             data={paisesDoGrupo}

@@ -5,16 +5,17 @@ export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'center',
-    padding: 10,
-    marginBottom: 20,
+    alignSelf: 'center',
+    marginBottom: 8,
+    width: '90%',
+    height: 50,
   },
   pais: {
-    width: '90%',
+    width: '100%',
     flexDirection: 'row',
   },
   pontuacao: {
-    right: 10,
+    right: 0,
     position: 'absolute',
   },
   textPonto: {

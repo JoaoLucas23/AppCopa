@@ -1,10 +1,12 @@
 
 import { APP_URL } from '@env';
 import axios from 'axios';
+import { HStack, NativeBaseProvider } from 'native-base';
 import React, { useEffect, useState } from 'react';
 import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../../assets/COLORS';
 import { Estatisticas } from '../../components/Estatisticas/Estatisticas';
+import { Option } from '../../components/Option/Option';
 import { PaisesDoGrupo } from '../PaisesGrupo/PaisesDoGrupo';
 import { styles } from './styles';
 
@@ -16,9 +18,7 @@ export interface GrupoProps {
 export function Classificacao() {
 
     const [grupos, setGrupos] = useState<GrupoProps[]>([]);
-    const [grupoSelecionado, setGrupoSelecionado] = useState<Boolean>(true);
-    const [playoffsSelecionado, setPlayoffsSelecionado] = useState<Boolean>(false);
-    const [estatisticasSelecionado, setEstatisticasSelecionado] = useState<Boolean>(false);
+    const [selectedOption, setSelectedOption] = useState<'grupos'|'playoffs' | 'estatisticas'>('grupos')
 
     useEffect(() => {
       axios.get(`${APP_URL}/api/grupos/retornaTodosGrupos/`)
@@ -27,103 +27,54 @@ export function Classificacao() {
       });
     }, []);
 
-  async function handleSelection(selected: string) {
-    if(selected === 'grupos') {
-      setGrupoSelecionado(true);
-      setPlayoffsSelecionado(false);
-      setEstatisticasSelecionado(false);
-    } else if(selected === 'playoffs') {
-      setGrupoSelecionado(false);
-      setPlayoffsSelecionado(true);
-      setEstatisticasSelecionado(false);
-    } else if(selected === 'estatisticas') {
-      setGrupoSelecionado(false);
-      setPlayoffsSelecionado(false);
-      setEstatisticasSelecionado(true);
-    }
-  }
-
-
   return (
+    <NativeBaseProvider> 
     <SafeAreaView  style={styles.container}>
+      <View style={styles.card}>
       <View style={styles.header}>
-        <TouchableOpacity style={ {
-          backgroundColor: grupoSelecionado ? COLORS.COLOR_DARK_WINE : COLORS.COLOR_GOLD,
-          borderColor: grupoSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-          borderWidth: 0.5,
-          width: '31%',
-          height: 35,
-          justifyContent: 'center',
-          } } 
-          onPress={() => handleSelection('grupos')}
-          >
-          <Text style={{
-            color: grupoSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-            fontSize: 16,
-            fontWeight: 'bold',
-            alignSelf: 'center',
-          }}>GRUPOS</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={ {
-          backgroundColor: playoffsSelecionado ? COLORS.COLOR_DARK_WINE : COLORS.COLOR_GOLD,
-          borderColor: playoffsSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-          borderWidth: 0.5,
-          width: '31%',
-          height: 35,
-          justifyContent: 'center',
-          } } 
-          onPress={() => handleSelection('playoffs')}
-          >
-          <Text style={{
-            color: playoffsSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-            fontSize: 16,
-            fontWeight: 'bold',
-            alignSelf: 'center',
-          }}>
-            PLAYOFFS
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={ {
-          backgroundColor: estatisticasSelecionado ? COLORS.COLOR_DARK_WINE : COLORS.COLOR_GOLD,
-          borderColor: estatisticasSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-          borderWidth: 0.5,
-          width: '31%',
-          height: 35,
-          justifyContent: 'center',
-          } } 
-          onPress={() => handleSelection('estatisticas')}
-          >
-          <Text style={{
-            color: estatisticasSelecionado ? COLORS.COLOR_GOLD : COLORS.COLOR_DARK_WINE,
-            fontSize: 16,
-            fontWeight: 'bold',
-            alignSelf: 'center',
-          }}>
-            ESTATISTICAS
-          </Text>
-        </TouchableOpacity>
+      <HStack bgColor={COLORS.COLOR_GOLD5} p={1} rounded="sm" mb={1.5} mt={0} w='95%' alignSelf='center' >
+                <Option 
+                  title="Grupos" 
+                  isSelected={selectedOption === 'grupos'}
+                  onPress={() => setSelectedOption('grupos')}
+                />
+
+                <Option 
+                  title="Playoffs"
+                  isSelected={selectedOption === 'playoffs'}
+                  onPress={() => setSelectedOption('playoffs')}
+                />
+                
+                <Option 
+                  title="Estatísticas"
+                  isSelected={selectedOption === 'estatisticas'}
+                  onPress={() => setSelectedOption('estatisticas')}
+                />
+            </HStack>
       </View>
       {
-      (grupoSelecionado && !playoffsSelecionado && !estatisticasSelecionado) && 
+      (selectedOption === 'grupos') && 
         <FlatList
           data={grupos}
           keyExtractor={item => String(item.id)}
           renderItem={({item}) => (
-          <View>
-          <PaisesDoGrupo id={item.id} grupo={item.grupo} />
-          </View>
+            <View>
+              <PaisesDoGrupo id={item.id} grupo={item.grupo} />
+            </View>
           )}
           showsVerticalScrollIndicator={false}
        />
       }
       {
-      (!grupoSelecionado && playoffsSelecionado && !estatisticasSelecionado) &&
+      (selectedOption === 'playoffs') &&
         <Text> PLAYOFFS </Text>
       }
       {
-      (!grupoSelecionado && !playoffsSelecionado && estatisticasSelecionado) &&
+      (selectedOption === 'estatisticas') &&
         <Estatisticas />
       }
+      </View>
     </SafeAreaView>
+    </NativeBaseProvider>
   );
 }
