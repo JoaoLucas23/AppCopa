@@ -7,7 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from './styles';
 import { APP_URL } from '@env';
 
-
 export function Cadastro() {
 
   const [nome, setNome] = useState<string>('');
