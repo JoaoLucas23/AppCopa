@@ -1,9 +1,11 @@
 import { Sequelize } from "sequelize";
 
+const user = process.env.DB_USER || "";
+
 export const sequelize = new Sequelize(
     'app_copa',
-    'root',	
-    '#Jojoka0723',	
+    user,	
+    process.env.DB_PASSWORD,	
     {
       host: process.env.DB_HOST,
       dialect: 'mysql',

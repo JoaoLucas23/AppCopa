@@ -1,10 +1,11 @@
 import { Router } from "express";
+import { loginMiddleware, notLoggedInMiddleware } from "../../../middlewares/login";
 // import { loginMiddleware } from "../../../middlewares/login";
 import UsuarioService from "../services/UsuarioService";
 
 const rotasUsuario: Router = Router();
 
-rotasUsuario.post("/",);
+rotasUsuario.post("/", notLoggedInMiddleware, loginMiddleware);
 
 rotasUsuario.post(('/criarUsuario'),
     async (req, res, next) => {
