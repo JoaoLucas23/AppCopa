@@ -34,13 +34,6 @@ export function PartidasDia() {
 
     const [partidas, setPartidas] = useState<Props[]>([]);
 
-    const hoje = new Date();
-    const dia = hoje.getDate();
-    const mes = hoje.getMonth() + 1;
-    const ano = hoje.getFullYear();
-
-    const dataString = `${ano}-${mes}-${dia}`;
-
     useEffect(() => {
         axios.get(`${APP_URL}/api/partidas/retornaProximasPartidas`)
         .then((response) => {
@@ -65,7 +58,6 @@ export function PartidasDia() {
           )}
           vertical
       >
-
     </FlatList>
   </View>
   );

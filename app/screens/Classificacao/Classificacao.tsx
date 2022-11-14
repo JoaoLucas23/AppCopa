@@ -8,6 +8,7 @@ import { COLORS } from '../../assets/COLORS';
 import { Estatisticas } from '../../components/Estatisticas/Estatisticas';
 import { Option } from '../../components/Option/Option';
 import { PaisesDoGrupo } from '../PaisesGrupo/PaisesDoGrupo';
+import { Playoffs } from '../Playoffs/Playoffs';
 import { styles } from './styles';
 
 export interface GrupoProps {
@@ -67,7 +68,7 @@ export function Classificacao() {
       }
       {
       (selectedOption === 'playoffs') &&
-        <Text> PLAYOFFS </Text>
+        <Playoffs />
       }
       {
       (selectedOption === 'estatisticas') &&

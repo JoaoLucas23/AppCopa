@@ -146,7 +146,20 @@ class PartidasService {
     }
 
     async retornaPartidasPorFase(fase: string){
-        return Partida.findAll({where: {fase: fase}});
+        const whereStatement = fase == 'final' ? {fase: {[Op.or]: ['disputa_terceiro', 'final']}} : {fase: fase};
+        const partidas = await Partida.findAll({where: whereStatement});
+        const partidasTimes = [];
+
+        if (partidas.length > 0) {
+            for (const partida of partidas) {
+                const time1 = await Time.findByPk(partida.getDataValue('id_time_1'));
+                const time2 = await Time.findByPk(partida.getDataValue('id_time_2'));
+                partidasTimes.push({partida, time1, time2});
+            }
+        }
+
+
+        return partidasTimes;
     }
 
     async retornaPartidasPorMes(mes: number){
