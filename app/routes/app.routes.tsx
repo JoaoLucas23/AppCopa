@@ -5,9 +5,16 @@ import { HomeStackNavigator } from "./homeStack.routes";
 import { CalendarioStackNavigator } from "./calendarioStack.routes";
 import { Noticias } from "../screens/Noticias/Noticias";
 import { PerfilStackNavigator } from "./PerfilStack.routes";
+import { useState } from "react";
+import { Login } from "../screens/Login/Login";
+import { View } from "react-native";
+import { Cadastro } from "../screens/Cadastro/Cadastro";
 const Tab = createBottomTabNavigator();
 
 export function AppRoutes() {
+
+  const [logado, setLogado] = useState(false);
+
     return (
             <Tab.Navigator
             screenOptions={({ route }) => ({
@@ -42,11 +49,11 @@ export function AppRoutes() {
                 },
                 headerShown: false,
               })}>
-                <Tab.Screen name="Home" component={HomeStackNavigator} />
-                <Tab.Screen name="Classificacao" component={GruposStackNavigator} />
-                <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
-                <Tab.Screen name="Noticias" component={Noticias} />
-                <Tab.Screen name="Perfil" component={PerfilStackNavigator} />
+                      <Tab.Screen name="Home" component={HomeStackNavigator} />
+                      <Tab.Screen name="Classificacao" component={GruposStackNavigator} />
+                      <Tab.Screen name="Calendario" component={CalendarioStackNavigator} />
+                      <Tab.Screen name="Noticias" component={Noticias} />
+                      <Tab.Screen name="Perfil" component={PerfilStackNavigator} />          
             </Tab.Navigator>
     );
 }

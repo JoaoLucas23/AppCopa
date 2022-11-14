@@ -1,5 +1,5 @@
 import { sequelize } from "../../../database/database"
-import { DataTypes, Model } from "sequelize";
+import { DataTypes } from "sequelize";
 import { TimesUsuario } from "../../TimesUsuario/models/TimesUsuario";
 
 export interface UserProps {
@@ -7,7 +7,6 @@ export interface UserProps {
     nome: string;
     email: string;
     senha?: string;
-    timesFavoritos: number[];
 }
 
 export const Usuario = sequelize.define("Usuario", {
@@ -39,7 +38,7 @@ export const Usuario = sequelize.define("Usuario", {
 );
 
 TimesUsuario.belongsTo(Usuario, {foreignKey: "id_usuario"});
-Usuario.hasMany(TimesUsuario, {foreignKey: "id_usuario"});
+Usuario.hasMany(TimesUsuario, {foreignKey: "id_usuario", onDelete: "CASCADE"});
 
 Usuario.sync({alter: false, force: false })
     .then(() => {

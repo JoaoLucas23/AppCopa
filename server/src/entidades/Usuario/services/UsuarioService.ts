@@ -1,5 +1,5 @@
-import TimesUsuariosService from "../../TimesUsuario/services/TimesUsuariosService";
 import { Usuario, UserProps} from "../models/Usuario";
+import bcrypt from 'bcrypt';
 
 class UsuarioService {
     async criaUsuario(body: UserProps) {
@@ -8,8 +8,9 @@ class UsuarioService {
             email: body.email,
             senha: body.senha,
         };
+        usuario.senha = usuario.senha || "";
+        usuario.senha = await bcrypt.hash(usuario.senha, 10);
         const novoUsuario = await Usuario.create(usuario);
-        const id_usuario: number = novoUsuario.getDataValue("id");
         return usuario;
     }
 

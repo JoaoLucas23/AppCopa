@@ -28,7 +28,7 @@ export const TimesUsuario = sequelize.define("TimesUsuario", {
 );
 
 TimesUsuario.belongsTo(Time, {foreignKey: "id_time"});
-Time.hasMany(TimesUsuario, {foreignKey: "id_time"});
+Time.hasMany(TimesUsuario, {foreignKey: "id_time", onDelete: "CASCADE"});
 
 TimesUsuario.sync({alter: false, force: false })
     .then(() => {

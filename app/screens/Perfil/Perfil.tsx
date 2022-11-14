@@ -23,8 +23,6 @@ const usuario : UserProps = {
 
 export function Perfil() {
 
-  const [selectedOption, setSelectedOption] = useState<'times'|'boloes'>('times');
-
   const navigator = useNavigation();
 
    function handleNavigation() {
@@ -51,32 +49,12 @@ export function Perfil() {
                 color={COLORS.COLOR_GREY3} onPress={() => handleNavigation()}/>}/>
               </View>
             )
-         }
-          <HStack bgColor={COLORS.COLOR_GOLD5} p={1} rounded="sm" mb={2.5} w='95%' alignSelf='center' >
-                <Option 
-                  title="Times Favoritos" 
-                  isSelected={selectedOption === 'times'}
-                  onPress={() => setSelectedOption('times')}
-                />
-
-                <Option 
-                  title="Bolões" 
-                  isSelected={selectedOption === 'boloes'}
-                  onPress={() => setSelectedOption('boloes')}
-                />
-          </HStack>
-          {
-            selectedOption === 'times' && 
+          }
             <TimesFavoritos 
               id={usuario.id}
               image={usuario.image}
               name={usuario.name}
             />
-          }
-          {
-            selectedOption === 'boloes' &&
-            <Boloes />
-          }
       </View>
     </SafeAreaView>
   </NativeBaseProvider>

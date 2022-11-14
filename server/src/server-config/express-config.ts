@@ -1,14 +1,19 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import cookieParser from 'cookie-parser';
+import { } from '../types/environment';
+ 
 dotenv.config();
 
 const app = express();
 
-app.use(cors());
-
+app.use(cors({credentials: true}));
+app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({
+    extended: true,
+  }));
 
 import rotasUsuario from '../entidades/Usuario/controllers/rotas';
 import rotasTime from '../entidades/Time/controllers/rotas';

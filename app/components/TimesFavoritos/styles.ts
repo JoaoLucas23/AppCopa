@@ -49,4 +49,11 @@ export const styles = StyleSheet.create({
         color: COLORS.COLOR_BLACK,
         fontWeight: 'bold',
     },
+    titulo: {
+        fontSize: 18,
+        color: COLORS.COLOR_BLACK,
+        fontWeight: 'bold',
+        marginBottom: 8,
+        alignSelf: 'center',
+    },
 });

@@ -1,3 +1,5 @@
+import { UserProps } from "../entidades/Usuario/models/Usuario";
+
 export {};
 
 declare global {

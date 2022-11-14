@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { Context, useContext } from 'react';
 import { View, SafeAreaView, Text } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import { COLORS } from '../../assets/COLORS';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
 import { styles } from './styles';
 
-export function Login() {
+
+interface UserProps {
+    nome: string;
+    email: string;
+    senha: string;
+  }
+
+  
+type Props = {
+    auth: () => any;
+  };
+  
+export function Login({auth}: Props) {
 
     const [email, setEmail] = React.useState('');
     const [senha, setSenha] = React.useState('');
-
-    const loginHandler = () => {
-        console.log(email, senha);
-    }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -52,7 +59,7 @@ export function Login() {
                     mode='elevated'
                     buttonColor={COLORS.COLOR_DARK_WINE}
                     textColor={COLORS.COLOR_WHITE}
-                    onPress={() => loginHandler()}
+                    onPress={auth}
                 >
                     Entrar
                 </Button>
@@ -60,19 +67,6 @@ export function Login() {
             <View style={styles.cadastro}>
                 <Text style={styles.cadastroText}>Não possui cadastro?</Text>
                 <Text style={styles.linkCadastro} onPress={()=>console.log("CADASTRO")}>Cadastre-se</Text>
-            </View>
-        </View>
-        <View style={styles.googleView}>
-            <View style={styles.googleButton}>
-                <Button 
-                    icon="google"
-                    mode='elevated'
-                    buttonColor={COLORS.COLOR_WHITE}
-                    textColor={COLORS.COLOR_WINE}
-                    onPress={() => loginHandler()}
-                >
-                Entrar com Google
-            </Button>
             </View>
         </View>
     </SafeAreaView>

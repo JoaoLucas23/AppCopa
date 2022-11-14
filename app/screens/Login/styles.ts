@@ -5,11 +5,13 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.COLOR_WINE,
-    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 12,
   },
   inputView: {
-    flex: 0.65,
-    width: '85%',
+    flex: 1,
+    padding: 16,
+    width: '100%',
     backgroundColor: COLORS.COLOR_WHITE,
     alignSelf: 'center',
     borderRadius: 20,

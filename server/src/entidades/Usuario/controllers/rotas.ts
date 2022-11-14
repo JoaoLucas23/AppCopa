@@ -1,17 +1,32 @@
-import { Router } from "express";
-import { loginMiddleware, notLoggedInMiddleware } from "../../../middlewares/login";
-// import { loginMiddleware } from "../../../middlewares/login";
+import { Request, Router } from "express";
+import { jwtMiddleware, loginMiddleware, notLoggedIn } from "../../../middlewares/login";
 import UsuarioService from "../services/UsuarioService";
 
 const rotasUsuario: Router = Router();
 
-rotasUsuario.post("/", notLoggedInMiddleware, loginMiddleware);
+rotasUsuario.post(("/login"), notLoggedIn, loginMiddleware);
 
 rotasUsuario.post(('/criarUsuario'),
     async (req, res, next) => {
         try {
             const usuario = await UsuarioService.criaUsuario(req.body);
             res.status(204).json(usuario);
+        } catch (error) {
+            next(error);
+        }
+});
+
+rotasUsuario.get(('/usuarioLogado'), jwtMiddleware,
+    async (req, res, next) => {
+        try {
+            console.log(req.user)
+            if (req.user) {
+                const usuario = await UsuarioService.retornaUsuarioPorId(req.user.id);
+                res.status(200).json(usuario);
+            }
+            else {
+                res.status(401).end();
+            }
         } catch (error) {
             next(error);
         }

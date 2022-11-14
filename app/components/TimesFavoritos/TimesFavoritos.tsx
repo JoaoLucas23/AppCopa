@@ -45,6 +45,9 @@ export function TimesFavoritos(usuario: UserProps) {
 
   return (
     <View style={styles.times}>
+      <View>
+        <Text style={styles.titulo}>Times Favoritos</Text>
+      </View>
             <FlatList
                 data={paisesFavoritos}
                 keyExtractor={item => String(item.id)}
