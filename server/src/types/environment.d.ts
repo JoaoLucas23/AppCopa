@@ -1,5 +1,3 @@
-import { UserProps } from "../entidades/Usuario/models/Usuario";
-
 export {};
 
 declare global {
@@ -13,6 +11,14 @@ declare global {
             JWT_EXPIRATION:string
             NODE_ENV:string
             APP_URL:string
+        }
+    }
+    namespace Express {
+        interface User {
+          id: number;
+          email: string;
+          nome: string;
+          email: string;
         }
     }
 }

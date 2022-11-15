@@ -1,5 +1,5 @@
 import { sequelize } from "../../../database/database"
-import { DataTypes } from "sequelize";
+import { DataTypes, Model, Optional } from "sequelize";
 import { TimesUsuario } from "../../TimesUsuario/models/TimesUsuario";
 
 export interface UserProps {
@@ -34,7 +34,7 @@ export const Usuario = sequelize.define("Usuario", {
 },
 {
     timestamps: false,
-}
+}, 
 );
 
 TimesUsuario.belongsTo(Usuario, {foreignKey: "id_usuario"});

@@ -19,9 +19,8 @@ rotasUsuario.post(('/criarUsuario'),
 rotasUsuario.get(('/usuarioLogado'), jwtMiddleware,
     async (req, res, next) => {
         try {
-            console.log(req.user)
             if (req.user) {
-                const usuario = await UsuarioService.retornaUsuarioPorId(req.user.id);
+                const usuario = await UsuarioService.retornaUsuarioPorId(req.user!.id);
                 res.status(200).json(usuario);
             }
             else {

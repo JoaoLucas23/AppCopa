@@ -25,9 +25,7 @@ class UsuarioService {
     }
 
     async retornaUsuarioPorId(userId: number) {
-        const usuario = await Usuario.findByPk(userId, {
-            include: ["TimesFavoritos"],
-        });
+        const usuario = await Usuario.findByPk(userId);
         if (usuario) return usuario;
         else throw new Error("Usuario não encontrado");
     }
