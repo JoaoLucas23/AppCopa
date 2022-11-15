@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
         padding: 12,
     },
     card: {
-        padding: 16,
+        paddingBottom: 16,
+        paddingHorizontal: 16,
         backgroundColor: COLORS.COLOR_GREY,
         borderWidth: 2,
         borderColor: COLORS.COLOR_GOLD,
@@ -16,6 +17,20 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         flex: 1,
         width: '100%',
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        position: 'relative',
+        top: 0,
+    },
+    editView: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    sairView: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     tituloView: {
         flexDirection: 'row',
