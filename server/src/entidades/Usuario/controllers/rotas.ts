@@ -10,6 +10,7 @@ rotasUsuario.post('/logout',
   jwtMiddleware,
   async (req, res, next) => {
     try {
+    console.log("logout")
       res.clearCookie('jwt');
       res.status(204).end();
     } catch (error) {

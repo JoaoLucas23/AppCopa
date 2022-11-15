@@ -17,27 +17,7 @@ export function Home() {
       <SafeAreaView style={styles.container}>
         <View style={styles.card}>
           <CarouselNoticias />
-            <HStack bgColor={COLORS.COLOR_GOLD5} p={1} rounded="sm" mb={2.5} mt={2.5} w='95%' alignSelf='center' >
-                <Option 
-                  title="Próximas Partidas" 
-                  isSelected={selectedOption === 'proximas'}
-                  onPress={() => setSelectedOption('proximas')}
-                />
-
-                <Option 
-                  title="Times Favoritos"
-                  isSelected={selectedOption === 'favoritos'}
-                  onPress={() => setSelectedOption('favoritos')}
-                />
-            </HStack>
-            {
-              selectedOption === 'proximas' &&
-              <PartidasDia />
-            }
-            {
-              selectedOption === 'favoritos' &&
-              <PartidasFavoritos />
-            }
+          <PartidasDia />
         </View>
       </SafeAreaView>
     </NativeBaseProvider>

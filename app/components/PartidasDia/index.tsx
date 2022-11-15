@@ -43,6 +43,7 @@ export function PartidasDia() {
 
   return (
     <View style={styles.matches}>
+      <Text style={styles.titles}>Próximas partidas</Text>
       <FlatList
           data={partidas}
           keyExtractor={item => String(item.partida.id)}

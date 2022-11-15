@@ -1,8 +1,9 @@
 
 import { APP_URL } from '@env';
+import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, Touchable, TouchableOpacity } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import { DadosJogadorProps } from '../../screens/JogadorDados/JogadorDados';
 import { styles } from './styles';
@@ -118,6 +119,13 @@ export function Estatisticas() {
         }
     }
 
+    const navigator = useNavigation();
+
+    function handlePress(opcao: string, id: number) {
+        if(opcao === 'Jogador') navigator.navigate('JogadorDados', id);
+        else navigator.navigate('TimeDados', id);
+    }
+
   return (
     <View style={styles.container}>
         <View style={styles.ordenacoes}>
@@ -212,7 +220,7 @@ export function Estatisticas() {
                         data={jogadores}
                         keyExtractor={item => String(item.nome)}
                         renderItem={({item}) => (
-                            <View style={styles.jogador}>
+                            <TouchableOpacity style={styles.jogador} onPress={()=>handlePress('Jogador', item.id)}>
                                 {
                                     <Text style={styles.posicaoText}>{pos}</Text>
                                 }
@@ -220,7 +228,7 @@ export function Estatisticas() {
                                 {
                                     <Text style={styles.dadoText}>{getStatJogador(item, ordenacao)}</Text>
                                 }
-                            </View>
+                            </TouchableOpacity>
                         )}
                         showsVerticalScrollIndicator={false}
                         vertical
@@ -239,13 +247,13 @@ export function Estatisticas() {
                         data={paises}
                         keyExtractor={item => String(item.id)}
                         renderItem={({item}) => (
-                            <View style={styles.jogador}>
+                            <TouchableOpacity style={styles.jogador} onPress={()=>handlePress('Pais', item.id)}>
                                 <Text style={styles.posicaoText}>{pos}</Text>
                                 <Text style={styles.jogadorText}>{item.nome}</Text>
                                 {
                                     <Text style={styles.dadoText}>{getStatPais(item, ordenacao)}</Text>
                                 }
-                            </View>
+                            </TouchableOpacity>
                         )}
                         showsVerticalScrollIndicator={false}
                         vertical

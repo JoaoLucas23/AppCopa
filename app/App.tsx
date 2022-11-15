@@ -23,13 +23,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar backgroundColor={COLORS.COLOR_WHITE}/>
         {
-          logado ? (
-            <Routes /> 
-          ) : (
-            <Login 
-              auth={() => setLogado(true)}
-            />
-          )
+          <Routes /> 
         }
       </SafeAreaView>
   );
