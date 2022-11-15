@@ -6,6 +6,18 @@ const rotasUsuario: Router = Router();
 
 rotasUsuario.post(("/login"), notLoggedIn, loginMiddleware);
 
+rotasUsuario.post('/logout',
+  jwtMiddleware,
+  async (req, res, next) => {
+    try {
+      res.clearCookie('jwt');
+      res.status(204).end();
+    } catch (error) {
+      next(error);
+    }
+  },
+);
+
 rotasUsuario.post(('/criarUsuario'),
     async (req, res, next) => {
         try {
