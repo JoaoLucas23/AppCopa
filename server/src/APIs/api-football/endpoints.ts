@@ -1,39 +1,16 @@
 import axios from 'axios';
-import http from 'http';
 
+const base_url = 'https://apiv2.allsportsapi.com/football/'
 
 export const getPlayers = async () => {
 
-    http.request({
-        host: 'api.cup2022.ir',
-        path: '/api/v1/user',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        
-    }, (res) => {
-        console.log(res);
-    }
+    axios.get(`https://apiv2.allsportsapi.com/football/?met=Players&APIkey=${process.env.ASA_TOKEN}`)
+    .then(res => {
+        console.log(res.data);
+        return (res.data);
+    }).catch(err => {
+        console.log(err);
+    } 
     );
-
-    // await axios.post('https://api.cup2022.ir/api/v1/user', {
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     data: {
-    //         "name" : "Joao Lucas",
-    //         "email": "jllgoncalves23@gmail.com",
-    //         "password": "jojoka07",
-    //         "passwordConfirm" : "jojoka07",
-    //     },
-    // }).then((res) => {
-    //     console.log(res);
-    // }
-    // ).catch((err) => {
-    //     console.log(err);
-    // }
-    // );
-
 }
 

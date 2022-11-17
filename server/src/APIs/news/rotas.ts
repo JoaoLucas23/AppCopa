@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getPlayers } from "../api-football/endpoints";
 import NewsApiService from "./newsApi";
 
 const rotasNoticias = Router();
@@ -43,6 +44,17 @@ rotasNoticias.get("/retornaNoticiasPorPesquisa/:pesquisa",
             const pesquisa = req.params.pesquisa;
             const noticias = await NewsApiService.retornaNoticiasPorPesquisa(pesquisa);
             return res.status(200).json(noticias);
+        } catch (error) {
+            return next(error);
+        }
+    }
+);
+
+rotasNoticias.get("/testesAPI/", 
+    async (req, res, next) => {
+        try {
+            const resposta = await getPlayers();
+            return res.status(200).send(resposta);
         } catch (error) {
             return next(error);
         }

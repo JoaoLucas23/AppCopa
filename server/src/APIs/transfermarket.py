@@ -15,8 +15,8 @@ use the headers variable
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'}
 
 # endereco_da_pagina stands for the data page address
-pais = "Estados Unidos"
-endereco_da_pagina = "https://www.transfermarkt.com.br/vereinigte-staaten/startseite/verein/3505"
+pais = "México"
+endereco_da_pagina = "https://www.transfermarkt.com.br/mexiko/startseite/verein/6303"
 
 # In the objeto_response variable we will the download of the web page
 objeto_response = requests.get(endereco_da_pagina, headers=headers)
@@ -54,7 +54,7 @@ for link in links:
     imagem = pagina_jogador.find('img', {'class': "data-header__profile-image"})["src"]
     # nome = dados_jogador[0].text.replace("\n", "").replace("  ", "")
     # print(nome)
-    pe = dados_jogador[7].text.replace("\n", "").replace("  ", "")
+    pe = dados_jogador[7].text.replace("\n", "").replace("  ", "") if len(dados_jogador) > 7 else "direito"
     jogador = {
         'nome': apelido,
         'apelido': apelido,

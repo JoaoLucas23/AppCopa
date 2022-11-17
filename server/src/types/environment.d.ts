@@ -10,7 +10,8 @@ declare global {
             SECRET_KEY:string
             JWT_EXPIRATION:string
             NODE_ENV:string
-            APP_URL:string
+            APP_URL:string,
+            ASA_TOKEN: string,
         }
     }
     namespace Express {
