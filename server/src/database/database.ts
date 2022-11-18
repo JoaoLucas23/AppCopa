@@ -4,10 +4,10 @@ const user = process.env.DB_USER || "";
 
 export const sequelize = new Sequelize(
     'app_copa',
-    user,	
-    process.env.DB_PASSWORD,	
+    'root',	
+    '#Jojoka0723',	
     {
-      host: process.env.DB_HOST,
+      host: '127.0.0.1',
       dialect: 'mysql',
       timezone: '-03:00',
     },

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8c31d10e-3788-401a-80c0-3db8f3bb7204/appservices/subscriptions/8c31d10e-3788-401a-80c0-3db8f3bb7204/resourceGroups/AppCopa/providers/Microsoft.Web/sites/AppCopa",
+    "appService.deploySubpath": "."
+}
