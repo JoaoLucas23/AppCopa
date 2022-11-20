@@ -8,7 +8,7 @@ export const sequelize = new Sequelize(
     'root',	
     '#Jojoka0723',	
     {
-      host: '127.0.0.1',
+      host: 'localhost',
       dialect: 'mysql',
       timezone: '-03:00',
     },
